@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/package.json:/app/package.json
+    command: npm run start:dev
+    environment:
+      NODE_ENV: development
+
+  frontend:
+    build:
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend/src:/app/src
+    ports:
+      - "${FRONTEND_PORT:-4200}:4200"
+    command: npm run start -- --host 0.0.0.0
