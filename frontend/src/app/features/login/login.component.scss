@@ -33,6 +33,26 @@
     margin-bottom: 0.5rem;
   }
 
+  .password-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    input {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .toggle-visibility {
+      margin: 0;
+      padding: 0.4rem 0.6rem;
+      background: #eee;
+      color: #333;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+  }
+
   button {
     margin-top: 0.5rem;
     padding: 0.6rem;

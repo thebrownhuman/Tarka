@@ -6,7 +6,22 @@
     <input id="loginId" type="text" formControlName="loginId" autocomplete="username" />
 
     <label for="password">Password</label>
-    <input id="password" type="password" formControlName="password" autocomplete="current-password" />
+    <div class="password-field">
+      <input
+        id="password"
+        [type]="passwordVisible() ? 'text' : 'password'"
+        formControlName="password"
+        autocomplete="current-password"
+      />
+      <button
+        type="button"
+        class="toggle-visibility"
+        (click)="togglePasswordVisibility()"
+        [attr.aria-label]="passwordVisible() ? 'Hide password' : 'Show password'"
+      >
+        {{ passwordVisible() ? 'Hide' : 'Show' }}
+      </button>
+    </div>
 
     @if (errorMessage()) {
       <p class="error" role="alert">{{ errorMessage() }}</p>
