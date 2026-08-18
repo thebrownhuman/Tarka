@@ -4139,6 +4139,6006 @@
         "a"
       ],
       "explanation": "The base follows valid Modus Tollens ($P \\to Q, \\neg Q \\vdash \\neg P$). Option A uses the exact same valid deductive contrapositive structure."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Animal to Offspring",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "DOG : PUPPY :: BEAR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cub"
+        },
+        {
+          "id": "b",
+          "text": "Calf"
+        },
+        {
+          "id": "c",
+          "text": "Foal"
+        },
+        {
+          "id": "d",
+          "text": "Kitten"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A puppy is the young offspring of a dog; a cub is the young offspring of a bear."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Animal to Collective Noun",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "FISH : SHOAL :: WOLVES : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Herd"
+        },
+        {
+          "id": "b",
+          "text": "Pack"
+        },
+        {
+          "id": "c",
+          "text": "Flock"
+        },
+        {
+          "id": "d",
+          "text": "Swarm"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A group of fish is called a shoal; a group of wolves is called a pack."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Animal to Sound",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "FROG : CROAK :: SNAKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hiss"
+        },
+        {
+          "id": "b",
+          "text": "Roar"
+        },
+        {
+          "id": "c",
+          "text": "Bleat"
+        },
+        {
+          "id": "d",
+          "text": "Bark"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A frog produces the sound croak; a snake produces the sound hiss."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Animal to Habitat",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BEE : HIVE :: SPIDER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nest"
+        },
+        {
+          "id": "b",
+          "text": "Web"
+        },
+        {
+          "id": "c",
+          "text": "Burrow"
+        },
+        {
+          "id": "d",
+          "text": "Kennel"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A bee constructs and inhabits a hive; a spider constructs and inhabits a web."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Producer to Raw Material",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BAKER : FLOUR :: SCULPTOR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Clay"
+        },
+        {
+          "id": "b",
+          "text": "Chisel"
+        },
+        {
+          "id": "c",
+          "text": "Statue"
+        },
+        {
+          "id": "d",
+          "text": "Museum"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A baker uses flour as the primary raw material; a sculptor uses clay as the primary raw material."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Product to Source Material",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SHOE : LEATHER :: PAPER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Wood Pulp"
+        },
+        {
+          "id": "b",
+          "text": "Tree"
+        },
+        {
+          "id": "c",
+          "text": "Book"
+        },
+        {
+          "id": "d",
+          "text": "Ink"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shoes are manufactured from leather; paper is manufactured from wood pulp."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Practitioner to Residence",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "MONK : MONASTERY :: NUN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Church"
+        },
+        {
+          "id": "b",
+          "text": "Convent"
+        },
+        {
+          "id": "c",
+          "text": "Temple"
+        },
+        {
+          "id": "d",
+          "text": "Mosque"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A monk resides and serves in a monastery; a nun resides and serves in a convent."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Country to Capital",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "AUSTRALIA : CANBERRA :: CANADA : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Toronto"
+        },
+        {
+          "id": "b",
+          "text": "Vancouver"
+        },
+        {
+          "id": "c",
+          "text": "Ottawa"
+        },
+        {
+          "id": "d",
+          "text": "Montreal"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Canberra is the official capital city of Australia; Ottawa is the official capital city of Canada."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Country to Currency",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "JAPAN : YEN :: SOUTH KOREA : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yuan"
+        },
+        {
+          "id": "b",
+          "text": "Won"
+        },
+        {
+          "id": "c",
+          "text": "Baht"
+        },
+        {
+          "id": "d",
+          "text": "Ringgit"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "The currency of Japan is the Yen; the currency of South Korea is the Won."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Mode of Locomotion",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "EAGLE : SOAR :: SNAKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Slither"
+        },
+        {
+          "id": "b",
+          "text": "Gallop"
+        },
+        {
+          "id": "c",
+          "text": "Trot"
+        },
+        {
+          "id": "d",
+          "text": "Leap"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An eagle moves through the air by soaring; a snake moves along the ground by slithering."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Noun-to-Adjective",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "COURAGE : COURAGEOUS :: ENERGY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Energize"
+        },
+        {
+          "id": "b",
+          "text": "Energetic"
+        },
+        {
+          "id": "c",
+          "text": "Power"
+        },
+        {
+          "id": "d",
+          "text": "Forcefully"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Courageous is the adjective derived from the noun courage; energetic is the adjective derived from energy."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific Enclosure",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "KENNEL : DOG :: AVIARY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fish"
+        },
+        {
+          "id": "b",
+          "text": "Bees"
+        },
+        {
+          "id": "c",
+          "text": "Birds"
+        },
+        {
+          "id": "d",
+          "text": "Horses"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A kennel is a dedicated shelter for dogs; an aviary is a dedicated shelter for birds."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Adverbial Antonyms",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SWIFTLY : SLOWLY :: BOLDLY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bravely"
+        },
+        {
+          "id": "b",
+          "text": "Timidly"
+        },
+        {
+          "id": "c",
+          "text": "Loudly"
+        },
+        {
+          "id": "d",
+          "text": "Swiftly"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Swiftly is the direct opposite adverb of slowly; timidly is the direct opposite adverb of boldly."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Chemical Element Symbol",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "GOLD : AU :: IRON : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ir"
+        },
+        {
+          "id": "b",
+          "text": "Fe"
+        },
+        {
+          "id": "c",
+          "text": "In"
+        },
+        {
+          "id": "d",
+          "text": "Pb"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Au is the periodic table symbol for gold; Fe is the periodic table symbol for iron."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Persona-Ideology",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "MAHATMA GANDHI : NON-VIOLENCE :: MARTIN LUTHER KING JR. : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Civil Rights"
+        },
+        {
+          "id": "b",
+          "text": "Monarchy"
+        },
+        {
+          "id": "c",
+          "text": "Physics"
+        },
+        {
+          "id": "d",
+          "text": "Exploration"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Mahatma Gandhi is historically tied to non-violence; Martin Luther King Jr. is historically tied to civil rights."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Sum of Digits",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "47 : 11 :: 85 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "14"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second term equals the sum of digits of the first (4 + 7 = 11; 8 + 5 = 13)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Product of Digits",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "34 : 12 :: 56 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "30"
+        },
+        {
+          "id": "b",
+          "text": "25"
+        },
+        {
+          "id": "c",
+          "text": "11"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals the product of digits of the first (3 * 4 = 12; 5 * 6 = 30)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Digit Reversal",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "72 : 27 :: 94 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "49"
+        },
+        {
+          "id": "b",
+          "text": "45"
+        },
+        {
+          "id": "c",
+          "text": "59"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: digits of the first term are inverted to form the second term (72 -> 27; 94 -> 49)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Simplified Ratio Matching",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "14 : 21 :: 22 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "33"
+        },
+        {
+          "id": "b",
+          "text": "44"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "31"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: both pairs reduce to the simplest fractional ratio of 2:3 (14/21 = 2/3; 22/33 = 2/3)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Complement to 100",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "35 : 65 :: 42 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "58"
+        },
+        {
+          "id": "b",
+          "text": "52"
+        },
+        {
+          "id": "c",
+          "text": "48"
+        },
+        {
+          "id": "d",
+          "text": "62"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term is 100 minus the first term (100 - 35 = 65; 100 - 42 = 58)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Absolute Difference of Digits",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "83 : 5 :: 92 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "11"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals absolute difference between tens and units digits (|8-3|=5; |9-2|=7)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Constant Addition Series",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "15 : 22 :: 31 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "38"
+        },
+        {
+          "id": "b",
+          "text": "37"
+        },
+        {
+          "id": "c",
+          "text": "39"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals first term plus 7 (15 + 7 = 22; 31 + 7 = 38)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alphabetic Mirror Opposite",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "A : Z :: C : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "X"
+        },
+        {
+          "id": "b",
+          "text": "Y"
+        },
+        {
+          "id": "c",
+          "text": "W"
+        },
+        {
+          "id": "d",
+          "text": "V"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second letter occupies exact reverse position in alphabet (1st from start = A, 1st from end = Z; 3rd from start = C, 3rd from end = X)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Positional Shift (+3)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "D : G :: J : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "M"
+        },
+        {
+          "id": "b",
+          "text": "L"
+        },
+        {
+          "id": "c",
+          "text": "N"
+        },
+        {
+          "id": "d",
+          "text": "K"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: shift forward by 3 positions (D + 3 = G; J + 3 = M)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Word Reversal (Palindrome)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "POT : TOP :: DAM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MAD"
+        },
+        {
+          "id": "b",
+          "text": "MAN"
+        },
+        {
+          "id": "c",
+          "text": "MAP"
+        },
+        {
+          "id": "d",
+          "text": "MAT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: spell word backward to produce target word (P-O-T -> T-O-P; D-A-M -> M-A-D)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Total Vowel Count",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BANANA : 3 :: APPLE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second term represents vowel count in word (BANANA has three 'A's; APPLE has 'A' and 'E' = 2)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Adjacent Letter Pair Swap",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "ABCD : BADC :: PQRS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "QPSR"
+        },
+        {
+          "id": "b",
+          "text": "SRQP"
+        },
+        {
+          "id": "c",
+          "text": "QRSP"
+        },
+        {
+          "id": "d",
+          "text": "RSPQ"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: swap adjacent pairs (1<->2 and 3<->4; P-Q-R-S -> Q-P-S-R)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Complementary Alphabet Sum (27)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "A : Z :: G : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "T"
+        },
+        {
+          "id": "b",
+          "text": "S"
+        },
+        {
+          "id": "c",
+          "text": "U"
+        },
+        {
+          "id": "d",
+          "text": "R"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: sum of 1-based alphabetic positions equals 27 (A(1)+Z(26)=27; G(7)+T(20)=27)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Internal Character Increment",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "MAN : MBN :: PIN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "PJN"
+        },
+        {
+          "id": "b",
+          "text": "PKN"
+        },
+        {
+          "id": "c",
+          "text": "PLN"
+        },
+        {
+          "id": "d",
+          "text": "PON"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: middle letter shifts forward by +1 while outer letters remain constant (A->B; I->J)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Positional Index Squared",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "B4 : C9 :: D16 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "E25"
+        },
+        {
+          "id": "b",
+          "text": "E20"
+        },
+        {
+          "id": "c",
+          "text": "F25"
+        },
+        {
+          "id": "d",
+          "text": "E36"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: contains letter and its 1-based index squared (B=2 -> 2^2=4; C=3 -> 3^2=9; D=4 -> 4^2=16; E=5 -> 5^2=25)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Positional Index Multiplied by 10",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "A10 : B20 :: C30 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D40"
+        },
+        {
+          "id": "b",
+          "text": "D35"
+        },
+        {
+          "id": "c",
+          "text": "E40"
+        },
+        {
+          "id": "d",
+          "text": "C40"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: number equals letter's 1-based position multiplied by 10 (A=1->10; B=2->20; C=3->30; D=4->40)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Word Length Count",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "TRIANGLE : 8 :: RECTANGLE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term represents total letter count in the word (TRIANGLE = 8 letters; RECTANGLE = 9 letters)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Roman Numeral Value",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "V : 5 :: X : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "50"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: value corresponds to decimal equivalent of Roman numeral (V = 5; X = 10)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Double Letter Position Code",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "B2 : D4 :: C3 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "F6"
+        },
+        {
+          "id": "b",
+          "text": "E5"
+        },
+        {
+          "id": "c",
+          "text": "F5"
+        },
+        {
+          "id": "d",
+          "text": "G6"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: letter position and number are both doubled (B(2)*2 = D(4); C(3)*2 = F(6))."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Instrument to Object Acted Upon",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SCISSORS : CLOTH :: PLOUGH : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Soil"
+        },
+        {
+          "id": "b",
+          "text": "Water"
+        },
+        {
+          "id": "c",
+          "text": "Plant"
+        },
+        {
+          "id": "d",
+          "text": "Crop"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Scissors cut cloth; a plough tilled/turned soil."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Performer to Performance Area",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "ACTOR : STAGE :: BOXER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ring"
+        },
+        {
+          "id": "b",
+          "text": "Court"
+        },
+        {
+          "id": "c",
+          "text": "Pitch"
+        },
+        {
+          "id": "d",
+          "text": "Track"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An actor performs on stage; a boxer competes in a ring."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Functional Control Location",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "ANCHOR : SHIP :: BRAKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vehicle"
+        },
+        {
+          "id": "b",
+          "text": "Road"
+        },
+        {
+          "id": "c",
+          "text": "Engine"
+        },
+        {
+          "id": "d",
+          "text": "Wheel"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An anchor halts a ship; a brake halts a vehicle."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Avian Gender Pair",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "ROOSTER : HEN :: STAG : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hind"
+        },
+        {
+          "id": "b",
+          "text": "Mare"
+        },
+        {
+          "id": "c",
+          "text": "Sow"
+        },
+        {
+          "id": "d",
+          "text": "Cow"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rooster is male bird, hen is female; stag is male deer, hind is female deer."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Action to Involuntary Response",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "TICKLE : LAUGHTER :: FEAR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Trembling"
+        },
+        {
+          "id": "b",
+          "text": "Anger"
+        },
+        {
+          "id": "c",
+          "text": "Joy"
+        },
+        {
+          "id": "d",
+          "text": "Sleep"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Tickling induces laughter; fear induces trembling."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Physical State Classification",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "WATER : LIQUID :: OXYGEN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Gas"
+        },
+        {
+          "id": "b",
+          "text": "Solid"
+        },
+        {
+          "id": "c",
+          "text": "Plasma"
+        },
+        {
+          "id": "d",
+          "text": "Vapor"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Water at STP is a liquid; oxygen is a gas."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Emblem to Concept",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "OLIVE BRANCH : PEACE :: LAUREL WREATH : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Victory"
+        },
+        {
+          "id": "b",
+          "text": "Defeat"
+        },
+        {
+          "id": "c",
+          "text": "Sorrow"
+        },
+        {
+          "id": "d",
+          "text": "Wisdom"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An olive branch symbolizes peace; a laurel wreath symbolizes victory."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specialized Science",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ENTOMOLOGY : INSECTS :: CARDIOLOGY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Heart"
+        },
+        {
+          "id": "b",
+          "text": "Kidney"
+        },
+        {
+          "id": "c",
+          "text": "Brain"
+        },
+        {
+          "id": "d",
+          "text": "Skin"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Entomology studies insects; cardiology studies the heart."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Disease to Affected Organ",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "NEPHRITIS : KIDNEY :: HEPATITIS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Liver"
+        },
+        {
+          "id": "b",
+          "text": "Lung"
+        },
+        {
+          "id": "c",
+          "text": "Heart"
+        },
+        {
+          "id": "d",
+          "text": "Stomach"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Nephritis affects the kidneys; hepatitis affects the liver."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Unit to Physical Quantity",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "JOULE : ENERGY :: PASCAL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pressure"
+        },
+        {
+          "id": "b",
+          "text": "Force"
+        },
+        {
+          "id": "c",
+          "text": "Power"
+        },
+        {
+          "id": "d",
+          "text": "Temperature"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Joule is the SI unit of energy; Pascal is the SI unit of pressure."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Metamorphic Lifecycle Order",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "TADPOLE : FROG :: CATERPILLAR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Butterfly"
+        },
+        {
+          "id": "b",
+          "text": "Beetle"
+        },
+        {
+          "id": "c",
+          "text": "Mosquito"
+        },
+        {
+          "id": "d",
+          "text": "Wasp"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A tadpole metamorphoses into a frog; a caterpillar into a butterfly."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Chemical Process to Product",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "FERMENTATION : ALCOHOL :: COMBUSTION : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ash"
+        },
+        {
+          "id": "b",
+          "text": "Oxygen"
+        },
+        {
+          "id": "c",
+          "text": "Fuel"
+        },
+        {
+          "id": "d",
+          "text": "Water"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Fermentation yields alcohol; combustion yields ash/carbon."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specialized Container",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "QUIVER : ARROWS :: SCABBARD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sword"
+        },
+        {
+          "id": "b",
+          "text": "Shield"
+        },
+        {
+          "id": "c",
+          "text": "Bow"
+        },
+        {
+          "id": "d",
+          "text": "Armor"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A quiver holds arrows; a scabbard holds a sword."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Deficiency Disease",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "SCURVY : VITAMIN C :: RICKETS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vitamin D"
+        },
+        {
+          "id": "b",
+          "text": "Vitamin A"
+        },
+        {
+          "id": "c",
+          "text": "Vitamin B12"
+        },
+        {
+          "id": "d",
+          "text": "Vitamin K"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Scurvy is Vitamin C deficiency; rickets is Vitamin D deficiency."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Auditory Sound Pattern",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "RUSTLE : LEAVES :: CLATTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Plates"
+        },
+        {
+          "id": "b",
+          "text": "Water"
+        },
+        {
+          "id": "c",
+          "text": "Wind"
+        },
+        {
+          "id": "d",
+          "text": "Thunder"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Leaves rustle; colliding plates clatter."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Taxonomic Habitat Adaptation",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "WHALE : AQUATIC :: BAT : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aerial"
+        },
+        {
+          "id": "b",
+          "text": "Terrestrial"
+        },
+        {
+          "id": "c",
+          "text": "Arboreal"
+        },
+        {
+          "id": "d",
+          "text": "Fossorial"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Whales are aquatic mammals; bats are aerial mammals."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Grammatical Derivation",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "PERFORM : PERFORMANCE :: RESIST : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Resistance"
+        },
+        {
+          "id": "b",
+          "text": "Resisting"
+        },
+        {
+          "id": "c",
+          "text": "Resisted"
+        },
+        {
+          "id": "d",
+          "text": "Resistant"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Performance is nominal derivative of perform; resistance of resist."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Square of Digital Sum",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "23 : 25 :: 41 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "36"
+        },
+        {
+          "id": "d",
+          "text": "49"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals (d1 + d2)^2. For 23, (2+3)^2 = 25; for 41, (4+1)^2 = 25."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cube of Digital Sum",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "12 : 27 :: 21 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "125"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals (d1 + d2)^3. For 12, (1+2)^3 = 27; for 21, (2+1)^3 = 27."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Fibonacci Terms",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "5 : 8 :: 13 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "21"
+        },
+        {
+          "id": "b",
+          "text": "18"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "26"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: terms are consecutive Fibonacci numbers (5, 8, 13, 21)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Formula x^2 - x",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "5 : 20 :: 7 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "42"
+        },
+        {
+          "id": "b",
+          "text": "49"
+        },
+        {
+          "id": "c",
+          "text": "35"
+        },
+        {
+          "id": "d",
+          "text": "56"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second term equals n^2 - n. For 5, 25 - 5 = 20; for 7, 49 - 7 = 42."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Sum of Squares of Digits",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "23 : 13 :: 34 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "18"
+        },
+        {
+          "id": "d",
+          "text": "30"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: d1^2 + d2^2. For 23, 2^2 + 3^2 = 13; for 34, 3^2 + 4^2 = 25."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Linear Function (3x - 2)",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "4 : 10 :: 7 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "19"
+        },
+        {
+          "id": "b",
+          "text": "21"
+        },
+        {
+          "id": "c",
+          "text": "17"
+        },
+        {
+          "id": "d",
+          "text": "23"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: 3x - 2. For 4, 3(4)-2 = 10; for 7, 3(7)-2 = 19."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Half Square Operation",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "4 : 8 :: 6 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: n^2 / 2. For 4, 16/2 = 8; for 6, 36/2 = 18."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cube Root Increment",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "27 : 4 :: 64 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: cbrt(n) + 1. For 27, 3+1 = 4; for 64, 4+1 = 5."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Product Consecutive Factors",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "6 : 35 :: 8 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "63"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "62"
+        },
+        {
+          "id": "d",
+          "text": "81"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: n^2 - 1. For 6, 36-1 = 35; for 8, 64-1 = 63."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Doubled Digital Sum",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "14 : 10 :: 25 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "14"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "16"
+        },
+        {
+          "id": "d",
+          "text": "18"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: 2 * (d1 + d2). For 14, 2(5) = 10; for 25, 2(7) = 14."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Consecutive Reverse Pairs",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "AZ : BY :: CX : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DW"
+        },
+        {
+          "id": "b",
+          "text": "EV"
+        },
+        {
+          "id": "c",
+          "text": "DU"
+        },
+        {
+          "id": "d",
+          "text": "DX"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: ascending (A,B,C,D) paired with descending (Z,Y,X,W) endpoints."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Vowel Index Position",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "A : 1 :: E : 2 :: I : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: ordinal position in vowel sequence (A=1, E=2, I=3, O=4, U=5)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "First and Last Character Swap",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "COLD : DOLC :: WARM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MRAW"
+        },
+        {
+          "id": "b",
+          "text": "MWAR"
+        },
+        {
+          "id": "c",
+          "text": "MARW"
+        },
+        {
+          "id": "d",
+          "text": "WRAM"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: outer characters swapped, middle characters reversed (COLD -> DOLC; WARM -> MRAW)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Sum of Alphabetic Indices",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "AB : 3 :: CD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: sum of 1-based indices (A(1)+B(2)=3; C(3)+D(4)=7)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Product of Alphabetic Indices",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "BC : 6 :: DE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "18"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: product of indices (B(2)*C(3)=6; D(4)*E(5)=20)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Anagram Rearrangement",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "READ : DARE :: LEAD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DEAL"
+        },
+        {
+          "id": "b",
+          "text": "LADE"
+        },
+        {
+          "id": "c",
+          "text": "DALE"
+        },
+        {
+          "id": "d",
+          "text": "LATE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: position mapping 4-1-2-3 (R-E-A-D -> D-A-R-E; L-E-A-D -> D-E-A-L)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Consonant Count",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "STRENGTH : 7 :: RHYTHM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: total consonants in word (STRENGTH = 7; RHYTHM = 6: R,H,Y,T,H,M)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Index Squared Code",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "B : 4 :: C : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "12"
+        },
+        {
+          "id": "d",
+          "text": "16"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: square of 1-based index (B=2 -> 4; C=3 -> 9)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Vowel to Consonant Ratio",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "CAT : 1/2 :: MOON : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "1/3"
+        },
+        {
+          "id": "c",
+          "text": "2/3"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: Vowels / Consonants. For CAT, 1/2; for MOON, 2/2 = 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Prime Alphabet Position",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "B2 : C3 :: E5 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "G7"
+        },
+        {
+          "id": "b",
+          "text": "F6"
+        },
+        {
+          "id": "c",
+          "text": "H8"
+        },
+        {
+          "id": "d",
+          "text": "G8"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: prime positional numbers in alphabet (2->B, 3->C, 5->E, 7->G)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Constant Index Sum (20)",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "A19 : B18 :: C17 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D16"
+        },
+        {
+          "id": "b",
+          "text": "D15"
+        },
+        {
+          "id": "c",
+          "text": "E16"
+        },
+        {
+          "id": "d",
+          "text": "C16"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: index + attached number = 20 (A(1)+19=20; B(2)+18=20; C(3)+17=20; D(4)+16=20)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Positional Index Cubed",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "A1 : B8 :: C27 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D64"
+        },
+        {
+          "id": "b",
+          "text": "D81"
+        },
+        {
+          "id": "c",
+          "text": "E125"
+        },
+        {
+          "id": "d",
+          "text": "D32"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: number attached equals n^3 for 1-based index (A=1->1; B=2->8; C=3->27; D=4->64)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Syllable Count Analogy",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "WATER : 2 :: BEAUTIFUL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "2"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: count of spoken syllables (WA-TER = 2; BEAU-TI-FUL = 3)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Roman Numeral Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "V : X :: L : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "C"
+        },
+        {
+          "id": "b",
+          "text": "D"
+        },
+        {
+          "id": "c",
+          "text": "M"
+        },
+        {
+          "id": "d",
+          "text": "L"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: double Roman numeral value (V=5 -> X=10; L=50 -> C=100)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Word Length Squared",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "MAN : 9 :: TIGER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "30"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: square of letter count (MAN=3 -> 9; TIGER=5 -> 25)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Shift with Length Tag",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "DOG : EPH3 :: CAT : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DBU3"
+        },
+        {
+          "id": "b",
+          "text": "DBU4"
+        },
+        {
+          "id": "c",
+          "text": "EBU3"
+        },
+        {
+          "id": "d",
+          "text": "DCT3"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: each letter shifts +1 and appends character count (DOG -> EPH3; CAT -> DBU3)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Logic (x/2) + 3",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "10 : 8 :: 16 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "11"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: (n/2) + 3. For 10, 5+3 = 8; for 16, 8+3 = 11."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specialized Science Subject",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "PALEONTOLOGY : FOSSILS :: EPIGRAPHY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Inscriptions"
+        },
+        {
+          "id": "b",
+          "text": "Coins"
+        },
+        {
+          "id": "c",
+          "text": "Maps"
+        },
+        {
+          "id": "d",
+          "text": "Rocks"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Paleontology studies fossils; epigraphy studies ancient inscriptions."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Condition to Loss",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "BLINDNESS : SIGHT :: ANOSMIA : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smell"
+        },
+        {
+          "id": "b",
+          "text": "Taste"
+        },
+        {
+          "id": "c",
+          "text": "Hearing"
+        },
+        {
+          "id": "d",
+          "text": "Touch"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Blindness is loss of sight; anosmia is loss of smell."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specialized Instrument",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "HYGROMETER : HUMIDITY :: PYROMETER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "High Temperature"
+        },
+        {
+          "id": "b",
+          "text": "Pressure"
+        },
+        {
+          "id": "c",
+          "text": "Radiation Density"
+        },
+        {
+          "id": "d",
+          "text": "Ocean Depth"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Hygrometer measures humidity; pyrometer measures high temperatures remotely."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Direct Phase Transition",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ICE : SUBLIMATION :: WATER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vaporization"
+        },
+        {
+          "id": "b",
+          "text": "Condensation"
+        },
+        {
+          "id": "c",
+          "text": "Freezing"
+        },
+        {
+          "id": "d",
+          "text": "Deposition"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Ice transforms directly to gas via sublimation; water to gas via vaporization."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Literary Archetype",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "HERCULEAN : STRENGTH :: QUIXOTIC : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Idealism"
+        },
+        {
+          "id": "b",
+          "text": "Wisdom"
+        },
+        {
+          "id": "c",
+          "text": "Cruelty"
+        },
+        {
+          "id": "d",
+          "text": "Deceit"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Herculean denotes extraordinary strength; quixotic denotes impractical idealism."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Attitudinal Negation",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "DEFIANT : SUBMISSIVE :: IMPERIOUS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Humble"
+        },
+        {
+          "id": "b",
+          "text": "Arrogant"
+        },
+        {
+          "id": "c",
+          "text": "Dominant"
+        },
+        {
+          "id": "d",
+          "text": "Rigid"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Submissive is opposite of defiant; humble is opposite of imperious."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Foreign Phrase Literal",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ALMA MATER : FOSTERING MOTHER :: STATUS QUO : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Existing State"
+        },
+        {
+          "id": "b",
+          "text": "Future Outlook"
+        },
+        {
+          "id": "c",
+          "text": "Past Glory"
+        },
+        {
+          "id": "d",
+          "text": "Financial Credit"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Alma mater translates to 'fostering mother'; status quo to 'existing state of affairs'."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific Avian Gender",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "COB : PEN :: DRAKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Duck"
+        },
+        {
+          "id": "b",
+          "text": "Goose"
+        },
+        {
+          "id": "c",
+          "text": "Swan"
+        },
+        {
+          "id": "d",
+          "text": "Hen"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Cob is male swan, pen is female; drake is male duck, duck is female."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Geomorphological Genesis",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "DELTA : DEPOSITION :: CANYON : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Erosion"
+        },
+        {
+          "id": "b",
+          "text": "Tectonics"
+        },
+        {
+          "id": "c",
+          "text": "Volcanism"
+        },
+        {
+          "id": "d",
+          "text": "Sedimentation"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Deltas are formed by sediment deposition; canyons primarily by river erosion."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Mechanical Component Role",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "LEVER : FULCRUM :: WHEEL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Axle"
+        },
+        {
+          "id": "b",
+          "text": "Rim"
+        },
+        {
+          "id": "c",
+          "text": "Spoke"
+        },
+        {
+          "id": "d",
+          "text": "Tire"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A lever rotates around a fulcrum; a wheel rotates around an axle."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Distinct Prime Factors",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "12 : 2 :: 30 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: count of distinct prime factors (12 = 2^2 * 3 -> 2 factors; 30 = 2 * 3 * 5 -> 3 factors)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Equation x^3 - x",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "3 : 24 :: 4 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "60"
+        },
+        {
+          "id": "b",
+          "text": "64"
+        },
+        {
+          "id": "c",
+          "text": "48"
+        },
+        {
+          "id": "d",
+          "text": "52"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: n^3 - n. For 3, 27 - 3 = 24; for 4, 64 - 4 = 60."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Difference x^3 - x^2",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "3 : 18 :: 4 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "48"
+        },
+        {
+          "id": "b",
+          "text": "52"
+        },
+        {
+          "id": "c",
+          "text": "36"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: n^3 - n^2. For 3, 27 - 9 = 18; for 4, 64 - 16 = 48."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Next Consecutive Prime",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "3 : 15 :: 5 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35"
+        },
+        {
+          "id": "b",
+          "text": "25"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: multiply n by immediate next prime number (3 * 5 = 15; 5 * 7 = 35)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Binary One-Count",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "7 : 3 :: 15 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: number of 1s in binary representation (7 = 111_2 -> 3; 15 = 1111_2 -> 4)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Total Divisor Count",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "6 : 4 :: 8 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: total positive integer divisors (6 has 1,2,3,6 -> 4; 8 has 1,2,4,8 -> 4)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Base-10 to Base-2",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "5 : 101 :: 6 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "110"
+        },
+        {
+          "id": "b",
+          "text": "111"
+        },
+        {
+          "id": "c",
+          "text": "100"
+        },
+        {
+          "id": "d",
+          "text": "1001"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: binary equivalent of decimal number (5_10 = 101_2; 6_10 = 110_2)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Selective Morphological Shift",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "PEN : RER :: TAP : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VAR"
+        },
+        {
+          "id": "b",
+          "text": "UAP"
+        },
+        {
+          "id": "c",
+          "text": "VCP"
+        },
+        {
+          "id": "d",
+          "text": "WAT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: consonants shift +2, vowels unchanged (P+2=R, E=E, N+2=P -> RER; T+2=V, A=A, P+2=R -> VAR)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Decremental Shift",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "COLD : BMIZ :: WARM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VYOI"
+        },
+        {
+          "id": "b",
+          "text": "VYLJ"
+        },
+        {
+          "id": "c",
+          "text": "UXMH"
+        },
+        {
+          "id": "d",
+          "text": "VZNJ"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: shifts by -1, -2, -3, -4 (C-1=B, O-2=M, L-3=I, D-4=Z; W-1=V, A-2=Y, R-3=O, M-4=I)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Mirror Mapping",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ACE : ZXV :: GIK : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TRP"
+        },
+        {
+          "id": "b",
+          "text": "TSU"
+        },
+        {
+          "id": "c",
+          "text": "TVX"
+        },
+        {
+          "id": "d",
+          "text": "SQP"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: mirror partner in alphabet (A<->Z, C<->X, E<->V; G<->T, I<->R, K<->P)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Atomic Number Code",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "H : 1 :: HE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: chemical symbol mapped to atomic number (H = 1; He = 2)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Reverse Index Code",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "A26 : Z1 :: B25 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Y2"
+        },
+        {
+          "id": "b",
+          "text": "Y1"
+        },
+        {
+          "id": "c",
+          "text": "Z2"
+        },
+        {
+          "id": "d",
+          "text": "X3"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: letter paired with reverse rank (A=26th from end; Z=1st; B=25th; Y=2nd -> Y2)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Constant Forward Shift (+1)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a certain code language, if \"STORM\" is coded as \"TUPSN\", how is \"LIGHT\" coded in that same system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MJHIU"
+        },
+        {
+          "id": "b",
+          "text": "MIIJU"
+        },
+        {
+          "id": "c",
+          "text": "LJHJU"
+        },
+        {
+          "id": "d",
+          "text": "MKHIV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Every letter in the original word is shifted forward by exactly 1 position in the English alphabet (+1): L(+1)=M, I(+1)=J, G(+1)=H, H(+1)=I, T(+1)=U, yielding MJHIU."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Constant Forward Shift (+3)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"PLANT\" is written as \"SODQW\" in a secret code, what is the code for \"CROWN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FUBZQ"
+        },
+        {
+          "id": "b",
+          "text": "FUERQ"
+        },
+        {
+          "id": "c",
+          "text": "FURZQ"
+        },
+        {
+          "id": "d",
+          "text": "FVEZQ"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Each letter undergoes a uniform forward shift of 3 positions (+3): C(+3)=F, R(+3)=U, O(+3)=R, W(+3)=Z, N(+3)=Q, resulting in FURZQ."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Constant Backward Shift (-2)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a code language, \"SMART\" is rendered as \"QKAYR\". How is \"GLOVE\" written in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "EJMSC"
+        },
+        {
+          "id": "b",
+          "text": "EJMTC"
+        },
+        {
+          "id": "c",
+          "text": "EJLTC"
+        },
+        {
+          "id": "d",
+          "text": "EJMTD"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Every letter moves backward by 2 positions (-2): G(-2)=E, L(-2)=J, O(-2)=M, V(-2)=T, E(-2)=C, forming EJMTC."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Constant Backward Shift (-4)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"GUARD\" is coded as \"CQWNZ\", what is the code for \"DREAM\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ZNAWI"
+        },
+        {
+          "id": "b",
+          "text": "ZNANI"
+        },
+        {
+          "id": "c",
+          "text": "ZMANI"
+        },
+        {
+          "id": "d",
+          "text": "ZNAMI"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter is shifted backward by 4 positions (-4): D(-4)=Z, R(-4)=N, E(-4)=A, A(-4)=W, M(-4)=I, producing ZNAWI."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Exact Reversal",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"TRAIN\" is coded as \"NIART\", how is \"BLOCK\" coded in the same language?",
+      "options": [
+        {
+          "id": "a",
+          "text": "KCOLB"
+        },
+        {
+          "id": "b",
+          "text": "KCLOB"
+        },
+        {
+          "id": "c",
+          "text": "KCBLO"
+        },
+        {
+          "id": "d",
+          "text": "KCOBL"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The code is formed by completely reversing the sequential order of letters in the target word: B-L-O-C-K becomes K-C-O-L-B."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Pairwise Adjacent Swap",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a code system, \"MARKET\" is written as \"AMKRTE\". What is the code for \"FLOWER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "LFOWRE"
+        },
+        {
+          "id": "b",
+          "text": "LFWORE"
+        },
+        {
+          "id": "c",
+          "text": "LFOWER"
+        },
+        {
+          "id": "d",
+          "text": "LFOERW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Letters in odd and even adjacent pairs are swapped (positions 1-2, 3-4, 5-6): F-L becomes L-F, O-W becomes W-O, E-R becomes R-E, resulting in LFOWRE."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Split Word Half Reversal",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"FLOWER\" is coded as \"OLFREW\", what is the code for \"GARDEN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RAGNED"
+        },
+        {
+          "id": "b",
+          "text": "RAGDEN"
+        },
+        {
+          "id": "c",
+          "text": "ARGNED"
+        },
+        {
+          "id": "d",
+          "text": "RAGNDE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The 6-letter word is split into two equal halves (GAR / DEN) and each half is reversed independently: GAR becomes RAG, DEN becomes NED, producing RAGNED."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Direct Positional Encoding",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CAB\" is represented by the numerical code \"3-1-2\", how is \"DOG\" represented?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4-15-7"
+        },
+        {
+          "id": "b",
+          "text": "4-14-7"
+        },
+        {
+          "id": "c",
+          "text": "3-15-7"
+        },
+        {
+          "id": "d",
+          "text": "4-15-8"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter is replaced directly by its 1-indexed forward alphabetical position: D=4, O=15, G=7, forming 4-15-7."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Reverse Positional Encoding",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a code, \"DOG\" is written as \"23-12-20\". What is the code for \"CAT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24-26-7"
+        },
+        {
+          "id": "b",
+          "text": "24-25-7"
+        },
+        {
+          "id": "c",
+          "text": "23-26-7"
+        },
+        {
+          "id": "d",
+          "text": "24-26-8"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter is replaced by its reverse alphabetical position (calculated as 27 minus forward position): C=27-3=24, A=27-1=26, T=27-20=7, yielding 24-26-7."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Standard Alphabet Mirroring",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"KING\" is coded as \"PRMT\", what is the code for \"BIRD\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "YRIW"
+        },
+        {
+          "id": "b",
+          "text": "YRJW"
+        },
+        {
+          "id": "c",
+          "text": "YSIV"
+        },
+        {
+          "id": "d",
+          "text": "ZRIW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter is mapped to its alphabet mirror pair where forward and backward positions sum to 27: B(2)->Y(25), I(9)->R(18), R(18)->I(9), D(4)->W(23), producing YRIW."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Sum of Forward Positions",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a code language, \"BEACH\" is coded as the number 19. What is the code value for \"DANCE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "26"
+        },
+        {
+          "id": "c",
+          "text": "28"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The code value is the total scalar sum of the forward alphabetical positions of all letters: D(4) + A(1) + N(14) + C(3) + E(5) = 27."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Sum of Reverse Positions",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CAT\" is assigned the code 57, what numeric code should be assigned to \"DOG\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "55"
+        },
+        {
+          "id": "b",
+          "text": "52"
+        },
+        {
+          "id": "c",
+          "text": "50"
+        },
+        {
+          "id": "d",
+          "text": "53"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The code is the scalar sum of reverse alphabetical positions (27 - forward position): D(23) + O(12) + G(20) = 55."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Direct Symbol Mapping",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a symbol system, S=@, A=#, L=$, E=%. How is \"SALE\" represented?",
+      "options": [
+        {
+          "id": "a",
+          "text": "@#$%"
+        },
+        {
+          "id": "b",
+          "text": "%#@$"
+        },
+        {
+          "id": "c",
+          "text": "@$%#"
+        },
+        {
+          "id": "d",
+          "text": "#@$%"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Direct 1-to-1 symbol substitution mapping based on the provided character key: S->@, A->#, L->$, E->%, giving @#$%."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Interleaved Position Shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"DREAM\" is coded as \"DSEBM\", what is the code for \"TRAIN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TSAJN"
+        },
+        {
+          "id": "b",
+          "text": "URAJN"
+        },
+        {
+          "id": "c",
+          "text": "TSAIN"
+        },
+        {
+          "id": "d",
+          "text": "TRBJO"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Letters at odd index positions (1st, 3rd, 5th) remain unchanged, while letters at even index positions shift +1: T(1st)->T, R(2nd)->S, A(3rd)->A, I(4th)->J, N(5th)->N, yielding TSAJN."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel Shift / Consonant Fixed",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"PRIDE\" is written as \"PRJDF\", how is \"BOARD\" coded in that system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "BPBRD"
+        },
+        {
+          "id": "b",
+          "text": "CPBRD"
+        },
+        {
+          "id": "c",
+          "text": "BPBSE"
+        },
+        {
+          "id": "d",
+          "text": "CPBSE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels undergo a forward shift of +1 while consonants remain unchanged: B(consonant)->B, O(vowel)->P, A(vowel)->B, R(consonant)->R, D(consonant)->D, producing BPBRD."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Consonant Shift / Vowel Fixed",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"SMART\" is coded as \"UOATV\", what is the code for \"CRAFT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ETAHV"
+        },
+        {
+          "id": "b",
+          "text": "ERAVT"
+        },
+        {
+          "id": "c",
+          "text": "ETAVU"
+        },
+        {
+          "id": "d",
+          "text": "ERBUV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants undergo a forward shift of +2 while vowels remain unchanged: C(+2)=E, R(+2)=T, A(vowel)=A, F(+2)=H, T(+2)=V, resulting in ETAHV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Boundary Flank Swap",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a code language, \"BLAST\" is written as \"TLASB\". What is the code for \"CROWN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "NROWC"
+        },
+        {
+          "id": "b",
+          "text": "NROCW"
+        },
+        {
+          "id": "c",
+          "text": "NORWC"
+        },
+        {
+          "id": "d",
+          "text": "NWROC"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The first and last letters of the word swap positions while all interior letters remain in their original positions: C and N swap places, forming NROWC."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Alternating Shift (+1, -1)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CANDY\" is coded as \"DZOCZ\", how is \"FRESH\" coded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "GQFRI"
+        },
+        {
+          "id": "b",
+          "text": "EQDRG"
+        },
+        {
+          "id": "c",
+          "text": "EQFTI"
+        },
+        {
+          "id": "d",
+          "text": "GQDRG"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An alternating pattern of forward (+1) and backward (-1) shifts is applied: F(+1)=G, R(-1)=Q, E(+1)=F, S(-1)=R, H(+1)=I, yielding GQFRI."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Alternating Shift (+2, -2)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"GHOST\" is coded as \"IFQQV\", how is \"PLANT\" written?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RJCLV"
+        },
+        {
+          "id": "b",
+          "text": "RJCYV"
+        },
+        {
+          "id": "c",
+          "text": "RKCLV"
+        },
+        {
+          "id": "d",
+          "text": "RJDLV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The pattern applies alternating shifts of +2 and -2 across positions (+2, -2, +2, -2, +2): P(+2)=R, L(-2)=J, A(+2)=C, N(-2)=L, T(+2)=V, giving RJCLV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Word Character Length",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If the word \"PLANET\" is assigned the code 6, what numerical code is assigned to \"ASTRONAUT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "9"
+        },
+        {
+          "id": "c",
+          "text": "10"
+        },
+        {
+          "id": "d",
+          "text": "7"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "The code simply equals the total count of alphabetic characters present in the target word: A-S-T-R-O-N-A-U-T contains 9 letters."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Concatenated Positional Index",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"JUMP\" is coded as \"10211316\", how is \"GLOW\" represented?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7121523"
+        },
+        {
+          "id": "b",
+          "text": "7121522"
+        },
+        {
+          "id": "c",
+          "text": "7111523"
+        },
+        {
+          "id": "d",
+          "text": "6121523"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Concatenation of the forward alphabetical positions for each letter: G=7, L=12, O=15, W=23, forming 7121523."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel/Consonant Classification",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"STORM\" is coded as \"CCVCC\", how is \"AUDIO\" represented in this system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "VVCVV"
+        },
+        {
+          "id": "b",
+          "text": "VVVVV"
+        },
+        {
+          "id": "c",
+          "text": "VCVVV"
+        },
+        {
+          "id": "d",
+          "text": "VVVCV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each character is replaced by 'V' if it is a vowel or 'C' if it is a consonant: A(V), U(V), D(C), I(V), O(V), producing VVCVV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel (+1) / Consonant (-1)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"BRAIN\" is coded as \"AQBJM\", what is the code for \"CLOUD\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "BKPVC"
+        },
+        {
+          "id": "b",
+          "text": "BKMTC"
+        },
+        {
+          "id": "c",
+          "text": "BKMVE"
+        },
+        {
+          "id": "d",
+          "text": "BKNTC"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants shift backward by 1 position (-1), while vowels shift forward by 1 position (+1): C(-1)=B, L(-1)=K, O(+1)=P, U(+1)=V, D(-1)=C, giving BKPVC."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Block Swap (First 2 / Last 2)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"SPRING\" is written as \"NGRISP\", how is \"ACTION\" coded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ONTIAC"
+        },
+        {
+          "id": "b",
+          "text": "ONTCIA"
+        },
+        {
+          "id": "c",
+          "text": "OINTAC"
+        },
+        {
+          "id": "d",
+          "text": "ONITAC"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The first two letters and last two letters swap blocks, leaving the middle block intact: AC | TI | ON becomes ON | TI | AC, resulting in ONTIAC."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Cyclical Vowel Progression",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"GUIDE\" is coded as \"GAODI\", what is the code for \"SPACE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SPECI"
+        },
+        {
+          "id": "b",
+          "text": "SPACE"
+        },
+        {
+          "id": "c",
+          "text": "SPECA"
+        },
+        {
+          "id": "d",
+          "text": "TQBEF"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels advance to the next vowel in cyclical sequence (A->E->I->O->U->A), while consonants remain fixed: S=S, P=P, A->E, C=C, E->I, yielding SPECI."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Length Parity Flag",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"STRONG\" is coded as \"EVEN\", how is \"LIGHTS\" coded in the same logic?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ODD"
+        },
+        {
+          "id": "b",
+          "text": "EVEN"
+        },
+        {
+          "id": "c",
+          "text": "PRIME"
+        },
+        {
+          "id": "d",
+          "text": "ZERO"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "The code evaluates word length parity: \"STRONG\" has 6 letters (EVEN); \"LIGHTS\" has 6 letters (EVEN)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Additive Positional Offset",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CRAFT\" is assigned the numerical code 53, what code represents \"TRAIN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "67"
+        },
+        {
+          "id": "b",
+          "text": "62"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "65"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = (Sum of forward positions) + 5. CRAFT = (3+18+1+6+20) + 5 = 53. TRAIN = (20+18+1+9+14) + 5 = 62 + 5 = 67."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Multiplicative Positional Scaling",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"SHIRT\" is coded as 148, what is the code for \"PANTS\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "140"
+        },
+        {
+          "id": "b",
+          "text": "104"
+        },
+        {
+          "id": "c",
+          "text": "110"
+        },
+        {
+          "id": "d",
+          "text": "116"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = (Sum of forward positions) * 2. SHIRT = (19+8+9+18+20) * 2 = 148. PANTS = (16+1+14+20+19) * 2 = 70 * 2 = 140."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Selective Consonant Reversal",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CLOUDS\" is coded as \"SDOULC\", what is the code for \"PLANET\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TLANEP"
+        },
+        {
+          "id": "b",
+          "text": "TNELAP"
+        },
+        {
+          "id": "c",
+          "text": "TLEANP"
+        },
+        {
+          "id": "d",
+          "text": "TNALPE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels remain fixed in their original positional slots, while consonants are placed in reverse order: P,L,N,T reversed gives T,N,L,P, yielding TLANEP."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Cyclic Shift (+1 with Wrap)",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"ZEBRA\" is coded as \"AFCSB\", what is the code for \"YACHT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ZBDIU"
+        },
+        {
+          "id": "b",
+          "text": "ZBDHV"
+        },
+        {
+          "id": "c",
+          "text": "ZBDIV"
+        },
+        {
+          "id": "d",
+          "text": "YBDIU"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Forward cyclic shift of +1 across all letters, where 'Z' wraps around to 'A': Y(+1)=Z, A(+1)=B, C(+1)=D, H(+1)=I, T(+1)=U, forming ZBDIU."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Index-Based Progressive Shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"BOARD\" is coded as \"CQDVI\", what is the code for \"LIGHT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MKJLY"
+        },
+        {
+          "id": "b",
+          "text": "MKKMX"
+        },
+        {
+          "id": "c",
+          "text": "MLLNW"
+        },
+        {
+          "id": "d",
+          "text": "MJKLW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift increases progressively by position index (+1 for 1st, +2 for 2nd, +3 for 3rd, +4 for 4th, +5 for 5th): L(+1)=M, I(+2)=K, G(+3)=J, H(+4)=L, T(+5)=Y, producing MKJLY."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Index-Based Decremental Shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CROWN\" is coded as \"BPLSI\", what is the code for \"GHOST\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FFLOO"
+        },
+        {
+          "id": "b",
+          "text": "FFKPO"
+        },
+        {
+          "id": "c",
+          "text": "FEKOP"
+        },
+        {
+          "id": "d",
+          "text": "FFKPN"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift decreases progressively by position index (-1 for 1st, -2 for 2nd, -3 for 3rd, -4 for 4th, -5 for 5th): G(-1)=F, H(-2)=F, O(-3)=L, S(-4)=O, T(-5)=O, giving FFLOO."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Selective Mirroring of Consonants",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"SPACE\" is written as \"HKAXE\", how is \"GARDEN\" written?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TAIWEM"
+        },
+        {
+          "id": "b",
+          "text": "TARIEN"
+        },
+        {
+          "id": "c",
+          "text": "TZIREM"
+        },
+        {
+          "id": "d",
+          "text": "TZIRED"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants are replaced by their 27-sum mirror letters while vowels remain unchanged: G->T, A->A, R->I, D->W, E->E, N->M, producing TAIWEM."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Selective Mirroring of Vowels",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"AUDIO\" is written as \"ZFDRL\", how is \"IMAGE\" written?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RMZGV"
+        },
+        {
+          "id": "b",
+          "text": "RMTGV"
+        },
+        {
+          "id": "c",
+          "text": "RMZGE"
+        },
+        {
+          "id": "d",
+          "text": "RMZTV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels are replaced by their 27-sum mirror letters while consonants remain unchanged: I->R, M->M, A->Z, G->G, E->V, yielding RMZGV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Sectional Split Shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"GARDEN\" is coded as \"HBSCDM\", what is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TJMUDQ"
+        },
+        {
+          "id": "b",
+          "text": "TJMXDQ"
+        },
+        {
+          "id": "c",
+          "text": "TJMVEQ"
+        },
+        {
+          "id": "d",
+          "text": "TJMWED"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The 6-letter word is split into two halves (GAR / DEN). The first half shifts +1 (HBS), and the second half shifts -1 (CDM). For SILVER: SIL(+1)->TJM, VER(-1)->UDQ, forming TJMUDQ."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Matrix/Substitution Deciphering",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "In a given cipher key, P=5, A=3, C=8, K=2. What is the code for \"PACK\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5382"
+        },
+        {
+          "id": "b",
+          "text": "5832"
+        },
+        {
+          "id": "c",
+          "text": "2385"
+        },
+        {
+          "id": "d",
+          "text": "5328"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Direct character-to-digit substitution according to the given key mapping: P->5, A->3, C->8, K->2, resulting in 5382."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Boundary & Length Structural Code",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"TIGER\" is assigned the structural code \"TR5\", what code represents \"FLOWER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FR6"
+        },
+        {
+          "id": "b",
+          "text": "FW6"
+        },
+        {
+          "id": "c",
+          "text": "FR5"
+        },
+        {
+          "id": "d",
+          "text": "ER6"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code format: [First Character] + [Last Character] + [Total Letter Count]. For FLOWER: First = F, Last = R, Length = 6, yielding FR6."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Predecessor-Successor Expansion",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"CAT\" is expanded into \"BDZBSU\", how is \"DOG\" expanded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "CENPFH"
+        },
+        {
+          "id": "b",
+          "text": "CPNPFH"
+        },
+        {
+          "id": "c",
+          "text": "CPNFHU"
+        },
+        {
+          "id": "d",
+          "text": "CENPFV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each original character X is replaced by its predecessor (X-1) and successor (X+1): D->CE, O->NP, G->FH, producing CENPFH."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel Deletion Code",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"MOBILE\" is rendered as \"MBL\", how is \"ACTION\" rendered in that code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "CTN"
+        },
+        {
+          "id": "b",
+          "text": "ACT"
+        },
+        {
+          "id": "c",
+          "text": "ATC"
+        },
+        {
+          "id": "d",
+          "text": "ACTN"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "All vowel characters (A, E, I, O, U) are removed, leaving only the sequence of consonants: A-C-T-I-O-N becomes CTN."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Positional Index Permutation",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "If \"FROST\" is coded as \"OSFRT\" via index swapping (1->3, 2->4, 3->1, 4->2, 5->5), how is \"PLANT\" coded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ANPLT"
+        },
+        {
+          "id": "b",
+          "text": "ANPTL"
+        },
+        {
+          "id": "c",
+          "text": "ANLPT"
+        },
+        {
+          "id": "d",
+          "text": "ATPLN"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Index mapping: (1,2,3,4,5) -> (3,4,1,2,5). For P(1)L(2)A(3)N(4)T(5): Pos 3(A), Pos 4(N), Pos 1(P), Pos 2(L), Pos 5(T), giving ANPLT."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Fibonaccian Incremental Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"FLASH\" is coded as \"GMCVM\", what is the code for \"TRAIN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "USCLS"
+        },
+        {
+          "id": "b",
+          "text": "USCPT"
+        },
+        {
+          "id": "c",
+          "text": "USCOU"
+        },
+        {
+          "id": "d",
+          "text": "VTCOU"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift amounts follow the Fibonacci sequence (+1, +1, +2, +3, +5): T(+1)=U, R(+1)=S, A(+2)=C, I(+3)=L, N(+5)=S, resulting in USCLS."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Prime Incremental Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"BENCH\" is coded as \"DHSJS\", what is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "UPFYE"
+        },
+        {
+          "id": "b",
+          "text": "UPFXE"
+        },
+        {
+          "id": "c",
+          "text": "VPFXE"
+        },
+        {
+          "id": "d",
+          "text": "UPFWE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift amounts follow consecutive prime numbers (+2, +3, +5, +7, +11): S(+2)=U, M(+3)=P, A(+5)=F, R(+7)=Y, T(+11)=E, producing UPFYE."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Perfect Square Incremental Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"TRAIN\" is coded as \"UVJYM\", what is the code for \"LIGHT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MMPXS"
+        },
+        {
+          "id": "b",
+          "text": "MJPXB"
+        },
+        {
+          "id": "c",
+          "text": "MKPYB"
+        },
+        {
+          "id": "d",
+          "text": "MKPXA"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift amounts follow perfect square numbers (+1, +4, +9, +16, +25): L(+1)=M, I(+4)=M, G(+9)=P, H(+16)=X, T(+25)=S, forming MMPXS."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Geometric Incremental Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"SHARK\" is coded as \"TJEZA\", what is the code for \"CROWD\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DTSET"
+        },
+        {
+          "id": "b",
+          "text": "DTTTT"
+        },
+        {
+          "id": "c",
+          "text": "DVTUT"
+        },
+        {
+          "id": "d",
+          "text": "DTSUT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift amounts double sequentially (+1, +2, +4, +8, +16): C(+1)=D, R(+2)=T, O(+4)=S, W(+8)=E, D(+16)=T, yielding DTSET."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel Count Scalar Multiplier",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "In a system where \"CLIMB\" is assigned code 39, what numeric code represents \"GARDEN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "98"
+        },
+        {
+          "id": "b",
+          "text": "100"
+        },
+        {
+          "id": "c",
+          "text": "96"
+        },
+        {
+          "id": "d",
+          "text": "102"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: Code = (Sum of letter positions) * (Total number of vowels). GARDEN position sum = 7+1+18+4+5+14 = 49. Vowel count (A, E) = 2. Code = 49 * 2 = 98."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Consonant Count Scalar Multiplier",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"GRACE\" is assigned the numerical code 102, what is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "252"
+        },
+        {
+          "id": "b",
+          "text": "270"
+        },
+        {
+          "id": "c",
+          "text": "260"
+        },
+        {
+          "id": "d",
+          "text": "290"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: Code = (Sum of letter positions) * (Total number of consonants). PLANT position sum = 16+12+1+14+20 = 63. Consonant count (P, L, N, T) = 4. Code = 63 * 4 = 252."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Boundary Positional Product",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"SWIFT\" is coded as 380, what numerical value is assigned to \"CROWN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "42"
+        },
+        {
+          "id": "b",
+          "text": "72"
+        },
+        {
+          "id": "c",
+          "text": "65"
+        },
+        {
+          "id": "d",
+          "text": "75"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = (Position of First Letter) * (Position of Last Letter). For CROWN: First = C (3), Last = N (14). Code = 3 * 14 = 42."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Alternating Vowel-Shift / Consonant-Mirror",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"DREAM\" is coded as \"WIGCN\", what is the code for \"GHOST\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TSQHG"
+        },
+        {
+          "id": "b",
+          "text": "TSLGH"
+        },
+        {
+          "id": "c",
+          "text": "TRLHG"
+        },
+        {
+          "id": "d",
+          "text": "TSLHF"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants are replaced by mirror letters (27-pos), while vowels shift forward by +2: G->T, H->S, O(+2)->Q, S->H, T->G, yielding TSQHG."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Symmetrical Split Cross-Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"PLANET\" is coded as \"RNCWHQ\", what is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "UKXUHY"
+        },
+        {
+          "id": "b",
+          "text": "UKXVHG"
+        },
+        {
+          "id": "c",
+          "text": "UKXUHF"
+        },
+        {
+          "id": "d",
+          "text": "UKWVHG"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Split word in half (SIL / VER). First half SIL shifts +2 -> UKX. Second half VER shifts +3 (YHU) and is reversed -> UHY. Combined: UKXUHY."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Consonant Positional Differential",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"SILVER\" yields code 57, what value does \"GARDEN\" yield?",
+      "options": [
+        {
+          "id": "a",
+          "text": "37"
+        },
+        {
+          "id": "b",
+          "text": "35"
+        },
+        {
+          "id": "c",
+          "text": "39"
+        },
+        {
+          "id": "d",
+          "text": "41"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = (Sum of Consonant positions) - (Sum of Vowel positions). Consonants: G(7)+R(18)+D(4)+N(14) = 43. Vowels: A(1)+E(5) = 6. Value = 43 - 6 = 37."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Positional Square Modulo Code",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"CODE\" is transformed into \"IQPY\", what is the code for \"BAKE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DAQY"
+        },
+        {
+          "id": "b",
+          "text": "DAKY"
+        },
+        {
+          "id": "c",
+          "text": "DBLY"
+        },
+        {
+          "id": "d",
+          "text": "CALY"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter's position is squared, taken modulo 26, and converted back to a letter (0->Z): B(2^2=4)->D, A(1^2=1)->A, K(11^2=121 mod 26=17)->Q, E(5^2=25)->Y, forming DAQY."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Ascending Lexicographical Sort",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"SPARK\" is coded as \"AKPRS\", how is \"FLOWER\" coded in that system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "EFLORW"
+        },
+        {
+          "id": "b",
+          "text": "EFLOWR"
+        },
+        {
+          "id": "c",
+          "text": "EFORLW"
+        },
+        {
+          "id": "d",
+          "text": "FELORW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The letters of the target word are rearranged in strict ascending alphabetical order: F-L-O-W-E-R sorted gives E-F-L-O-R-W."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Descending Lexicographical Sort",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"TIGER\" is coded as \"TRGEI\", how is \"GARDEN\" coded in that system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RNEDGA"
+        },
+        {
+          "id": "b",
+          "text": "RNEDAG"
+        },
+        {
+          "id": "c",
+          "text": "RNDEGA"
+        },
+        {
+          "id": "d",
+          "text": "RNGEAD"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The letters of the target word are rearranged in strict descending alphabetical order: G-A-R-D-E-N sorted gives R-N-G-E-D-A."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Palindromic Boundary Distance",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"BRIGHT\" is coded as \"188676\", what is the code for \"CANDLE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20123114"
+        },
+        {
+          "id": "b",
+          "text": "203385"
+        },
+        {
+          "id": "c",
+          "text": "303384"
+        },
+        {
+          "id": "d",
+          "text": "204384"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code represents distance of each character to nearest alphabet boundary (A=0, Z=0): C(2), A(0), N(12), D(3), L(11), E(4), yielding 20123114."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Dual Accent Composite Transformation",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"HONEY\" is coded as \"SRMHB\", what is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "KODMG"
+        },
+        {
+          "id": "b",
+          "text": "KOZMH"
+        },
+        {
+          "id": "c",
+          "text": "KPZMG"
+        },
+        {
+          "id": "d",
+          "text": "KNYMG"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants mapped to 27-sum mirror letters, Vowels shifted +3: P->K, L->O, A(+3)->D, N->M, T->G, producing KODMG."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Cumulative Positional Running Sum",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"ACID\" is rendered as \"1-4-13-17\", how is \"BEAT\" rendered?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2-7-8-28"
+        },
+        {
+          "id": "b",
+          "text": "2-7-8-27"
+        },
+        {
+          "id": "c",
+          "text": "2-6-7-27"
+        },
+        {
+          "id": "d",
+          "text": "2-7-9-28"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code represents cumulative running sum of forward positions: B=2, E=2+5=7, A=7+1=8, T=8+20=28, giving 2-7-8-28."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Parity Prefix Positional Code",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"FLAME\" is coded as \"E6E12O1O13O5\", what is the code for \"GHOST\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O7E8O15O19E20"
+        },
+        {
+          "id": "b",
+          "text": "O7E8O15O19O20"
+        },
+        {
+          "id": "c",
+          "text": "E7E8O15O19E20"
+        },
+        {
+          "id": "d",
+          "text": "O7O8O15O19E20"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code attaches prefix 'E' if forward position is Even, or 'O' if Odd, followed by position number: G(7, Odd)->O7, H(8, Even)->E8, O(15, Odd)->O15, S(19, Odd)->O19, T(20, Even)->E20, forming O7E8O15O19E20."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Positional Digit Sum Reduction",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"PRISM\" is coded as \"79914\", what is the code for \"CRAFT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "39162"
+        },
+        {
+          "id": "b",
+          "text": "39163"
+        },
+        {
+          "id": "c",
+          "text": "38162"
+        },
+        {
+          "id": "d",
+          "text": "39262"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each letter's 1-indexed position is summed until a single digit remains: C=3, R=18->9, A=1, F=6, T=20->2, yielding 39162."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Complementary Mirror-Shift Sequence",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"STORM\" is coded as \"TULSN\", what is the code for \"CRANE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DSZOV"
+        },
+        {
+          "id": "b",
+          "text": "DSBOV"
+        },
+        {
+          "id": "c",
+          "text": "DSBPV"
+        },
+        {
+          "id": "d",
+          "text": "DTBOC"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels replaced by 27-sum mirror letters, Consonants shifted +1: C(+1)=D, R(+1)=S, A(mirror)=Z, N(+1)=O, E(mirror)=V, giving DSZOV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Rotational Quarter Shift (+6)",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"BLOCK\" is coded as \"HRUIQ\", what is the code for \"STAMP\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "YZGSV"
+        },
+        {
+          "id": "b",
+          "text": "YZGSS"
+        },
+        {
+          "id": "c",
+          "text": "YZGTR"
+        },
+        {
+          "id": "d",
+          "text": "YZHSR"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Uniform forward shift of +6 positions across all letters: S(+6)=Y, T(+6)=Z, A(+6)=G, M(+6)=S, P(+6)=V, resulting in YZGSV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Interleaved Inverse Mirroring",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"GARDEN\" is coded as \"TCIFVP\", what is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HKOXVT"
+        },
+        {
+          "id": "b",
+          "text": "HKNEXT"
+        },
+        {
+          "id": "c",
+          "text": "HKNEVT"
+        },
+        {
+          "id": "d",
+          "text": "HKNEXU"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Letters at odd index positions (1st, 3rd, 5th) mirror (27-pos); letters at even index positions shift +2: S(1st)->H, I(2nd)->K, L(3rd)->O, V(4th)->X, E(5th)->V, R(6th)->T, yielding HKOXVT."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Center Axis Flank Cross-Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"BLAST\" is coded as \"TUACM\", what is the code for \"CRAFT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "GUADS"
+        },
+        {
+          "id": "b",
+          "text": "GVBDR"
+        },
+        {
+          "id": "c",
+          "text": "GUBDR"
+        },
+        {
+          "id": "d",
+          "text": "GUCDS"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Word length 5: Center character 'A' remains fixed. Flanks 'CR' and 'FT' swap roles and shift +1: FT->GU, CR->DS. Assembled around 'A': GUADS."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel Incremental / Consonant Decremental",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"STAKE\" is coded as \"QRBIF\", what is the code for \"CROWN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "APPUL"
+        },
+        {
+          "id": "b",
+          "text": "BQPVO"
+        },
+        {
+          "id": "c",
+          "text": "BQPUP"
+        },
+        {
+          "id": "d",
+          "text": "AQPVP"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels shift forward by +1; consonants shift backward by -2: C(-2)=A, R(-2)=P, O(+1)=P, W(-2)=U, N(-2)=L, producing APPUL."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Unique Character Positional Sum",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"BALLOON\" yields code 44, what code does \"CHEESE\" yield?",
+      "options": [
+        {
+          "id": "a",
+          "text": "35"
+        },
+        {
+          "id": "b",
+          "text": "32"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "34"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = sum of forward positions of unique characters in the word. For CHEESE, unique characters are C(3), H(8), E(5), S(19). Sum = 3 + 8 + 5 + 19 = 35."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Flank Positional Product plus Length",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"CRANE\" gives 20, what numerical code represents \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "325"
+        },
+        {
+          "id": "b",
+          "text": "320"
+        },
+        {
+          "id": "c",
+          "text": "330"
+        },
+        {
+          "id": "d",
+          "text": "315"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Code = (Position of First Letter * Position of Last Letter) + (Word Length). For PLANT: First = P (16), Last = T (20), Length = 5. Code = (16 * 20) + 5 = 325."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Sequential Triad Reversal",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"VICTORY\" is coded as \"CIVROTY\", what is the code for \"SILENCE\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "LISCNEE"
+        },
+        {
+          "id": "b",
+          "text": "LISCNED"
+        },
+        {
+          "id": "c",
+          "text": "LISNECE"
+        },
+        {
+          "id": "d",
+          "text": "LISENCE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Word is divided into 3-letter blocks from left (SIL / ENC / E) and each block is reversed: SIL->LIS, ENC->CNE, E->E, giving LISCNEE."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Alternating Mirror / Shift Sequence",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"MONKEY\" is coded as \"NRMNVB\", what is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HLOYVU"
+        },
+        {
+          "id": "b",
+          "text": "HLOSBU"
+        },
+        {
+          "id": "c",
+          "text": "HLOSBV"
+        },
+        {
+          "id": "d",
+          "text": "HKOSBH"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Pattern alternates per position: Pos 1 Mirror, Pos 2 +3, Pos 3 Mirror, Pos 4 +3... For SILVER: S(1)->H, I(2)->L, L(3)->O, V(4)->Y, E(5)->V, R(6)->U, forming HLOYVU."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Prime Position Value Differential",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "In \"FLIGHT\", prime vs composite index sum differential is 48. What differential does \"SMART\" yield?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "20"
+        },
+        {
+          "id": "c",
+          "text": "24"
+        },
+        {
+          "id": "d",
+          "text": "18"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Position indices: 1,2,3,4,5. Prime indices (2,3,5): M(13)+A(1)+T(20) = 34. Composite indices (1,4): S(19)+R(18) = 37. Difference = |37 - 34| = 3."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Positional Modular Multiplication",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"JUICE\" is coded as \"DKAIO\", what is the code for \"WATER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "QCHOB"
+        },
+        {
+          "id": "b",
+          "text": "CAYCP"
+        },
+        {
+          "id": "c",
+          "text": "CAYBO"
+        },
+        {
+          "id": "d",
+          "text": "DBYCO"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Positional value multiplied by 3, modulo 26, converted to letter (0->Z): W(23*3=69 mod 26=17)->Q, A(1*3=3)->C, T(20*3=60 mod 26=8)->H, E(5*3=15)->O, R(18*3=54 mod 26=2)->B, forming QCHOB."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Symbolic Sentence Deciphering",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"red blue\" = \"1 2\" and \"blue green\" = \"2 3\", what is the code for \"blue\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "Cannot be determined"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Intersection of elements across coded phrases: \"blue\" is common to both text sets, and digit '2' is common to both code outputs."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Consonant Double / Vowel Mirror",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"PRIDE\" is coded as \"FJRHV\", what is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "LZZJN"
+        },
+        {
+          "id": "b",
+          "text": "LMAJH"
+        },
+        {
+          "id": "c",
+          "text": "LMAIG"
+        },
+        {
+          "id": "d",
+          "text": "LMAHG"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonant forward position doubled modulo 26; Vowels replaced by 27-sum mirror letters: S(19*2=38 mod 26=12)->L, M(13*2=26)->Z, A(mirror)->Z, R(18*2=36 mod 26=10)->J, T(20*2=40 mod 26=14)->N, producing LZZJN."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Positional Square Offset Code",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"DRAFT\" is coded as \"EVJVS\", what is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "QPJDS"
+        },
+        {
+          "id": "b",
+          "text": "QPIDE"
+        },
+        {
+          "id": "c",
+          "text": "QPIDJ"
+        },
+        {
+          "id": "d",
+          "text": "QPIEI"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Letter position shifted forward by index^2 (1-indexed): P(16+1^2=17)->Q, L(12+2^2=16)->P, A(1+3^2=10)->J, N(14+4^2=30 mod 26=4)->D, T(20+5^2=45 mod 26=19)->S, yielding QPJDS."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Interleaved Permutation Reversal",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"STREAM\" is coded as \"ARSMET\", what is the code for \"FLOWER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "EOFRWL"
+        },
+        {
+          "id": "b",
+          "text": "WLFROE"
+        },
+        {
+          "id": "c",
+          "text": "WLFEO R"
+        },
+        {
+          "id": "d",
+          "text": "WLFROE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Extract Odd position letters (F,O,E) and Even position letters (L,W,R). Reverse odd sequence (E,O,F) and even sequence (R,W,L). Concatenate: EOFRWL."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel Positional Geometric Code",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"ORANGE\" gives 25, what code does \"AUDIO\" give?",
+      "options": [
+        {
+          "id": "a",
+          "text": "708"
+        },
+        {
+          "id": "b",
+          "text": "42"
+        },
+        {
+          "id": "c",
+          "text": "48"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels in AUDIO: A(1), U(21), I(9), O(15). Product = 1 * 21 * 9 * 15 = 2835. Vowel count = 4. Code = 2835 / 4 = 708.75 -> 708 (integer division)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Anagram Shift Matrix",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"EARTH\" is transformed into \"BFSIU\", what is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "BNSTU"
+        },
+        {
+          "id": "b",
+          "text": "BUMSV"
+        },
+        {
+          "id": "c",
+          "text": "BUMTV"
+        },
+        {
+          "id": "d",
+          "text": "BUMSU"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Sort target word alphabetically: S-M-A-R-T becomes A-M-R-S-T. Shift each letter forward by +1: A(+1)=B, M(+1)=N, R(+1)=S, S(+1)=T, T(+1)=U, yielding BNSTU."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Self-Positional Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"DRIVE\" is coded as \"HJRRJ\", what is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FXBBN"
+        },
+        {
+          "id": "b",
+          "text": "FFXHO"
+        },
+        {
+          "id": "c",
+          "text": "FFXGM"
+        },
+        {
+          "id": "d",
+          "text": "FFXIN"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Each character shifts forward by its own alphabetical position (Pos + Pos mod 26): P(16+16=32 mod 26=6)->F, L(12+12=24)->X, A(1+1=2)->B, N(14+14=28 mod 26=2)->B, T(20+20=40 mod 26=14)->N, producing FXBBN."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Alphabet Half-Mapping",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"MATRIX\" is coded as \"ZNGEVK\", what is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FVYIRE"
+        },
+        {
+          "id": "b",
+          "text": "FVYIWE"
+        },
+        {
+          "id": "c",
+          "text": "FVYIR"
+        },
+        {
+          "id": "d",
+          "text": "FVYIRD"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Letters A-M shift +13; N-Z shift -13: S(19-13=6)->F, I(9+13=22)->V, L(12+13=25)->Y, V(22-13=9)->I, E(5+13=18)->R, R(18-13=5)->E, forming FVYIRE."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Adjacent Positional Absolute Difference",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"CHAIR\" is coded as \"5-7-8-9\", how is \"SMART\" coded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6-12-17-2"
+        },
+        {
+          "id": "b",
+          "text": "6-12-17-3"
+        },
+        {
+          "id": "c",
+          "text": "5-12-17-2"
+        },
+        {
+          "id": "d",
+          "text": "6-11-17-2"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Absolute positional difference between adjacent letter pairs: |S(19)-M(13)| = 6, |M(13)-A(1)| = 12, |A(1)-R(18)| = 17, |R(18)-T(20)| = 2, giving 6-12-17-2."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Convergence Flank Permutation",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"TOWER\" is coded as \"TREOW\", what is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "PTLAN"
+        },
+        {
+          "id": "b",
+          "text": "PTLNA"
+        },
+        {
+          "id": "c",
+          "text": "PTALN"
+        },
+        {
+          "id": "d",
+          "text": "PTLAN"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Reorder characters taking alternately from extremities towards center: 1st(P), 5th(T), 2nd(L), 4th(N), 3rd(A), yielding PTLNA."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Triangular Incremental Shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If \"CANDLE\" is coded as \"DDTNAZ\", what is the code for \"BRIGHT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "CUOQWO"
+        },
+        {
+          "id": "b",
+          "text": "CUOKOC"
+        },
+        {
+          "id": "c",
+          "text": "CUOLOB"
+        },
+        {
+          "id": "d",
+          "text": "CUNOKB"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Shift amounts follow triangular numbers (+1, +3, +6, +10, +15, +21): B(+1)=C, R(+3)=U, I(+6)=O, G(+10)=Q, H(+15)=W, T(+21)=O, producing CUOQWO."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Dual Variable Conditional Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "If Consonants > Vowels, shift ALL letters forward by total vowel count (+2). \"BRIDGE\" has 4 consonants and 2 vowels (4>2), shifting +2 -> \"DTKFIG\". How is \"FLOWER\" coded?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HNQYGT"
+        },
+        {
+          "id": "b",
+          "text": "HNQXGU"
+        },
+        {
+          "id": "c",
+          "text": "HMQXGT"
+        },
+        {
+          "id": "d",
+          "text": "HNQWGT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "FLOWER has 4 consonants (F,L,W,R) and 2 vowels (O,E). Since 4 > 2, apply a uniform forward shift of +2: F(+2)=H, L(+2)=N, O(+2)=Q, W(+2)=Y, E(+2)=G, R(+2)=T, yielding HNQYGT."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Dynamic Syntactical Prefix Code",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "First letter mapped to symbol (A-G=@, H-N=#, O-T=$, U-Z=%). Code = [Symbol] + [Vowel Count] + [Last Letter Position]. \"PENCIL\" -> $212. What is the code for \"GARDEN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "@214"
+        },
+        {
+          "id": "b",
+          "text": "@213"
+        },
+        {
+          "id": "c",
+          "text": "#214"
+        },
+        {
+          "id": "d",
+          "text": "@314"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "First letter 'G' falls in A-G range -> @. Vowels in GARDEN (A, E) = 2. Last letter 'N' forward position = 14. Combined code = @214."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Transposed Matrix Coordinates",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Letters mapped on 5x5 grid (Row 1: A-E, Row 2: F-K skipping J...). Transposition flips Row-Col to Col-Row. 'F' is Row 2 Col 1 -> Inverted coordinate 12. What is the coordinate code for \"C\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "31"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "33"
+        },
+        {
+          "id": "d",
+          "text": "14"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "'C' sits at Row 1, Column 3 on standard 5x5 grid. Transposing Row and Column yields coordinate 31."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Contextual Cross-Word Link Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Code = (Sum of target word positions) + (Length of preceding word). In phrase \"FAST TRAIN\", what is the code for \"TRAIN\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "66"
+        },
+        {
+          "id": "b",
+          "text": "62"
+        },
+        {
+          "id": "c",
+          "text": "68"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Sum of letter positions in TRAIN = 20 + 18 + 1 + 9 + 14 = 62. Preceding word \"FAST\" has length = 4. Code = 62 + 4 = 66."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Layered Composite Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Stage 1: Mirror (27-pos); Stage 2: Alternate +3/-3. \"GHOST\" -> Stage 1: TSLHG -> Stage 2: WPOEJ. What is the code for \"CRAFT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "AFCRJ"
+        },
+        {
+          "id": "b",
+          "text": "UOCWR"
+        },
+        {
+          "id": "c",
+          "text": "VOCWQ"
+        },
+        {
+          "id": "d",
+          "text": "UOBWQ"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "CRAFT -> Stage 1 Mirror: C(X), R(I), A(Z), F(U), T(G) -> XIZUG. Stage 2 (+3,-3,+3,-3,+3): X(+3)=A, I(-3)=F, Z(+3)=C, U(-3)=R, G(+3)=J, yielding AFCRJ."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Prime Index Conditional Transformation",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Prime index positions (2nd, 3rd, 5th) shift +5; composite index positions (1st, 4th, 6th) mirror (27-pos). \"PLANET\" -> KQFMJG. What is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HNQEJI"
+        },
+        {
+          "id": "b",
+          "text": "HQOEVF"
+        },
+        {
+          "id": "c",
+          "text": "HQOFVE"
+        },
+        {
+          "id": "d",
+          "text": "HROEVE"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Index 1 (S)->Mirror H; Index 2 (I)->+5 N; Index 3 (L)->+5 Q; Index 4 (V)->Mirror E; Index 5 (E)->+5 J; Index 6 (R)->Mirror I, giving HNQEJI."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Variable Modulo Arithmetic Progression",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Code letter for character at index i (1-indexed) = (Pos * i) mod 26 (0->Z). \"CRAFT\" -> CJCXV. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SZCTV"
+        },
+        {
+          "id": "b",
+          "text": "SFKJU"
+        },
+        {
+          "id": "c",
+          "text": "SGKJT"
+        },
+        {
+          "id": "d",
+          "text": "SFKIT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(19*1=19->S), M(13*2=26->Z), A(1*3=3->C), R(18*4=72 mod 26=20->T), T(20*5=100 mod 26=22->V), producing SZCTV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Vowel-Consonant Split Permutation",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Extract Vowels and Consonants. Shift Vowels -2, Consonants +3. Interleave back into original slots. \"FROST\" -> IUMVW. What is the code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SOYQW"
+        },
+        {
+          "id": "b",
+          "text": "SODAW"
+        },
+        {
+          "id": "c",
+          "text": "SODBW"
+        },
+        {
+          "id": "d",
+          "text": "SPEAW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Consonants P,L,N,T shift +3 -> S,O,Q,W. Vowel A shifts -2 -> Y. Interleaving back into original slots (C C V C C) yields SOYQW."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Polyalphabetic Keyword Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Encrypt using repeating keyword \"KEY\" (shifts +11, +5, +25). \"PEACE\" -> AJZNJ. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DRZCY"
+        },
+        {
+          "id": "b",
+          "text": "DRZQX"
+        },
+        {
+          "id": "c",
+          "text": "ERZQY"
+        },
+        {
+          "id": "d",
+          "text": "DRZPY"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(19)+11=30 mod 26=4(D), M(13)+5=18(R), A(1)+25=26(Z), R(18)+11=29 mod 26=3(C), T(20)+5=25(Y), yielding DRZCY."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Factorial Positional Modulo Mapping",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Shift at index i is i! mod 26. Index 1:+1, Index 2:+2, Index 3:+6, Index 4:+24, Index 5:+16. \"SMART\" -> TOGPJ. What is the code for \"CRAFT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DTGDJ"
+        },
+        {
+          "id": "b",
+          "text": "DTGDT"
+        },
+        {
+          "id": "c",
+          "text": "DTHDS"
+        },
+        {
+          "id": "d",
+          "text": "ETGDS"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "C(3)+1=D, R(18)+2=T, A(1)+6=G, F(6)+24=30 mod 26=4(D), T(20)+16=36 mod 26=10(J), forming DTGDJ."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Syntactical Positional Hash",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Hash Code = (Sum of Vowels * Sum of Consonants) mod 100. \"BREAD\" -> Vowels(E+A=6) * Consonants(B+R+D=24) = 144 mod 100 = 44. What is the hash code for \"PLANT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "62"
+        },
+        {
+          "id": "b",
+          "text": "60"
+        },
+        {
+          "id": "c",
+          "text": "63"
+        },
+        {
+          "id": "d",
+          "text": "65"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Vowels in PLANT: A(1). Consonants: P(16)+L(12)+N(14)+T(20) = 62. Product = 1 * 62 = 62. Hash = 62 mod 100 = 62."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Sentence-Level Vector Code",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "In a sentence, every letter in Word N shifts forward by N positions (+N). \"THE DARK NIGHT\" -> What is the code for \"NIGHT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "QLJKW"
+        },
+        {
+          "id": "b",
+          "text": "QLJKV"
+        },
+        {
+          "id": "c",
+          "text": "QKJKW"
+        },
+        {
+          "id": "d",
+          "text": "PLJKW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "\"NIGHT\" is the 3rd word in the sentence (N=3). Apply shift +3 to all letters: N(+3)=Q, I(+3)=L, G(+3)=J, H(+3)=K, T(+3)=W, producing QLJKW."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Digital Root Shift Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Replace each letter's shift amount by its position's digital root (repeated digit sum). \"JUMP\" -> KXQW. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TQBAV"
+        },
+        {
+          "id": "b",
+          "text": "TNCST"
+        },
+        {
+          "id": "c",
+          "text": "TNDSS"
+        },
+        {
+          "id": "d",
+          "text": "TMSS"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(19->10->1, shift +1 -> T), M(13->4, shift +4 -> Q), A(1->1, shift +1 -> B), R(18->9, shift +9 -> A), T(20->2, shift +2 -> V), yielding TQBAV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Bidirectional Interlocking Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "1st letter shifts +5, last shifts -1, 2nd shifts +4, 2nd-to-last shifts -2... \"PLANET\" -> UPDKCS. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "XQDPS"
+        },
+        {
+          "id": "b",
+          "text": "XPBPT"
+        },
+        {
+          "id": "c",
+          "text": "XPCPS"
+        },
+        {
+          "id": "d",
+          "text": "YPBPS"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(1st, +5)->X, T(5th, -1)->S, M(2nd, +4)->Q, R(4th, -2)->P, A(3rd, +3)->D. Interlocked output order (1st, 2nd, 3rd, 4th, 5th) gives XQDPS."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Base-8 Octal Positional Mapping",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Sum of letter positions converted to Base-8 (Octal). \"CAT\" -> 3+1+20 = 24 in decimal = 30 in Octal. What code represents \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "107"
+        },
+        {
+          "id": "b",
+          "text": "117"
+        },
+        {
+          "id": "c",
+          "text": "113"
+        },
+        {
+          "id": "d",
+          "text": "121"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "SMART position sum = S(19)+M(13)+A(1)+R(18)+T(20) = 71 in decimal. Converting 71 to octal: 71 = 8 * 8 + 7 -> 107 in Base-8."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Conditional Parity Swapped Matrix",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Sum of positions: If EVEN, reverse word and shift +2; If ODD, mirror letters. \"LIGHT\" sum = 56 (EVEN) -> reverse and shift +2 -> VJIKN. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HNZIG"
+        },
+        {
+          "id": "b",
+          "text": "HNZIF"
+        },
+        {
+          "id": "c",
+          "text": "HOZIG"
+        },
+        {
+          "id": "d",
+          "text": "HNYIG"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Sum of positions in SMART = 71 (ODD). Apply 27-sum Mirror transformation across all letters: S->H, M->N, A->Z, R->I, T->G, yielding HNZIG."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Syllabic Structural Offset",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Vowel positions multiplied by index i; Consonant positions added to index i. \"TRAIN\" -> UTCJS. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "TOCVY"
+        },
+        {
+          "id": "b",
+          "text": "TPDWW"
+        },
+        {
+          "id": "c",
+          "text": "TQDWV"
+        },
+        {
+          "id": "d",
+          "text": "TPDXV"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(19+1=20->T), M(13+2=15->O), A(vowel, 1*3=3->C), R(18+4=22->V), T(20+5=25->Y), producing TOCVY."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Triple-Stage Conditional Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Stage 1: Mirror; Stage 2: Swap adjacent pairs; Stage 3: Shift Vowels +1. \"FLOWER\" -> PVDLJV. What is the code for \"SILVER\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RHFPEV"
+        },
+        {
+          "id": "b",
+          "text": "KHOXTV"
+        },
+        {
+          "id": "c",
+          "text": "KHPXTV"
+        },
+        {
+          "id": "d",
+          "text": "KHOXUW"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "SILVER -> Stage 1 Mirror: HROEVI. Stage 2 Swap adjacent pairs: RHEOIV. Stage 3 Vowels +1: R, H, E(+1=F), O(+1=P), I(+1=J), V, producing RHFPEV."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Cross-Coded Alphanumeric Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Multiplier = Sum(GO) mod 5 = 2. Offset = Sum(IN) mod 5 = 3. Formula: (Pos * 2 + 3) mod 26 -> Letter. \"ACT\" -> EIQ. What is the code for \"CAT\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IEQ"
+        },
+        {
+          "id": "b",
+          "text": "IFQ"
+        },
+        {
+          "id": "c",
+          "text": "IDQ"
+        },
+        {
+          "id": "d",
+          "text": "IEP"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "C(3*2+3=9->I), A(1*2+3=5->E), T(20*2+3=43 mod 26=17->Q), yielding IEQ."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Recursive Decremental Sum Cipher",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Code letter i = (Pos_i + Sum of all subsequent positions) mod 26. \"NIGHT\" -> FRIBT. What is the code for \"SMART\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SZMLT"
+        },
+        {
+          "id": "b",
+          "text": "LZBGT"
+        },
+        {
+          "id": "c",
+          "text": "LZCGT"
+        },
+        {
+          "id": "d",
+          "text": "LYBGT"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "S(19+13+1+18+20=71 mod 26=19->S), M(13+1+18+20=52 mod 26=26->Z), A(1+18+20=39 mod 26=13->M), R(18+20=38 mod 26=12->L), T(20 mod 26=20->T), yielding SZMLT."
     }
   ]
 }
