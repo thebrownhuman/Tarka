@@ -1,31 +1,37 @@
 <div class="take-test-page">
   @if (closedReason() === 'submitted') {
-    <div class="panel">
+    <div class="panel card">
       <h1>This test was already submitted</h1>
       <p>You can view your results once they're released.</p>
-      <a routerLink="/history">Go to my history</a>
+      <a class="btn-secondary" routerLink="/history">Go to my history</a>
     </div>
   } @else if (submitResult()) {
-    <div class="panel">
+    <div class="panel card">
       <h1>Submitted!</h1>
       <p>Your results will be available once released by the admin.</p>
       <p class="score">Score: {{ submitResult()?.score }} / {{ submitResult()?.totalQuestions }}</p>
-      <button type="button" (click)="backToTests()">Back to tests</button>
+      <button type="button" class="btn-primary" (click)="backToTests()">Back to tests</button>
     </div>
   } @else if (loading() && !question()) {
     <p class="status-line">Loading…</p>
   } @else {
     <header class="test-header">
-      <div class="timer" [class.timer-danger]="remainingSeconds() <= 30 && remainingSeconds() > 0">
-        Time remaining: {{ remainingSeconds() | number: '1.0-0' }}s
+      <div
+        class="timer"
+        [class.timer-warning]="remainingSeconds() > 0 && remainingSeconds() <= 300"
+        [class.timer-danger]="remainingSeconds() <= 60"
+      >
+        <span class="timer-icon" aria-hidden="true">&#9201;</span>
+        <span class="timer-label">Time remaining</span>
+        <span class="timer-value">{{ remainingSeconds() | number: '1.0-0' }}s</span>
       </div>
-      <button type="button" class="submit-btn" [disabled]="submittingTest()" (click)="confirmSubmit()">
+      <button type="button" class="btn-secondary submit-btn" [disabled]="submittingTest()" (click)="confirmSubmit()">
         {{ submittingTest() ? 'Submitting…' : 'Submit Test' }}
       </button>
     </header>
 
     @if (errorMessage()) {
-      <p class="error" role="alert">{{ errorMessage() }}</p>
+      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
     }
 
     @if (totalQuestions() > 0) {
@@ -34,9 +40,12 @@
           <button
             type="button"
             class="question-chip"
+            [class.answered]="index < currentQuestionIndex()"
             [class.active]="viewingIndex() === index"
+            [class.locked]="index > currentQuestionIndex()"
             [disabled]="index > currentQuestionIndex()"
             (click)="goToQuestion(index)"
+            [attr.aria-label]="'Question ' + (index + 1)"
           >
             {{ index + 1 }}
           </button>
@@ -45,28 +54,28 @@
     }
 
     @if (isTimesUp) {
-      <div class="panel time-up-panel">
+      <div class="panel card time-up-panel">
         <h2>Time's up</h2>
         @if (extensionRequested()) {
           <p>Your extension request is pending admin approval. This page will resume automatically once approved.</p>
         } @else {
           <p>You can request more time from the admin, or submit the test with your current answers.</p>
           @if (extensionErrorMessage()) {
-            <p class="error" role="alert">{{ extensionErrorMessage() }}</p>
+            <p class="banner-error" role="alert">{{ extensionErrorMessage() }}</p>
           }
-          <button type="button" [disabled]="requestingExtension()" (click)="requestExtension()">
+          <button type="button" class="btn-secondary" [disabled]="requestingExtension()" (click)="requestExtension()">
             {{ requestingExtension() ? 'Requesting…' : 'Request Extension' }}
           </button>
         }
       </div>
     } @else if (completed()) {
-      <div class="panel">
+      <div class="panel card">
         <h2>You've reached the end</h2>
         <p>You can review any earlier question above, or submit the test when you're ready.</p>
       </div>
     } @else {
       @if (question(); as q) {
-        <div class="question-card">
+        <div class="question-card card">
           @if (q.passageText) {
             <div class="passage">{{ q.passageText }}</div>
           }
@@ -79,7 +88,7 @@
 
           <div class="options">
             @for (option of q.options; track option.id) {
-              <label class="option">
+              <label class="option" [class.selected]="isSelected(option.id)">
                 @if (q.questionType === 'single_choice') {
                   <input
                     type="radio"
@@ -95,7 +104,8 @@
                     (change)="toggleMulti(option.id, $any($event.target).checked)"
                   />
                 }
-                <span>{{ option.text }}</span>
+                <span class="option-indicator" aria-hidden="true"></span>
+                <span class="option-text">{{ option.text }}</span>
               </label>
             }
           </div>
@@ -105,7 +115,7 @@
           }
 
           @if (isViewingCurrent) {
-            <button type="button" class="next-btn" [disabled]="advancing()" (click)="next()">
+            <button type="button" class="btn-primary next-btn" [disabled]="advancing()" (click)="next()">
               {{ advancing() ? 'Loading…' : 'Next' }}
             </button>
           }

@@ -1,21 +1,21 @@
 <div class="tests-page">
-  <section class="panel">
+  <section class="panel card">
     <h2>Create test</h2>
 
     @if (createError()) {
-      <p class="error" role="alert">{{ createError() }}</p>
+      <p class="banner-error" role="alert">{{ createError() }}</p>
     }
     @if (created(); as t) {
-      <p class="success">Created "{{ t.title }}" ({{ t.questionCount }} questions, id {{ t.id }}).</p>
+      <p class="banner-success">Created "{{ t.title }}" ({{ t.questionCount }} questions, id {{ t.id }}).</p>
     }
 
     <form [formGroup]="testForm" (ngSubmit)="createTest()" class="create-form">
-      <input type="text" formControlName="title" placeholder="Test title" />
+      <input class="input-field" type="text" formControlName="title" placeholder="Test title" />
       <label class="duration-label">
         Duration (minutes)
-        <input type="number" formControlName="durationMinutes" min="1" />
+        <input class="input-field" type="number" formControlName="durationMinutes" min="1" />
       </label>
-      <button type="submit" [disabled]="testForm.invalid || selectedIds().length === 0 || creating()">
+      <button type="submit" class="btn-primary" [disabled]="testForm.invalid || selectedIds().length === 0 || creating()">
         {{ creating() ? 'Creating…' : 'Create test' }}
       </button>
     </form>
@@ -29,7 +29,7 @@
           @for (id of selectedIds(); track id) {
             <li>
               <span>{{ titleFor(id) }}</span>
-              <button type="button" (click)="removeSelected(id)">Remove</button>
+              <button type="button" class="remove-btn" (click)="removeSelected(id)">Remove</button>
             </li>
           }
         </ol>
@@ -37,30 +37,32 @@
     </div>
   </section>
 
-  <section class="panel">
+  <section class="panel card">
     <h2>Question bank</h2>
 
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
-      <input type="text" formControlName="domain" placeholder="Domain" />
-      <input type="text" formControlName="topic" placeholder="Topic" />
-      <button type="submit">Filter</button>
+      <input class="input-field" type="text" formControlName="domain" placeholder="Domain" />
+      <input class="input-field" type="text" formControlName="topic" placeholder="Topic" />
+      <button type="submit" class="btn-primary">Filter</button>
     </form>
 
     @if (errorMessage()) {
-      <p class="error" role="alert">{{ errorMessage() }}</p>
+      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
     }
 
     @if (loading() && items().length === 0) {
-      <p>Loading…</p>
+      <p class="status-line">Loading…</p>
     } @else if (items().length === 0) {
-      <p>No questions match these filters.</p>
+      <div class="empty-state">
+        <p>No questions match these filters.</p>
+      </div>
     } @else {
       <ul class="question-list">
         @for (question of items(); track question.id) {
           <li [class.selected]="isSelected(question.id)" (click)="toggleQuestion(question)">
             <input type="checkbox" [checked]="isSelected(question.id)" (click)="$event.stopPropagation(); toggleQuestion(question)" />
             <div>
-              <p class="meta">{{ question.domain }} · {{ question.topic }} · {{ question.difficulty }}</p>
+              <p class="meta">{{ question.domain }} &middot; {{ question.topic }} &middot; {{ question.difficulty }}</p>
               <p class="text">{{ question.questionText }}</p>
             </div>
           </li>
@@ -68,7 +70,7 @@
       </ul>
 
       @if (hasMore) {
-        <button type="button" [disabled]="loading()" (click)="loadMore()">
+        <button type="button" class="btn-secondary load-more" [disabled]="loading()" (click)="loadMore()">
           {{ loading() ? 'Loading…' : 'Load more' }}
         </button>
       }

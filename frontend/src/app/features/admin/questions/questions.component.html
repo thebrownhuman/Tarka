@@ -1,5 +1,5 @@
 <div class="questions-page">
-  <section class="panel">
+  <section class="panel card">
     <h2>Upload questions</h2>
     <p class="hint">
       Choose a .json file containing either a JSON array of questions, or an object with a
@@ -8,10 +8,10 @@
     </p>
 
     @if (uploadError()) {
-      <p class="error" role="alert">{{ uploadError() }}</p>
+      <p class="banner-error" role="alert">{{ uploadError() }}</p>
     }
     @if (uploadSuccess() !== null) {
-      <p class="success">Inserted {{ uploadSuccess() }} question(s).</p>
+      <p class="banner-success">Inserted {{ uploadSuccess() }} question(s).</p>
     }
 
     <div class="upload-row">
@@ -24,55 +24,59 @@
     </div>
   </section>
 
-  <section class="panel">
+  <section class="panel card">
     <h2>Question bank</h2>
 
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
-      <input type="text" formControlName="domain" placeholder="Domain" />
-      <input type="text" formControlName="topic" placeholder="Topic" />
-      <select formControlName="difficulty">
+      <input class="input-field" type="text" formControlName="domain" placeholder="Domain" />
+      <input class="input-field" type="text" formControlName="topic" placeholder="Topic" />
+      <select class="input-field" formControlName="difficulty">
         <option value="">Any difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-      <button type="submit">Filter</button>
+      <button type="submit" class="btn-primary">Filter</button>
     </form>
 
     @if (errorMessage()) {
-      <p class="error" role="alert">{{ errorMessage() }}</p>
+      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
     }
 
     @if (loading() && items().length === 0) {
-      <p>Loading…</p>
+      <p class="status-line">Loading…</p>
     } @else if (items().length === 0) {
-      <p>No questions match these filters.</p>
+      <div class="empty-state">
+        <p>No questions match these filters.</p>
+      </div>
     } @else {
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Domain</th>
-            <th>Topic</th>
-            <th>Subpattern</th>
-            <th>Difficulty</th>
-            <th>Question</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (question of items(); track question.id) {
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
             <tr>
-              <td>{{ question.domain }}</td>
-              <td>{{ question.topic }}</td>
-              <td>{{ question.subpattern ?? '—' }}</td>
-              <td>{{ question.difficulty }}</td>
-              <td>{{ truncate(question.questionText) }}</td>
+              <th>Domain</th>
+              <th>Topic</th>
+              <th>Subpattern</th>
+              <th>Difficulty</th>
+              <th>Question</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (question of items(); track question.id) {
+              <tr>
+                <td>{{ question.domain }}</td>
+                <td>{{ question.topic }}</td>
+                <td>{{ question.subpattern ?? '—' }}</td>
+                <td>{{ question.difficulty }}</td>
+                <td>{{ truncate(question.questionText) }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
 
       @if (hasMore) {
-        <button type="button" [disabled]="loading()" (click)="loadMore()">
+        <button type="button" class="btn-secondary load-more" [disabled]="loading()" (click)="loadMore()">
           {{ loading() ? 'Loading…' : 'Load more' }}
         </button>
       }

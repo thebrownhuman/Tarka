@@ -1,29 +1,45 @@
 <div class="history-detail-page">
-  <a routerLink="/history" class="back-link">← Back to history</a>
+  <a routerLink="/history" class="back-link">&larr; Back to history</a>
 
   @if (loading()) {
-    <p>Loading…</p>
+    <p class="status-line">Loading…</p>
   } @else if (pendingRelease()) {
-    <div class="panel">
+    <div class="panel card">
       <h1>Results pending release</h1>
       <p>The admin hasn't released results for this attempt yet. Check back later.</p>
     </div>
   } @else if (errorMessage()) {
-    <p class="error" role="alert">{{ errorMessage() }}</p>
+    <p class="banner-error" role="alert">{{ errorMessage() }}</p>
   } @else if (detail()) {
     @if (detail(); as d) {
     <header class="detail-header">
       <h1>{{ d.testTitle }}</h1>
       <p class="summary">
         Score: <strong>{{ d.score }} / {{ d.totalQuestions }}</strong>
-        · Submitted {{ d.submittedAt ? (d.submittedAt | date: 'medium') : '—' }}
+        &middot; Submitted {{ d.submittedAt ? (d.submittedAt | date: 'medium') : '—' }}
       </p>
     </header>
 
     <ol class="answers">
       @for (answer of d.answers; track answer.questionId) {
-        <li class="answer-card" [class.correct]="answer.isCorrect === true" [class.incorrect]="answer.isCorrect === false">
-          <p class="answer-index">Question {{ answer.position + 1 }}</p>
+        <li class="answer-card card" [class.correct]="answer.isCorrect === true" [class.incorrect]="answer.isCorrect === false">
+          <div class="answer-card-head">
+            <p class="answer-index">Question {{ answer.position + 1 }}</p>
+            <span
+              class="badge"
+              [class.badge-success]="answer.isCorrect === true"
+              [class.badge-danger]="answer.isCorrect === false"
+              [class.badge-neutral]="answer.isCorrect === null"
+            >
+              @if (answer.isCorrect === true) {
+                Correct
+              } @else if (answer.isCorrect === false) {
+                Incorrect
+              } @else {
+                Not answered
+              }
+            </span>
+          </div>
 
           @if (answer.passageText) {
             <div class="passage">{{ answer.passageText }}</div>
@@ -43,30 +59,26 @@
               >
                 {{ option.text }}
                 @if (answer.correctOptionIds.includes(option.id)) {
-                  <span class="tag">correct</span>
+                  <span class="tag tag-correct">correct</span>
                 }
                 @if (answer.selectedOptionIds.includes(option.id)) {
-                  <span class="tag">your answer</span>
+                  <span class="tag tag-selected">your answer</span>
                 }
               </li>
             }
           </ul>
 
           <p class="verdict">
-            @if (answer.isCorrect === true) {
-              Correct
-            } @else if (answer.isCorrect === false) {
-              Incorrect
-            } @else {
-              Not answered
-            }
             @if (answer.timeSpentSeconds !== null) {
-              · {{ answer.timeSpentSeconds }}s spent
+              {{ answer.timeSpentSeconds }}s spent
             }
           </p>
 
           @if (answer.explanation) {
-            <p class="explanation">{{ answer.explanation }}</p>
+            <div class="explanation">
+              <span class="explanation-label">Explanation</span>
+              <p>{{ answer.explanation }}</p>
+            </div>
           }
         </li>
       }

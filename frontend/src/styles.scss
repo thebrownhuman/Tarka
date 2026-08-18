@@ -1,1 +1,325 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global design tokens + reusable utility classes for the Tarka app.
+   See .planning/design-config.md for the source of truth on these values. */
+
+:root {
+  /* Colors */
+  --color-primary: #2b5fd9;
+  --color-primary-hover: #234db3;
+  --color-ink: #1a1d23;
+  --color-body: #3c4149;
+  --color-muted: #6b7280;
+  --color-border: #dde1e6;
+  --color-surface: #ffffff;
+  --color-bg: #f4f5f7;
+  --color-success: #1a7f4e;
+  --color-success-bg: #e6f6ee;
+  --color-danger: #b00020;
+  --color-danger-bg: #fbe9eb;
+  --color-warning: #9a6700;
+  --color-warning-bg: #fff3d6;
+
+  /* Typography */
+  --font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Radius */
+  --radius-card: 10px;
+  --radius-control: 6px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --shadow-md: 0 4px 8px rgba(16, 24, 40, 0.1), 0 2px 4px rgba(16, 24, 40, 0.06);
+
+  /* Interaction */
+  --focus-ring: 0 0 0 3px rgba(43, 95, 217, 0.25);
+  --transition-fast: 150ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-body);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-ink);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Focus ring for keyboard accessibility, applied everywhere. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* --------------------------------------------------------------------- */
+/* Card                                                                   */
+/* --------------------------------------------------------------------- */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------------------------- */
+/* Buttons                                                                */
+/* --------------------------------------------------------------------- */
+
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border-radius: var(--radius-control);
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    box-shadow var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-danger:disabled,
+.btn-ghost:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-body);
+
+  &:hover:not(:disabled) {
+    background: var(--color-bg);
+    border-color: #c4c9d1;
+  }
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: #8f0019;
+    border-color: #8f0019;
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-primary);
+  padding: 6px 8px;
+
+  &:hover:not(:disabled) {
+    background: var(--color-bg);
+  }
+}
+
+/* --------------------------------------------------------------------- */
+/* Badges                                                                 */
+/* --------------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 11px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.badge-danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.badge-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.badge-neutral {
+  background: var(--color-bg);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------- */
+/* Inputs                                                                 */
+/* --------------------------------------------------------------------- */
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    border-color: #c4c9d1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--focus-ring);
+  }
+
+  &::placeholder {
+    color: var(--color-muted);
+  }
+}
+
+label.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-body);
+  margin-bottom: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------- */
+/* Feedback banners                                                       */
+/* --------------------------------------------------------------------- */
+
+.banner-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(176, 0, 32, 0.15);
+  border-radius: var(--radius-control);
+  padding: 10px 14px;
+  font-size: 14px;
+  margin: 0 0 var(--space-md);
+}
+
+.banner-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(26, 127, 78, 0.15);
+  border-radius: var(--radius-control);
+  padding: 10px 14px;
+  font-size: 14px;
+  margin: 0 0 var(--space-md);
+}
+
+/* --------------------------------------------------------------------- */
+/* Empty state                                                            */
+/* --------------------------------------------------------------------- */
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  color: var(--color-muted);
+  font-size: 14px;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+/* --------------------------------------------------------------------- */
+/* Modal                                                                  */
+/* --------------------------------------------------------------------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--space-md);
+}
+
+.modal-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-xl);
+  max-width: 420px;
+  width: 100%;
+}

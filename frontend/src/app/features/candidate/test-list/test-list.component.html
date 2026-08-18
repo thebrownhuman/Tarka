@@ -5,29 +5,32 @@
       <p>Signed in as <strong>{{ authService.session()?.displayName }}</strong></p>
     </div>
     <nav class="header-actions">
-      <a routerLink="/history">My history</a>
-      <button type="button" (click)="logout()">Log out</button>
+      <a class="btn-ghost" routerLink="/history">My history</a>
+      <button type="button" class="btn-secondary" (click)="logout()">Log out</button>
     </nav>
   </header>
 
   @if (errorMessage()) {
-    <p class="error" role="alert">{{ errorMessage() }}</p>
+    <p class="banner-error" role="alert">{{ errorMessage() }}</p>
   }
 
   @if (loading()) {
-    <p>Loading tests…</p>
+    <p class="status-line">Loading tests…</p>
   } @else if (tests().length === 0) {
-    <p>No tests are available right now.</p>
+    <div class="empty-state">
+      <p>No tests are available right now.</p>
+      <p class="empty-hint">Check back later, or contact your administrator.</p>
+    </div>
   } @else {
     <ul class="test-cards">
       @for (test of tests(); track test.id) {
-        <li class="test-card">
+        <li class="test-card card">
           <div class="test-card-info">
             <h2>{{ test.title }}</h2>
-            <p>{{ test.durationSeconds / 60 }} minutes</p>
+            <p class="duration">{{ test.durationSeconds / 60 }} minutes</p>
           </div>
-          <button type="button" [disabled]="startingTestId() === test.id" (click)="start(test)">
-            {{ startingTestId() === test.id ? 'Starting…' : 'Start' }}
+          <button type="button" class="btn-primary" [disabled]="startingTestId() === test.id" (click)="start(test)">
+            {{ startingTestId() === test.id ? 'Starting…' : 'Start Test' }}
           </button>
         </li>
       }

@@ -1,45 +1,47 @@
 .extensions-page {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .panel {
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
+  padding: var(--space-lg) var(--space-xl);
 
   h2 {
-    margin: 0 0 0.75rem;
-    font-size: 1.1rem;
+    margin: 0 0 var(--space-md);
   }
+}
+
+.status-line {
+  color: var(--color-muted);
 }
 
 .sub-tabs {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 
   button {
-    padding: 0.4rem 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-body);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
 
     &.active {
-      background: #2b5fd9;
-      border-color: #2b5fd9;
+      background: var(--color-primary);
+      border-color: var(--color-primary);
       color: #fff;
     }
   }
-}
-
-.error {
-  color: #b00020;
-  font-size: 0.9rem;
 }
 
 .request-list {
@@ -48,75 +50,58 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-md);
 }
 
 .request-card {
-  border: 1px solid #e2e2e2;
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
+  padding: 14px var(--space-md);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 
-  a {
-    color: #2b5fd9;
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: #c4c9d1;
   }
 }
 
 .request-info p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .outcome {
-  margin-top: 0.35rem !important;
-  color: #555;
-  font-size: 0.85rem !important;
+  margin-top: var(--space-sm) !important;
+  color: var(--color-muted);
+  font-size: 13px !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .request-actions {
   display: flex;
   align-items: flex-end;
-  gap: 0.75rem;
+  gap: var(--space-md);
   flex-wrap: wrap;
-  margin-top: 0.75rem;
+  margin-top: var(--space-md);
 
   label {
     display: flex;
     flex-direction: column;
-    font-size: 0.75rem;
-    color: #666;
-    gap: 0.2rem;
+    font-size: 12px;
+    color: var(--color-muted);
+    gap: 4px;
   }
 
-  input {
-    padding: 0.4rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.85rem;
+  .input-field {
+    padding: 8px 10px;
   }
 
   input[type='number'] {
-    width: 6rem;
+    width: 100px;
   }
+}
 
-  button {
-    padding: 0.45rem 0.9rem;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.85rem;
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  }
-
-  .approve {
-    background: #1a7f37;
-  }
-
-  .deny {
-    background: #b00020;
-  }
+.load-more {
+  margin-top: var(--space-md);
 }

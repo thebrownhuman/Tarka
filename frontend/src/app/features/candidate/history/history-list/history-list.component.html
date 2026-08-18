@@ -1,49 +1,61 @@
 <div class="history-page">
   <header class="page-header">
     <h1>My history</h1>
-    <a routerLink="/tests">Back to tests</a>
+    <a class="btn-ghost" routerLink="/tests">Back to tests</a>
   </header>
 
   @if (errorMessage()) {
-    <p class="error" role="alert">{{ errorMessage() }}</p>
+    <p class="banner-error" role="alert">{{ errorMessage() }}</p>
   }
 
   @if (loading() && items().length === 0) {
-    <p>Loading…</p>
+    <p class="status-line">Loading…</p>
   } @else if (items().length === 0) {
-    <p>You haven't attempted any tests yet.</p>
+    <div class="empty-state">
+      <p>You haven't attempted any tests yet.</p>
+    </div>
   } @else {
-    <table class="history-table">
-      <thead>
-        <tr>
-          <th>Test</th>
-          <th>Status</th>
-          <th>Score</th>
-          <th>Submitted</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (item of items(); track item.id) {
+    <div class="card table-wrap">
+      <table class="history-table">
+        <thead>
           <tr>
-            <td>{{ item.test.title }}</td>
-            <td>{{ item.status }}</td>
-            <td>
-              @if (item.resultsReleasedAt) {
-                {{ item.score }}
-              } @else {
-                <span class="pending">Pending release</span>
-              }
-            </td>
-            <td>{{ item.submittedAt ? (item.submittedAt | date: 'medium') : '—' }}</td>
-            <td><a [routerLink]="['/history', item.id]">View</a></td>
+            <th>Test</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Submitted</th>
+            <th></th>
           </tr>
-        }
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          @for (item of items(); track item.id) {
+            <tr>
+              <td>{{ item.test.title }}</td>
+              <td>
+                <span
+                  class="badge"
+                  [class.badge-success]="item.status === 'submitted'"
+                  [class.badge-neutral]="item.status !== 'submitted'"
+                >
+                  {{ item.status }}
+                </span>
+              </td>
+              <td>
+                @if (item.resultsReleasedAt) {
+                  {{ item.score }}
+                } @else {
+                  <span class="badge badge-warning">Pending release</span>
+                }
+              </td>
+              <td>{{ item.submittedAt ? (item.submittedAt | date: 'medium') : '—' }}</td>
+              <td><a class="btn-ghost" [routerLink]="['/history', item.id]">View</a></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
 
     @if (hasMore) {
-      <button type="button" [disabled]="loading()" (click)="loadMore()">
+      <button type="button" class="btn-secondary load-more" [disabled]="loading()" (click)="loadMore()">
         {{ loading() ? 'Loading…' : 'Load more' }}
       </button>
     }
