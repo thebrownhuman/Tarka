@@ -27,12 +27,13 @@ Build a secure, server-authoritative test-taking platform to administer timed re
 
 | # | Feature | Status | Spec | Plan | Depends On |
 |---|---------|--------|------|------|------------|
-| 1 | Foundations & Auth | planned | [foundations-and-auth.md](../specs/foundations-and-auth.md) | [foundations-and-auth.md](../plans/foundations-and-auth.md) | — |
-| 2 | Question Bank & Authoring | todo | — | — | #1 |
-| 3 | Test-Taking Engine | todo | — | — | #1, #2 |
-| 4 | Extension Request & Approval Flow | todo | — | — | #3 |
-| 5 | Admin Dashboard & Results Release | todo | — | — | #1, #2, #3, #4 |
-| 6 | Candidate & Admin History/Analytics | todo | — | — | #3, #5 |
+| 1 | Foundations & Auth | done | [foundations-and-auth.md](../specs/foundations-and-auth.md) | [foundations-and-auth.md](../plans/foundations-and-auth.md) | — |
+| 2 | Question Bank & Authoring | backend done, no UI | — | — | #1 |
+| 3 | Test-Taking Engine | backend done, no UI | — | — | #1, #2 |
+| 4 | Extension Request & Approval Flow | backend done, no UI | — | — | #3 |
+| 5 | Admin Dashboard & Results Release | backend done, no UI | — | — | #1, #2, #3, #4 |
+| 6 | Candidate & Admin History/Analytics | backend done, no UI | — | — | #3, #5 |
+| 7 | Deployment (Homelab + Cloudflare Tunnel) | todo — touches live homelab, needs explicit go-ahead | — | — | #1-#6 |
 | 7 | Deployment (Homelab + Cloudflare Tunnel) | todo | — | — | #1-#6 |
 
 ---
