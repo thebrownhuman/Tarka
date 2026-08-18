@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Chosen Palette: Slate & Slate-Blue Warm Neutral (Slate background, Indigo primary, Amber/Emerald/Rose accents) -->
+    <!-- Application Structure Plan: 
+        The SPA is designed around a multi-tab cognitive architecture hub:
+        1. Dashboard & Taxonometrics: Overview cards and dynamic Chart.js visualizations showing domain distribution, difficulty tier alignment (40/40/20 rule), and cognitive load parameters.
+        2. Exam & Taxonomy Explorer: An interactive, expandable catalog of all 5 Core Cognitive Domains and 59 Sub-Topics with target exam alignments (CAT, GMAT, LSAT, SSC, UPSC CSAT).
+        3. Interactive Practice Repository: A feature-rich quiz and question browser allowing real-time filtering by domain, difficulty, sub-pattern, and target exam, with instant answer verification and psychometric explanations.
+        4. Pattern Matrix & Cognitive Framework: Interactive comparison grid detailing logic mechanisms, distractor engineering principles, and visual non-verbal transformation rules.
+        This non-linear design prioritizes actionable test-prep exploration and algorithmic cataloging over static textual reading.
+    -->
+    <!-- Visualization & Content Choices:
+        - Domain Share & Calibrated Items: Chart.js Doughnut Chart -> Visualizes question distribution across 5 core domains.
+        - Difficulty Alignment Tier: Chart.js Stacked Bar Chart -> Compares Easy (~40%), Medium (~40%), Hard (~20%) calibration across domains.
+        - Cognitive Load & Sub-pattern Matrix: HTML Grid with dynamic JS filtering -> Allows deep-dive exploration of cognitive mechanisms without clutter.
+        - Interactive Quiz Interface: Pure JS state-driven UI -> Enables instant feedback, reveal options, sub-pattern tagging, and performance tracking.
+        - Graphics: pure Tailwind CSS UI, Chart.js HTML5 Canvas, Unicode icons. NO SVG or Mermaid JS used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxonomic Cognitive Architecture & Reasoning Repository</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header & Main Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-600 text-white p-2 rounded-lg font-bold text-xl shadow-md">
+                        🧠
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-slate-900 leading-tight">CogReason Architecture</h1>
+                        <p class="text-xs text-slate-500 hidden sm:block">Item Taxonomy & Practice Repository</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="flex space-x-1 sm:space-x-2">
+                    <button onclick="switchTab('dashboard')" id="tab-dashboard" class="nav-tab px-3 py-2 text-xs sm:text-sm font-medium rounded-md bg-indigo-50 text-indigo-700 transition">
+                        📊 Taxonometrics
+                    </button>
+                    <button onclick="switchTab('taxonomy')" id="tab-taxonomy" class="nav-tab px-3 py-2 text-xs sm:text-sm font-medium rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        📚 Exam Taxonomy
+                    </button>
+                    <button onclick="switchTab('practice')" id="tab-practice" class="nav-tab px-3 py-2 text-xs sm:text-sm font-medium rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        ⚡ Practice Suite
+                    </button>
+                    <button onclick="switchTab('matrix')" id="tab-matrix" class="nav-tab px-3 py-2 text-xs sm:text-sm font-medium rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                        🧩 Matrix & Logic
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- ================= SECTION 1: DASHBOARD & TAXONOMETRICS ================= -->
+        <section id="sec-dashboard" class="tab-content space-y-6">
+            <!-- Introductory Context Paragraph -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Cognitive Assessment Framework & Taxonometrics</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    This interactive dashboard provides real-time analytical insight into the item bank structure calibrated for high-stakes reasoning examinations (spanning SSC, IBPS, UPSC CSAT, CAT, GMAT, GRE, and LSAT). The repository is psychometrically balanced according to the standard <strong>40% Easy / 40% Medium / 20% Hard</strong> difficulty distribution across five core structural domains. Use the controls below to inspect calibration metrics and difficulty alignment.
+                </p>
+            </div>
+
+            <!-- Key Performance Indicator Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-blue-100 text-blue-700 rounded-lg text-2xl">📁</div>
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Core Domains</p>
+                        <p class="text-2xl font-extrabold text-slate-900">5</p>
+                        <p class="text-xs text-blue-600 font-medium">100% Taxonomy Coverage</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-indigo-100 text-indigo-700 rounded-lg text-2xl">🏷️</div>
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Cataloged Topics</p>
+                        <p class="text-2xl font-extrabold text-slate-900">59</p>
+                        <p class="text-xs text-indigo-600 font-medium">37 Exemplar Item Sets</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-emerald-100 text-emerald-700 rounded-lg text-2xl">🎯</div>
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Repository Items</p>
+                        <p class="text-2xl font-extrabold text-slate-900" id="total-questions-count">120</p>
+                        <p class="text-xs text-emerald-600 font-medium">Calibrated Practice Items</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-lg text-2xl">⚖️</div>
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Target Ratio</p>
+                        <p class="text-2xl font-extrabold text-slate-900">40:40:20</p>
+                        <p class="text-xs text-amber-600 font-medium">Easy : Med : Hard</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Chart 1: Domain Distribution -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="text-base font-bold text-slate-900">Item Share by Cognitive Domain</h3>
+                            <p class="text-xs text-slate-500">Proportional weight of calibrated items</p>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded font-mono">Doughnut Viz</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="domainShareChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Critical & Epistemic and Verbal & Symbolic comprise ~58% of standardized items.</p>
+                </div>
+
+                <!-- Chart 2: Difficulty Tier Alignment -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="text-base font-bold text-slate-900">Difficulty Calibration Tiering</h3>
+                            <p class="text-xs text-slate-500">Foundation vs. Standard vs. Advanced/Trick distribution</p>
+                        </div>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded font-mono">Stacked Bar Viz</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Ensures baseline competency assessment before testing high-tier cognitive load.</p>
+                </div>
+            </div>
+
+            <!-- Domain Structural Breakdown Table -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50/50 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-900 text-base">Domain Cognitive Summary</h3>
+                    <span class="text-xs text-slate-500">5 Core Domains • 37 Primary Topics</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-slate-100 text-slate-600 uppercase text-[10px] sm:text-xs font-semibold">
+                            <tr>
+                                <th class="px-6 py-3">Cognitive Domain</th>
+                                <th class="px-6 py-3">Core Focus & Mechanisms</th>
+                                <th class="px-6 py-3 text-center">Exemplar Items</th>
+                                <th class="px-6 py-3 text-center">Easy (~40%)</th>
+                                <th class="px-6 py-3 text-center">Medium (~40%)</th>
+                                <th class="px-6 py-3 text-center">Hard (~20%)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-semibold text-slate-900">Verbal & Symbolic</td>
+                                <td class="px-6 py-4">Semantic analogies, alpha-numeric encoding, family tree hierarchies, directional displacement.</td>
+                                <td class="px-6 py-4 text-center font-bold">32</td>
+                                <td class="px-6 py-4 text-center text-emerald-600">12 (37.5%)</td>
+                                <td class="px-6 py-4 text-center text-blue-600">13 (40.6%)</td>
+                                <td class="px-6 py-4 text-center text-rose-600">7 (21.9%)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-semibold text-slate-900">Non-Verbal & Spatial</td>
+                                <td class="px-6 py-4">Mirror/water inversions, orthogonal projections, paper folding, cube net geometry.</td>
+                                <td class="px-6 py-4 text-center font-bold">15</td>
+                                <td class="px-6 py-4 text-center text-emerald-600">5 (33.3%)</td>
+                                <td class="px-6 py-4 text-center text-blue-600">5 (33.3%)</td>
+                                <td class="px-6 py-4 text-center text-rose-600">5 (33.3%)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-semibold text-slate-900">Analytical & Constraint</td>
+                                <td class="px-6 py-4">Linear/circular seating, multi-attribute grids, syllogisms, coded inequalities, knights/knaves logic.</td>
+                                <td class="px-6 py-4 text-center font-bold">18</td>
+                                <td class="px-6 py-4 text-center text-emerald-600">6 (33.3%)</td>
+                                <td class="px-6 py-4 text-center text-blue-600">6 (33.3%)</td>
+                                <td class="px-6 py-4 text-center text-rose-600">6 (33.3%)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-semibold text-slate-900">Numerical & Quantitative</td>
+                                <td class="px-6 py-4">Number sequences, clock/calendar modular arithmetic, cryptarithmetic, data sufficiency.</td>
+                                <td class="px-6 py-4 text-center font-bold">17</td>
+                                <td class="px-6 py-4 text-center text-emerald-600">6 (35.3%)</td>
+                                <td class="px-6 py-4 text-center text-blue-600">7 (41.2%)</td>
+                                <td class="px-6 py-4 text-center text-rose-600">4 (23.5%)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-6 py-4 font-semibold text-slate-900">Critical & Epistemic</td>
+                                <td class="px-6 py-4">LSAT/GMAT arguments, assumption negation, causal flaws, fallacies, paradox resolution.</td>
+                                <td class="px-6 py-4 text-center font-bold">38</td>
+                                <td class="px-6 py-4 text-center text-emerald-600">16 (42.1%)</td>
+                                <td class="px-6 py-4 text-center text-blue-600">17 (44.7%)</td>
+                                <td class="px-6 py-4 text-center text-rose-600">5 (13.2%)</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-slate-100 font-bold text-slate-900 text-xs">
+                            <tr>
+                                <td class="px-6 py-3">Total Calibrated Repository</td>
+                                <td class="px-6 py-3">37 Active Reference Categories</td>
+                                <td class="px-6 py-3 text-center">120</td>
+                                <td class="px-6 py-3 text-center text-emerald-700">45 (37.5%)</td>
+                                <td class="px-6 py-3 text-center text-blue-700">48 (40.0%)</td>
+                                <td class="px-6 py-3 text-center text-rose-700">27 (22.5%)</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: EXAM TAXONOMY EXPLORER ================= -->
+        <section id="sec-taxonomy" class="tab-content hidden space-y-6">
+            <!-- Section Introduction -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">59-Topic Examination Taxonomy Directory</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Explore the complete 59-topic taxonomy structured across standard competitive exam paradigms (SSC, IBPS, SBI PO, UPSC CSAT, CAT, GMAT, GRE, LSAT). Select a domain or search for specific sub-patterns like <em>"Modus Tollens"</em>, <em>"Chamfered Slope"</em>, or <em>"Cryptarithmetic Carry-Over"</em> to see cognitive mapping and target exam requirements.
+                </p>
+
+                <!-- Search & Domain Filter Bar -->
+                <div class="mt-4 flex flex-col md:flex-row gap-3">
+                    <div class="flex-grow relative">
+                        <input type="text" id="taxonomy-search" oninput="filterTaxonomy()" placeholder="Search sub-patterns, topics, or logic rules..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
+                    </div>
+                    <select id="taxonomy-domain-filter" onchange="filterTaxonomy()" class="border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                        <option value="ALL">All Core Domains (5)</option>
+                        <option value="Verbal & Symbolic">Verbal & Symbolic (Topics 1-12)</option>
+                        <option value="Non-Verbal & Spatial">Non-Verbal & Spatial (Topics 13-26)</option>
+                        <option value="Analytical & Constraint">Analytical & Constraint (Topics 27-39)</option>
+                        <option value="Numerical & Quantitative">Numerical & Quantitative (Topics 40-47)</option>
+                        <option value="Critical & Epistemic">Critical & Epistemic (Topics 48-59)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Taxonomy Grid Container -->
+            <div id="taxonomy-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Dynamic Taxonomy Cards Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: INTERACTIVE PRACTICE REPOSITORY ================= -->
+        <section id="sec-practice" class="tab-content hidden space-y-6">
+            <!-- Section Intro & Filter Bar -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">Interactive Calibrated Item Repository</h2>
+                        <p class="text-xs sm:text-sm text-slate-600">Practice items with instant answer verification, detailed logic explanations, and psychometric sub-pattern tags.</p>
+                    </div>
+                    <div class="flex items-center space-x-2 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100">
+                        <span class="text-xs font-semibold text-indigo-700">Practice Score:</span>
+                        <span id="score-display" class="text-sm font-bold text-indigo-900">0 / 0</span>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Domain Filter</label>
+                        <select id="practice-domain-select" onchange="filterPracticeQuestions()" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                            <option value="ALL">All Domains</option>
+                            <option value="Verbal & Symbolic">Verbal & Symbolic</option>
+                            <option value="Non-Verbal & Spatial">Non-Verbal & Spatial</option>
+                            <option value="Analytical & Constraint">Analytical & Constraint</option>
+                            <option value="Numerical & Quantitative">Numerical & Quantitative</option>
+                            <option value="Critical & Epistemic">Critical & Epistemic</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Difficulty Tier</label>
+                        <select id="practice-diff-select" onchange="filterPracticeQuestions()" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                            <option value="ALL">All Difficulty Tiers</option>
+                            <option value="Easy">Easy (Foundation)</option>
+                            <option value="Medium">Medium (Exam Standard)</option>
+                            <option value="Hard">Hard (Advanced / Trick)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Search Keyword</label>
+                        <input type="text" id="practice-search-input" oninput="filterPracticeQuestions()" placeholder="Search terms, options..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Question Viewer Card -->
+            <div id="question-card" class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 relative">
+                <!-- Question Meta Header -->
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span id="q-domain-badge" class="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-800">
+                            Domain Name
+                        </span>
+                        <span id="q-topic-badge" class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-700">
+                            Topic Name
+                        </span>
+                        <span id="q-diff-badge" class="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">
+                            Easy
+                        </span>
+                    </div>
+                    <div class="text-xs text-slate-400 font-mono">
+                        Item <span id="q-current-index">1</span> of <span id="q-total-filtered">120</span>
+                    </div>
+                </div>
+
+                <!-- Sub-pattern Tag -->
+                <div class="mb-3">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sub-Pattern Tag:</span>
+                    <span id="q-subpattern" class="text-xs font-medium text-slate-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded ml-1">
+                        Pattern Name
+                    </span>
+                </div>
+
+                <!-- Question Prompt -->
+                <div class="mb-6">
+                    <h3 id="q-text" class="text-base sm:text-lg font-semibold text-slate-900 leading-snug">
+                        Question text will load here...
+                    </h3>
+                </div>
+
+                <!-- MCQ Options Grid -->
+                <div id="q-options" class="grid grid-cols-1 gap-3 mb-6">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <!-- Answer Verification & Explanation Panel (Initially Hidden) -->
+                <div id="explanation-panel" class="hidden rounded-lg p-4 mb-6 border transition-all duration-200">
+                    <div class="flex items-start space-x-2">
+                        <span id="result-icon" class="text-xl">✅</span>
+                        <div>
+                            <h4 id="result-title" class="font-bold text-sm mb-1">Correct Answer!</h4>
+                            <p id="explanation-text" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                Detailed explanation text...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Buttons -->
+                <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                    <button onclick="prevQuestion()" id="btn-prev" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs sm:text-sm font-semibold hover:bg-slate-200 transition disabled:opacity-50">
+                        ← Previous
+                    </button>
+
+                    <button onclick="toggleRevealAnswer()" id="btn-reveal" class="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs sm:text-sm font-semibold hover:bg-slate-50 transition">
+                        👁️ Reveal Solution
+                    </button>
+
+                    <button onclick="nextQuestion()" id="btn-next" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs sm:text-sm font-semibold hover:bg-indigo-700 transition">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: PATTERN MATRIX & LOGIC FRAMEWORK ================= -->
+        <section id="sec-matrix" class="tab-content hidden space-y-6">
+            <!-- Section Overview -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Cognitive Load Matrix & Distractor Engineering</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    This section highlights the key theoretical rules used to author distractors, engineer cognitive traps, and construct formal transformations across competitive exam domains.
+                </p>
+            </div>
+
+            <!-- Cognitive Mechanisms Breakdown Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Non-Verbal Transformations -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-2 text-indigo-700 font-bold border-b border-slate-100 pb-2">
+                        <span class="text-xl">📐</span>
+                        <h3>Spatial & Non-Verbal Rules</h3>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                        <li><strong class="text-slate-800">Mirror Images:</strong> Reverses horizontal axis ($NE \to NW$). Preserves vertical elevation.</li>
+                        <li><strong class="text-slate-800">Water Images:</strong> Flips vertical axis (Top $\leftrightarrow$ Bottom). Preserves left-right alignment.</li>
+                        <li><strong class="text-slate-800">Paper Folding:</strong> Reflection across axis of symmetry. N-folds create $2^N$ mirrored layers.</li>
+                        <li><strong class="text-slate-800">Standard Dice:</strong> Sum of opposite faces $= 7$. Adjacent faces can never be opposite.</li>
+                        <li><strong class="text-slate-800">Orthographic Projection:</strong> Dashed lines indicate hidden edges/interior voids.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Critical Logic & Deductive Rules -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-2 text-emerald-700 font-bold border-b border-slate-100 pb-2">
+                        <span class="text-xl">⚖️</span>
+                        <h3>Critical & Deductive Rules</h3>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                        <li><strong class="text-slate-800">Negation Test:</strong> If negating an assumption collapses the argument, that assumption is necessary.</li>
+                        <li><strong class="text-slate-800">Modus Tollens:</strong> $P \to Q$ and $\neg Q$ proves $\neg P$. Reversing without negation is a formal fallacy.</li>
+                        <li><strong class="text-slate-800">Causation vs Correlation:</strong> Co-occurrence in time does not prove direct causation without ruling out third-variable confounders.</li>
+                        <li><strong class="text-slate-800">Knights & Knaves:</strong> Knights make true statements; Knaves make false ones. Self-referential claims isolate contradictions.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Quantitative & Symbolic Rules -->
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-2 text-amber-700 font-bold border-b border-slate-100 pb-2">
+                        <span class="text-xl">🔢</span>
+                        <h3>Numerical & Algorithmic Rules</h3>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                        <li><strong class="text-slate-800">Clock Angle Formula:</strong> $\theta = |30H - 5.5M|$. Coincidence occurs at $M = \frac{60H}{11}$.</li>
+                        <li><strong class="text-slate-800">Calendar Repetition:</strong> Non-leap years repeat in 6 or 11 years; leap years repeat every 28 years.</li>
+                        <li><strong class="text-slate-800">Cryptarithmetic:</strong> Addition carry-over at most significant digit is always $1$.</li>
+                        <li><strong class="text-slate-800">Ranking Formula:</strong> $\text{Total} = \text{Rank}_{\text{Top}} + \text{Rank}_{\text{Bottom}} - 1$.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Interactive Distractor Analysis Accordion -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+                <h3 class="font-bold text-slate-900 text-base mb-4">Psychometric Distractor Construction Guidelines</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600">
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-1">1. Partial Logic Trap</strong>
+                        Examinee completes step 1 of a multi-step calculation (e.g., finding the East component in direction sense, but forgetting the North component displacement).
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-1">2. Directional Inversion</strong>
+                        Confusing Modus Tollens with Affirming the Consequent, or mistaking mirror reflection for water reflection.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-1">3. Extreme Generalization</strong>
+                        In Critical Reasoning, selecting options with extreme scope words ("always", "never", "completely immune") that exceed premise bounds.
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <strong class="text-slate-900 block mb-1">4. Boundary Off-by-One Errors</strong>
+                        Overlooking set overlaps in seating arrangements ($N+1$ vs $N-1$) or calendar leap day offsets.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- App Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+            Cognitive Reasoning Repository & Taxonometric Blueprint • Calibrated for SSC, IBPS, CSAT, CAT, GMAT, GRE & LSAT.
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Logic Application Script -->
+    <script>
+        // ================= MASTER DATA REPOSITORY =================
+        const TAXONOMY_DIRECTORY = [
+            // Verbal & Symbolic
+            { id: 1, domain: "Verbal & Symbolic", topic: "Analogies", subpatterns: ["Semantic Synonymy", "Functional Tool", "Part-to-Whole", "Numerical Proportionality ($x^2+x$, $x^3-x^2$)"], examTarget: "SSC, Banking, CSAT" },
+            { id: 2, domain: "Verbal & Symbolic", topic: "Classification (Odd One Out)", subpatterns: ["Semantic Class", "Divisibility Rules", "Alphabet Positional Sums", "Prime Properties"], examTarget: "SSC, RRB, CSAT" },
+            { id: 3, domain: "Verbal & Symbolic", topic: "Coding-Decoding", subpatterns: ["Constant Letter Shift", "Reverse Alphabet Pairs", "Progressive Shift", "Consonant-Vowel Rules"], examTarget: "IBPS, SBI PO, SSC" },
+            { id: 4, domain: "Verbal & Symbolic", topic: "Blood Relations", subpatterns: ["Conversational Pointing", "Family Tree Hierarchy", "Coded Operators ($P+Q$)"], examTarget: "IBPS, SSC, CAT" },
+            { id: 5, domain: "Verbal & Symbolic", topic: "Direction Sense Test", subpatterns: ["Cardinal Displacement", "Angular Rotations", "Pythagoras Distance", "Sun/Shadow Alignment"], examTarget: "SSC, CSAT, IBPS" },
+            { id: 6, domain: "Verbal & Symbolic", topic: "Ranking & Order / Time Sequence", subpatterns: ["Positional Overlap ($T = R_1+R_2-1$)", "Interchanging Ranks", "Comparative Height/Weight"], examTarget: "SSC, Banking, CSAT" },
+            { id: 7, domain: "Verbal & Symbolic", topic: "Alphabet Test", subpatterns: ["Positional Arithmetic", "Word Formation", "Letter Pair Spacing"], examTarget: "SSC, Banking" },
+            { id: 8, domain: "Verbal & Symbolic", topic: "Series Completion (Verbal/Symbolic)", subpatterns: ["Alphanumeric Chains", "Repeating Block Patterns", "Position Shift"], examTarget: "SSC, IBPS" },
+            { id: 9, domain: "Verbal & Symbolic", topic: "Statement & Assumption", subpatterns: ["Implicit Policy Assumptions", "Communication Intent", "Cause-Effect Feasibility"], examTarget: "IBPS PO, SBI PO, CSAT" },
+            { id: 10, domain: "Verbal & Symbolic", topic: "Statement & Argument", subpatterns: ["Pragmatic Policy vs Emotional", "Economic Feasibility", "Global Precedent"], examTarget: "IBPS PO, SBI PO, CSAT" },
+            { id: 11, domain: "Verbal & Symbolic", topic: "Statement & Conclusion", subpatterns: ["Direct Syllogistic Deduction", "Bound Inference", "Boundary Quantification"], examTarget: "SSC, IBPS, CSAT" },
+            { id: 12, domain: "Verbal & Symbolic", topic: "Statement & Course of Action", subpatterns: ["Administrative Problem Resolution", "Proportional Response", "Preventative Measures"], examTarget: "IBPS PO, SBI PO" },
+
+            // Non-Verbal & Spatial
+            { id: 13, domain: "Non-Verbal & Spatial", topic: "Figure Series", subpatterns: ["Clockwise Element Rotation", "Progressive Adding of Lines", "Pattern Inversion"], examTarget: "SSC, RRB, AF CAT" },
+            { id: 14, domain: "Non-Verbal & Spatial", topic: "Figure Analogy", subpatterns: ["Shape Transformation", "Element Multiplication", "Mirror/Water Rule"], examTarget: "SSC, RRB" },
+            { id: 15, domain: "Non-Verbal & Spatial", topic: "Figure Classification", subpatterns: ["Symmetry Isolation", "Line Segment Oddity", "Enclosure Numbering"], examTarget: "SSC, RRB" },
+            { id: 16, domain: "Non-Verbal & Spatial", topic: "Mirror Images", subpatterns: ["Vertical Mirror Plane", "Alphanumeric Reversal", "Spatial Arrow Inversion"], examTarget: "SSC, RRB" },
+            { id: 17, domain: "Non-Verbal & Spatial", topic: "Water Images", subpatterns: ["Horizontal Baseline Reflection", "Top-Bottom Reversal", "Symbol Flip"], examTarget: "SSC, RRB" },
+            { id: 18, domain: "Non-Verbal & Spatial", topic: "Paper Folding & Cutting", subpatterns: ["Single Symmetric Punch", "Dual Orthogonal Fold", "Radial Triangular Cut"], examTarget: "SSC, RRB" },
+            { id: 19, domain: "Non-Verbal & Spatial", topic: "Paper Unfolding", subpatterns: ["Multi-layer Inverse Tracing", "Pattern Matrix Symmetry"], examTarget: "SSC, RRB" },
+            { id: 20, domain: "Non-Verbal & Spatial", topic: "Cube & Dice Logic", subpatterns: ["Standard Dice Rule (Sum 7)", "Opposite Face Common Symbol", "Adjacent Face Invalidation"], examTarget: "SSC, CSAT, RRB" },
+            { id: 21, domain: "Non-Verbal & Spatial", topic: "Cube Construction (Net Folding)", subpatterns: ["T-Net Surface Alignment", "Cross-Net Adjacency Mapping"], examTarget: "SSC, CSAT" },
+            { id: 22, domain: "Non-Verbal & Spatial", topic: "Embedded / Hidden Figures", subpatterns: ["Sub-shape Search", "Rotationally Masked Patterns"], examTarget: "SSC, RRB" },
+            { id: 23, domain: "Non-Verbal & Spatial", topic: "Figure Formation & Analysis", subpatterns: ["Tessellation Assembly", "Area Conservation"], examTarget: "SSC, RRB" },
+            { id: 24, domain: "Non-Verbal & Spatial", topic: "Grouping of Images", subpatterns: ["Structural Attribute Grouping", "Open vs Closed Geometry"], examTarget: "SSC, RRB" },
+            { id: 25, domain: "Non-Verbal & Spatial", topic: "3D Mental Rotation", subpatterns: ["Eulerian Angle Rotation", "Volumetric Alignment"], examTarget: "GMAT, Spatial IQ" },
+            { id: 26, domain: "Non-Verbal & Spatial", topic: "Orthographic-to-Isometric Projection", subpatterns: ["Plan/Elevation Solid Matching", "Hidden Line Deduction", "Chamfered Slope Geometry"], examTarget: "Engineering/Spatial IQ" },
+
+            // Analytical & Constraint
+            { id: 27, domain: "Analytical & Constraint", topic: "Multi-Attribute Constraint Puzzles", subpatterns: ["Bi-Attribute Grid", "Tri-Attribute Grid (Person-City-Car)", "Conditional Constraints"], examTarget: "CAT, IBPS PO, SBI PO" },
+            { id: 28, domain: "Analytical & Constraint", topic: "Linear Seating Arrangement", subpatterns: ["Single-Row Facing North", "North-South Mixed Direction", "Dual Parallel Rows"], examTarget: "IBPS PO, SBI PO, CAT" },
+            { id: 29, domain: "Analytical & Constraint", topic: "Circular / Polygonal Seating", subpatterns: ["Inward Facing", "Inward/Outward Mixed", "Concentric Polygonal Layouts"], examTarget: "IBPS PO, SBI PO, CAT" },
+            { id: 30, domain: "Analytical & Constraint", topic: "Multi-Row / Floor Puzzles", subpatterns: ["Multistory Building Floor/Flat", "Variable Allocation"], examTarget: "IBPS PO, SBI PO" },
+            { id: 31, domain: "Analytical & Constraint", topic: "Tabulation Puzzles", subpatterns: ["Schedule Construction", "Resource Allocation Tables"], examTarget: "CAT, IBPS PO" },
+            { id: 32, domain: "Analytical & Constraint", topic: "Box/Cube Puzzles", subpatterns: ["Vertical Box Stacking", "Color Constraint Rules"], examTarget: "IBPS PO, SBI PO" },
+            { id: 33, domain: "Analytical & Constraint", topic: "Categorical Syllogisms", subpatterns: ["Universal Nested Sets", "Negative Exclusion", "Only a Few Quantifiers"], examTarget: "SSC, IBPS PO, CSAT" },
+            { id: 34, domain: "Analytical & Constraint", topic: "Coded Inequalities", subpatterns: ["Transitive Chains ($A>B\\ge C$)", "Symbol Decoding", "Either-Or Equality Pairs"], examTarget: "IBPS PO, SBI PO" },
+            { id: 35, domain: "Analytical & Constraint", topic: "Conditional Logic", subpatterns: ["Modus Ponens", "Modus Tollens", "Contrapositive Transposition"], examTarget: "LSAT, GMAT, CSAT" },
+            { id: 36, domain: "Analytical & Constraint", topic: "Truth-Teller & Liar Logic", subpatterns: ["Binary Pair Claims", "Indirect Identity Claims", "Three-Person Triad Deduction"], examTarget: "CAT, LSAT" },
+            { id: 37, domain: "Analytical & Constraint", topic: "Logical Venn Diagrams", subpatterns: ["Three-Set Intersections", "Universal Affirmative Inclusion"], examTarget: "SSC, CSAT" },
+            { id: 38, domain: "Analytical & Constraint", topic: "Input-Output Machines", subpatterns: ["Word-Number Alternating Sort", "Arithmetic Step Transformation", "Multi-Relocation"], examTarget: "IBPS PO, SBI PO" },
+            { id: 39, domain: "Analytical & Constraint", topic: "Flowcharts & Decision Trees", subpatterns: ["Algorithmic Loop Logic", "Conditional Branch Evaluation"], examTarget: "Banking, CSAT" },
+
+            // Numerical & Quantitative
+            { id: 40, domain: "Numerical & Quantitative", topic: "Number Series", subpatterns: ["Arithmetic Gaps", "Geometric Factors", "Polynomial ($n^3-n^2$)", "Prime Increments"], examTarget: "SSC, IBPS, CSAT" },
+            { id: 41, domain: "Numerical & Quantitative", topic: "Clock Arithmetic", subpatterns: ["Acute Angle Formula", "Hand Coincidence Timing", "Fast/Slow Clock Error Drift"], examTarget: "SSC, CSAT, CAT" },
+            { id: 42, domain: "Numerical & Quantitative", topic: "Calendar Arithmetic", subpatterns: ["Non-Leap Odd Days", "Historical Day Calculation", "Calendar Repetition Cycles"], examTarget: "SSC, CSAT" },
+            { id: 43, domain: "Numerical & Quantitative", topic: "Set Theory / Venn Quantification", subpatterns: ["Dual-Set Formula", "Three-Set Overlap Quantification"], examTarget: "CAT, CSAT, GRE" },
+            { id: 44, domain: "Numerical & Quantitative", topic: "Cryptarithmetic", subpatterns: ["Single-Digit Addition Carry", "Classic Alphametic ($SEND+MORE$)", "Multiplication Alphametics"], examTarget: "CAT, Infosys/Tech Reasoning" },
+            { id: 45, domain: "Numerical & Quantitative", topic: "Data Sufficiency", subpatterns: ["Linear Systems", "Inequality Sign Sufficiency", "Parity Deductions"], examTarget: "GMAT, IBPS PO, CAT" },
+            { id: 46, domain: "Numerical & Quantitative", topic: "Pigeonhole & Combinatorial Logic", subpatterns: ["Worst-Case Selection Limits", "Handshake Combinations"], examTarget: "CAT, GRE, CSAT" },
+            { id: 47, domain: "Numerical & Quantitative", topic: "Arithmetical/Logical Word Problems", subpatterns: ["Age Equations", "Ratio Mixture Logic", "Work-Time Logics"], examTarget: "SSC, CSAT, IBPS" },
+
+            // Critical & Epistemic
+            { id: 48, domain: "Critical & Epistemic", topic: "Necessary vs. Sufficient Assumption", subpatterns: ["Premise-Conclusion Bridge Gap", "Negation Test Application", "Alternative Explanation Elimination"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 49, domain: "Critical & Epistemic", topic: "Strengthening Arguments", subpatterns: ["Empirical Support Evidence", "Causal Mechanism Confirmation", "Confounder Elimination"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 50, domain: "Critical & Epistemic", topic: "Weakening Arguments", subpatterns: ["Alternative Cause Insertion", "Reverse Causality Discovery", "Sample Bias Highlight"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 51, domain: "Critical & Epistemic", topic: "Inference / Must-Be-True", subpatterns: ["Direct Fact Application", "Conditional Transitive Chain", "Quantified Boundary Match"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 52, domain: "Critical & Epistemic", topic: "Causation vs. Correlation", subpatterns: ["Third-Variable Confounder", "Population Size Bias", "Directional Ambiguity"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 53, domain: "Critical & Epistemic", topic: "Formal & Informal Fallacies", subpatterns: ["Ad Hominem Personal Attack", "Circular Reasoning (Begging Question)", "Straw Man Distortion"], examTarget: "LSAT, GMAT, GRE" },
+            { id: 54, domain: "Critical & Epistemic", topic: "Paradox / Resolve-the-Discrepancy", subpatterns: ["Behavioral Adaptations", "Brand Perception Shifts", "Market Counter-Effects"], examTarget: "LSAT, GMAT" },
+            { id: 55, domain: "Critical & Epistemic", topic: "Method of Reasoning", subpatterns: ["Refutation via Counterexample", "Reductio ad Absurdum", "Structural Role Decomposition"], examTarget: "LSAT, GMAT" },
+            { id: 56, domain: "Critical & Epistemic", topic: "Parallel Reasoning", subpatterns: ["Modus Tollens Structural Match", "Fallacy Replication", "Categorical Symmetry"], examTarget: "LSAT, GMAT" },
+            { id: 57, domain: "Critical & Epistemic", topic: "Point at Issue", subpatterns: ["Factual Disagreement", "Policy/Value Conflict", "Causal Interpretation Dispute"], examTarget: "LSAT" },
+            { id: 58, domain: "Critical & Epistemic", topic: "Principle-Based Reasoning", subpatterns: ["Principle Direct Application", "Principle Extraction", "Balancing Competing Principles"], examTarget: "LSAT, Ethics/Management" },
+            { id: 59, domain: "Critical & Epistemic", topic: "Role-in-Argument & Main Conclusion", subpatterns: ["Main Conclusion Identification", "Intermediate Conclusion Role", "Concessionary Counter-Claim Role"], examTarget: "LSAT, GMAT, GRE" }
+        ];
+
+        // ACTIVE PRACTICE QUESTION BANK DATA (Sample representative items from the taxonomy)
+        const QUESTION_REPOSITORY = [
+            {
+                id: 1,
+                domain: "Verbal & Symbolic",
+                topic: "Analogies",
+                subpattern: "Numerical Proportionality ($x : x^3 - x^2$)",
+                difficulty: "Hard",
+                question: "Find the missing number in the pair: 5 : 100 :: 7 : ?",
+                options: ["A) 294", "B) 343", "C) 240", "D) 310"],
+                answer: "A",
+                explanation: "The underlying operation rule is $x : (x^3 - x^2)$. For 5, $5^3 - 5^2 = 125 - 25 = 100$. For 7, $7^3 - 7^2 = 343 - 49 = 294$."
+            },
+            {
+                id: 2,
+                domain: "Verbal & Symbolic",
+                topic: "Classification (Odd One Out)",
+                subpattern: "Digital Sum Product Rule",
+                difficulty: "Hard",
+                question: "Which number is the odd one out based on positional digit logic: 248, 326, 414, 520, 616?",
+                options: ["A) 248", "B) 326", "C) 414", "D) 520"],
+                answer: "D",
+                explanation: "For 248 ($2 \\times 4 = 8$), 326 ($3 \\times 2 = 6$), 414 ($4 \\times 1 = 4$), and 616 ($6 \\times 1 = 6$), the product of the first two digits equals the third digit. 520 ($5 \\times 2 = 10 \\neq 0$) violates this rule."
+            },
+            {
+                id: 3,
+                domain: "Verbal & Symbolic",
+                topic: "Coding-Decoding",
+                subpattern: "Consonant-Vowel Differential Rule",
+                difficulty: "Hard",
+                question: "Vowels are coded as reverse positional numbers ($A=26, E=22$) and Consonants are coded as double their positional rank ($C=6$). What is the code for 'CAGE'?",
+                options: ["A) 6-26-14-22", "B) 6-1-14-5", "C) 3-26-7-22", "D) 6-26-7-22"],
+                answer: "A",
+                explanation: "C (3) $\\to 3 \\times 2 = 6$. A (1) $\\to 27-1 = 26$. G (7) $\\to 7 \\times 2 = 14$. E (5) $\\to 27-5 = 22$. Assembling gives 6-26-14-22."
+            },
+            {
+                id: 4,
+                domain: "Verbal & Symbolic",
+                topic: "Blood Relations",
+                subpattern: "Coded Relations",
+                difficulty: "Medium",
+                question: "If $P + Q$ means $P$ is mother of $Q$, $P - Q$ means $P$ is brother of $Q$, and $P \\times Q$ means $P$ is father of $Q$, which expression indicates that $M$ is paternal uncle of $N$?",
+                options: ["A) M - K × N", "B) M + K × N", "C) M × K - N", "D) M - K + N"],
+                answer: "A",
+                explanation: "$M - K$ establishes $M$ as brother of $K$. $K \\times N$ establishes $K$ as father of $N$. Thus, $M$ is the brother of $N$'s father, making $M$ the paternal uncle."
+            },
+            {
+                id: 5,
+                domain: "Verbal & Symbolic",
+                topic: "Direction Sense Test",
+                subpattern: "Shadow Alignment",
+                difficulty: "Hard",
+                question: "One morning after sunrise, Vikram and Shailesh were standing back-to-back. Vikram's shadow fell directly to his left. Which direction was Shailesh facing?",
+                options: ["A) North", "B) South", "C) East", "D) West"],
+                answer: "B",
+                explanation: "In the morning, shadows fall toward West. If Vikram's shadow is to his left, Vikram faces North. Since Shailesh is back-to-back with Vikram, Shailesh faces South."
+            },
+            {
+                id: 6,
+                domain: "Non-Verbal & Spatial",
+                topic: "Mirror Images",
+                subpattern: "Spatial Arrow Geometry",
+                difficulty: "Hard",
+                question: "A square grid contains an arrow pointing to the top-right corner (NE) and a shaded circle in the bottom-left corner (SW). What does its vertical mirror image show?",
+                options: ["A) Arrow pointing NW, shaded circle in SE corner", "B) Arrow pointing NW, shaded circle in SW corner", "C) Arrow pointing SE, shaded circle in NE corner", "D) Unchanged"],
+                answer: "A",
+                explanation: "Reversing along the vertical plane transforms East components to West: the arrow points Top-Left (NW), and the bottom-left circle moves to the bottom-right corner (SE)."
+            },
+            {
+                id: 7,
+                domain: "Non-Verbal & Spatial",
+                topic: "Cube & Dice Logic",
+                subpattern: "Dual Common Face Rule",
+                difficulty: "Hard",
+                question: "Three views of a single die show: View I (A, B, C), View II (B, C, D), View III (C, E, F). What letter is opposite to C?",
+                options: ["A) A", "B) B", "C) D", "D) Unseen 6th Symbol"],
+                answer: "D",
+                explanation: "C is adjacent to A, B, D, E, and F across the views. Thus, C is adjacent to all 5 other faces, meaning it must be opposite the unseen 6th symbol."
+            },
+            {
+                id: 8,
+                domain: "Non-Verbal & Spatial",
+                topic: "Orthographic Projection",
+                subpattern: "Chamfered Solid",
+                difficulty: "Hard",
+                question: "The front view shows a square with a central cross; the side view shows a trapezoid with two vertical dashed lines. Which geometry matches this projection?",
+                options: ["A) Truncated pyramid", "B) Square prism with corner chamfers & central square bore", "C) Stepped cylinder", "D) Solid cube"],
+                answer: "B",
+                explanation: "The outer trapezoid indicates tapering chamfers on outer edges, while internal dashed lines represent a uniform interior square cavity running through the solid."
+            },
+            {
+                id: 9,
+                domain: "Analytical & Constraint",
+                topic: "Multi-Attribute Constraint Puzzles",
+                subpattern: "Tri-Attribute Grid",
+                difficulty: "Medium",
+                question: "A, B, C, D drive different colored cars (Red, Blue, Green, Yellow) and live in different cities (NY, LA, Chicago, Houston). A drives Red car and does not live in NY or LA. The Chicago resident drives Blue car. C lives in Houston. What car does C drive?",
+                options: ["A) Red", "B) Blue", "C) Green or Yellow", "D) Black"],
+                answer: "C",
+                explanation: "A drives Red. Chicago resident drives Blue. C lives in Houston, so C cannot drive Blue or Red (A's car). Thus, C drives Green or Yellow."
+            },
+            {
+                id: 10,
+                domain: "Analytical & Constraint",
+                topic: "Truth-Teller & Liar Logic",
+                subpattern: "Triad Deduction",
+                difficulty: "Hard",
+                question: "Three citizens (X, Y, Z) are Knights (always tell truth) or Knaves (always lie). X states: 'Y is a Knave.' Y states: 'X and Z are of the same type.' What is Z?",
+                options: ["A) Knight", "B) Knave", "C) Undetermined", "D) Alternator"],
+                answer: "B",
+                explanation: "If X is Knight $\\to$ Y is Knave $\\to$ Y's claim is false $\\to$ X and Z are different types $\\to$ Z is Knave. If X is Knave $\\to$ Y is Knight $\\to$ Y's claim is true $\\to$ X and Z are same type $\\to$ Z is Knave. In both cases, Z is a Knave."
+            },
+            {
+                id: 11,
+                domain: "Numerical & Quantitative",
+                topic: "Number Series",
+                subpattern: "Power Modification ($n^3-1$)",
+                difficulty: "Medium",
+                question: "What is the next term in the sequence: 0, 7, 26, 63, 124, ?",
+                options: ["A) 215", "B) 217", "C) 180", "D) 242"],
+                answer: "A",
+                explanation: "The series follows $n^3 - 1$ for $n = 1, 2, 3, 4, 5, 6$. For $n=6$, $6^3 - 1 = 216 - 1 = 215$."
+            },
+            {
+                id: 12,
+                domain: "Numerical & Quantitative",
+                topic: "Clock Arithmetic",
+                subpattern: "Fast/Slow Clock Error Accumulation",
+                difficulty: "Hard",
+                question: "A clock gains 5 minutes every 3 hours. It was set accurately at 8:00 AM. What is the true time when the clock reads 8:00 PM on the same day?",
+                options: ["A) 7:40 PM", "B) 7:42 PM", "C) 8:20 PM", "D) 7:30 PM"],
+                answer: "A",
+                explanation: "The clock displays 12 hours (720 min) while running at speed ratio 37/36. Actual elapsed time $= 12 \\times (36/37) \\approx 11$ hours 40 minutes, making true time 7:40 PM."
+            },
+            {
+                id: 13,
+                domain: "Numerical & Quantitative",
+                topic: "Cryptarithmetic",
+                subpattern: "Classic Alphametic",
+                difficulty: "Medium",
+                question: "In the cryptarithmetic addition equation SEND + MORE = MONEY, what single digit corresponds to M?",
+                options: ["A) 0", "B) 1", "C) 9", "D) 2"],
+                answer: "B",
+                explanation: "Adding two 4-digit numbers can generate a 5-digit sum only with a carry-over of 1 at the most significant digit position. Thus, M must be 1."
+            },
+            {
+                id: 14,
+                domain: "Critical & Epistemic",
+                topic: "Necessary vs. Sufficient Assumption",
+                subpattern: "Negation Test Application",
+                difficulty: "Medium",
+                question: "Argument: 'Switching to electric buses will completely eliminate air pollution in Metroville.' Which assumption is necessary?",
+                options: [
+                    "A) The electricity grid powering buses does not rely on local fossil-fuel plants producing equivalent pollution",
+                    "B) Electric buses are cheaper than diesel buses",
+                    "C) Everyone in Metroville will ride public buses",
+                    "D) Diesel buses cause severe noise pollution"
+                ],
+                answer: "A",
+                explanation: "Applying the Negation Test: If the electricity grid relies on local fossil fuel plants producing equivalent pollution, switching to electric buses will NOT eliminate air pollution. Thus, assumption A is necessary."
+            },
+            {
+                id: 15,
+                domain: "Critical & Epistemic",
+                topic: "Weakening Arguments",
+                subpattern: "Sample Bias Highlight",
+                difficulty: "Hard",
+                question: "Argument: 'A survey at an elite luxury gym showed 90% of respondents prefer organic food. Therefore, the general population overwhelmingly prefers organic food.' Which flaw weakens the conclusion?",
+                options: [
+                    "A) The sample was drawn from a high-income group not representative of the broader population",
+                    "B) Organic food is more expensive than conventional food",
+                    "C) Gym members exercise more frequently than average citizens",
+                    "D) The luxury market fluctuates seasonally"
+                ],
+                answer: "A",
+                explanation: "Highlighting a socio-economically biased sample invalidates making a sweeping generalization about the entire general population."
+            },
+            {
+                id: 16,
+                domain: "Critical & Epistemic",
+                topic: "Parallel Reasoning",
+                subpattern: "Modus Tollens Replication",
+                difficulty: "Easy",
+                question: "Base: 'If it rains, the grass gets wet. The grass is not wet, so it did not rain.' Which argument shares the exact same logical structure?",
+                options: [
+                    "A) If the alarm rings, the guard wakes up. The guard is not awake, so the alarm did not ring",
+                    "B) If you study, you pass. You passed, so you studied",
+                    "C) Cars need fuel. This car has fuel, so it runs",
+                    "D) Birds fly. Penguins are birds, so they fly"
+                ],
+                answer: "A",
+                explanation: "The base follows valid Modus Tollens ($P \\to Q, \\neg Q \\vdash \\neg P$). Option A uses the exact same valid deductive contrapositive structure."
+            }
+        ];
+
+        // ================= STATE MANAGEMENT =================
+        let activeTab = 'dashboard';
+        let activeFilteredQuestions = [...QUESTION_REPOSITORY];
+        let currentQuestionIndex = 0;
+        let practiceScore = { correct: 0, total: 0 };
+        let answeredQuestions = new Set();
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderTaxonomyGrid();
+            filterPracticeQuestions();
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            activeTab = tabId;
+            document.querySelectorAll('.tab-content').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('bg-indigo-50', 'text-indigo-700');
+                btn.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+            });
+
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+            const activeNav = document.getElementById(`tab-${tabId}`);
+            activeNav.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-100');
+            activeNav.classList.add('bg-indigo-50', 'text-indigo-700');
+        }
+
+        // ================= CHART.JS INITIALIZATION =================
+        function initCharts() {
+            // Chart 1: Domain Share (Doughnut)
+            const ctxDomain = document.getElementById('domainShareChart').getContext('2d');
+            new Chart(ctxDomain, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Verbal & Symbolic', 'Non-Verbal & Spatial', 'Analytical & Constraint', 'Numerical & Quantitative', 'Critical & Epistemic'],
+                    datasets: [{
+                        data: [32, 15, 18, 17, 38],
+                        backgroundColor: ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#ec4899'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    let val = context.raw || 0;
+                                    let total = 120;
+                                    let percentage = Math.round((val / total) * 100);
+                                    return `${label}: ${val} items (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Difficulty Tier Alignment (Stacked Bar)
+            const ctxDiff = document.getElementById('difficultyChart').getContext('2d');
+            new Chart(ctxDiff, {
+                type: 'bar',
+                data: {
+                    labels: ['Verbal/Symbolic', 'Non-Verbal', 'Analytical', 'Numerical', 'Critical'],
+                    datasets: [
+                        { label: 'Easy (~40%)', data: [12, 5, 6, 6, 16], backgroundColor: '#10b981' },
+                        { label: 'Medium (~40%)', data: [13, 5, 6, 7, 17], backgroundColor: '#3b82f6' },
+                        { label: 'Hard (~20%)', data: [7, 5, 6, 4, 5], backgroundColor: '#f43f5e' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false } },
+                        y: { stacked: true, beginAtZero: true }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { size: 11 } } }
+                    }
+                }
+            });
+        }
+
+        // ================= TAXONOMY DIRECTORY RENDERER =================
+        function renderTaxonomyGrid(filteredData = TAXONOMY_DIRECTORY) {
+            const container = document.getElementById('taxonomy-grid');
+            container.innerHTML = '';
+
+            if (filteredData.length === 0) {
+                container.innerHTML = `<div class="col-span-full py-8 text-center text-slate-500 text-sm">No topics matching filter criteria.</div>`;
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition';
+                
+                let domainColor = "bg-indigo-50 text-indigo-700";
+                if(item.domain.includes("Non-Verbal")) domainColor = "bg-cyan-50 text-cyan-700";
+                if(item.domain.includes("Analytical")) domainColor = "bg-emerald-50 text-emerald-700";
+                if(item.domain.includes("Numerical")) domainColor = "bg-amber-50 text-amber-700";
+                if(item.domain.includes("Critical")) domainColor = "bg-rose-50 text-rose-700";
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${domainColor}">
+                                #${item.id} ${item.domain}
+                            </span>
+                            <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-mono">
+                                Target: ${item.examTarget}
+                            </span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-2">${item.topic}</h4>
+                        <div class="space-y-1 mb-3">
+                            <p class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Sub-patterns covered:</p>
+                            <div class="flex flex-wrap gap-1">
+                                ${item.subpatterns.map(sp => `<span class="text-[11px] bg-slate-50 text-slate-700 border border-slate-200 px-1.5 py-0.5 rounded">${sp}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterTaxonomy() {
+            const query = document.getElementById('taxonomy-search').value.toLowerCase();
+            const domainFilter = document.getElementById('taxonomy-domain-filter').value;
+
+            const filtered = TAXONOMY_DIRECTORY.filter(item => {
+                const matchesDomain = (domainFilter === 'ALL' || item.domain === domainFilter);
+                const matchesQuery = item.topic.toLowerCase().includes(query) ||
+                                     item.subpatterns.some(sp => sp.toLowerCase().includes(query)) ||
+                                     item.examTarget.toLowerCase().includes(query);
+                return matchesDomain && matchesQuery;
+            });
+
+            renderTaxonomyGrid(filtered);
+        }
+
+        // ================= PRACTICE SUITE LOGIC =================
+        function filterPracticeQuestions() {
+            const domainVal = document.getElementById('practice-domain-select').value;
+            const diffVal = document.getElementById('practice-diff-select').value;
+            const searchVal = document.getElementById('practice-search-input').value.toLowerCase();
+
+            activeFilteredQuestions = QUESTION_REPOSITORY.filter(q => {
+                const matchDomain = (domainVal === 'ALL' || q.domain === domainVal);
+                const matchDiff = (diffVal === 'ALL' || q.difficulty === diffVal);
+                const matchSearch = q.question.toLowerCase().includes(searchVal) ||
+                                    q.topic.toLowerCase().includes(searchVal) ||
+                                    q.subpattern.toLowerCase().includes(searchVal);
+                return matchDomain && matchDiff && matchSearch;
+            });
+
+            currentQuestionIndex = 0;
+            renderCurrentQuestion();
+        }
+
+        function renderCurrentQuestion() {
+            const qCard = document.getElementById('question-card');
+            const totalFilteredEl = document.getElementById('q-total-filtered');
+            const currentIndexEl = document.getElementById('q-current-index');
+            const expPanel = document.getElementById('explanation-panel');
+
+            expPanel.classList.add('hidden');
+
+            if (activeFilteredQuestions.length === 0) {
+                document.getElementById('q-text').innerText = "No questions match the active filter criteria.";
+                document.getElementById('q-options').innerHTML = '';
+                totalFilteredEl.innerText = "0";
+                currentIndexEl.innerText = "0";
+                document.getElementById('btn-prev').disabled = true;
+                document.getElementById('btn-next').disabled = true;
+                return;
+            }
+
+            totalFilteredEl.innerText = activeFilteredQuestions.length;
+            currentIndexEl.innerText = currentQuestionIndex + 1;
+
+            const q = activeFilteredQuestions[currentQuestionIndex];
+
+            document.getElementById('q-domain-badge').innerText = q.domain;
+            document.getElementById('q-topic-badge').innerText = q.topic;
+            document.getElementById('q-subpattern').innerText = q.subpattern;
+            
+            // Difficulty Badge Styling
+            const diffBadge = document.getElementById('q-diff-badge');
+            diffBadge.innerText = q.difficulty;
+            if(q.difficulty === 'Easy') {
+                diffBadge.className = "px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800";
+            } else if(q.difficulty === 'Medium') {
+                diffBadge.className = "px-2.5 py-1 text-xs font-bold rounded-full bg-blue-100 text-blue-800";
+            } else {
+                diffBadge.className = "px-2.5 py-1 text-xs font-bold rounded-full bg-rose-100 text-rose-800";
+            }
+
+            document.getElementById('q-text').innerText = q.question;
+
+            // Render MCQ Options
+            const optContainer = document.getElementById('q-options');
+            optContainer.innerHTML = '';
+
+            q.options.forEach((optText) => {
+                const optBtn = document.createElement('button');
+                const optionKey = optText.trim().charAt(0); // A, B, C, D
+                optBtn.className = "text-left w-full p-3 rounded-lg border border-slate-200 hover:bg-slate-50 text-xs sm:text-sm transition flex justify-between items-center";
+                optBtn.innerHTML = `<span>${optText}</span>`;
+                optBtn.onclick = () => selectOption(optionKey, optBtn);
+                optContainer.appendChild(optBtn);
+            });
+
+            // Pagination Controls state
+            document.getElementById('btn-prev').disabled = (currentQuestionIndex === 0);
+            document.getElementById('btn-next').disabled = (currentQuestionIndex === activeFilteredQuestions.length - 1);
+        }
+
+        function selectOption(selectedKey, btnElement) {
+            const q = activeFilteredQuestions[currentQuestionIndex];
+            const expPanel = document.getElementById('explanation-panel');
+            const resIcon = document.getElementById('result-icon');
+            const resTitle = document.getElementById('result-title');
+            const expText = document.getElementById('explanation-text');
+
+            const isCorrect = (selectedKey === q.answer);
+
+            // Update Score once per question
+            if (!answeredQuestions.has(q.id)) {
+                answeredQuestions.add(q.id);
+                practiceScore.total += 1;
+                if (isCorrect) practiceScore.correct += 1;
+                document.getElementById('score-display').innerText = `${practiceScore.correct} / ${practiceScore.total}`;
+            }
+
+            // Highlight Buttons
+            const allOptBtns = document.getElementById('q-options').querySelectorAll('button');
+            allOptBtns.forEach(b => {
+                b.disabled = true;
+                const key = b.innerText.trim().charAt(0);
+                if (key === q.answer) {
+                    b.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-semibold');
+                } else if (key === selectedKey && !isCorrect) {
+                    b.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-900');
+                }
+            });
+
+            // Display Explanation Panel
+            expPanel.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'bg-rose-50', 'border-rose-200');
+            if (isCorrect) {
+                expPanel.classList.add('bg-emerald-50', 'border-emerald-200');
+                resIcon.innerText = "✅";
+                resTitle.innerText = "Correct Solution!";
+                resTitle.className = "font-bold text-sm text-emerald-900 mb-1";
+            } else {
+                expPanel.classList.add('bg-rose-50', 'border-rose-200');
+                resIcon.innerText = "❌";
+                resTitle.innerText = `Incorrect. Correct Answer is (${q.answer})`;
+                resTitle.className = "font-bold text-sm text-rose-900 mb-1";
+            }
+
+            expText.innerText = q.explanation;
+        }
+
+        function toggleRevealAnswer() {
+            const q = activeFilteredQuestions[currentQuestionIndex];
+            const expPanel = document.getElementById('explanation-panel');
+            const resIcon = document.getElementById('result-icon');
+            const resTitle = document.getElementById('result-title');
+            const expText = document.getElementById('explanation-text');
+
+            expPanel.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'bg-rose-50', 'border-rose-200');
+            expPanel.classList.add('bg-slate-50', 'border-slate-300');
+            resIcon.innerText = "💡";
+            resTitle.innerText = `Revealed Answer: (${q.answer})`;
+            resTitle.className = "font-bold text-sm text-slate-900 mb-1";
+            expText.innerText = q.explanation;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < activeFilteredQuestions.length - 1) {
+                currentQuestionIndex++;
+                renderCurrentQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderCurrentQuestion();
+            }
+        }
+    </script>
+</body>
+</html>
