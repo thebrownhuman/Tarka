@@ -1,0 +1,76 @@
+<div class="extensions-page">
+  <section class="panel">
+    <h2>Extension requests</h2>
+
+    <nav class="sub-tabs">
+      <button type="button" [class.active]="tab() === 'pending'" (click)="selectTab('pending')">Pending</button>
+      <button type="button" [class.active]="tab() === 'approved'" (click)="selectTab('approved')">Approved</button>
+      <button type="button" [class.active]="tab() === 'denied'" (click)="selectTab('denied')">Denied</button>
+    </nav>
+
+    @if (errorMessage()) {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+    }
+    @if (actionError()) {
+      <p class="error" role="alert">{{ actionError() }}</p>
+    }
+
+    @if (loading() && items().length === 0) {
+      <p>Loading…</p>
+    } @else if (items().length === 0) {
+      <p>No {{ tab() }} extension requests.</p>
+    } @else {
+      <ul class="request-list">
+        @for (item of items(); track item.id) {
+          <li class="request-card">
+            <div class="request-info">
+              <p>
+                Attempt <a [routerLink]="['/admin/attempts']">{{ item.attemptId }}</a>
+                requested <strong>{{ item.requestedSeconds }}s</strong>
+              </p>
+              @if (item.status !== 'pending') {
+                <p class="outcome">
+                  {{ item.status === 'approved' ? 'Approved' : 'Denied' }}
+                  @if (item.grantedSeconds !== null) {
+                    · granted {{ item.grantedSeconds }}s
+                  }
+                  @if (item.adminNote) {
+                    · note: {{ item.adminNote }}
+                  }
+                  @if (item.resolvedAt) {
+                    · {{ item.resolvedAt | date: 'medium' }}
+                  }
+                </p>
+              }
+            </div>
+
+            @if (item.status === 'pending') {
+              <div class="request-actions">
+                <label>
+                  Grant seconds
+                  <input type="number" min="1" [(ngModel)]="grantSeconds[item.id]" />
+                </label>
+                <button type="button" class="approve" [disabled]="actingId() === item.id" (click)="approve(item)">
+                  {{ actingId() === item.id ? 'Working…' : 'Approve' }}
+                </button>
+                <label>
+                  Note (optional)
+                  <input type="text" [(ngModel)]="adminNotes[item.id]" />
+                </label>
+                <button type="button" class="deny" [disabled]="actingId() === item.id" (click)="deny(item)">
+                  {{ actingId() === item.id ? 'Working…' : 'Deny' }}
+                </button>
+              </div>
+            }
+          </li>
+        }
+      </ul>
+
+      @if (hasMore) {
+        <button type="button" [disabled]="loading()" (click)="loadMore()">
+          {{ loading() ? 'Loading…' : 'Load more' }}
+        </button>
+      }
+    }
+  </section>
+</div>

@@ -1,0 +1,81 @@
+<div class="questions-page">
+  <section class="panel">
+    <h2>Upload questions</h2>
+    <p class="hint">
+      Choose a .json file containing either a JSON array of questions, or an object with a
+      <code>questions</code> array. Each question needs domain, topic, difficulty, question_type, question_text,
+      options, correct_option_ids and explanation.
+    </p>
+
+    @if (uploadError()) {
+      <p class="error" role="alert">{{ uploadError() }}</p>
+    }
+    @if (uploadSuccess() !== null) {
+      <p class="success">Inserted {{ uploadSuccess() }} question(s).</p>
+    }
+
+    <div class="upload-row">
+      <input type="file" accept="application/json,.json" [disabled]="uploading()" (change)="onFileSelected($event)" />
+      @if (uploading()) {
+        <span>Uploading…</span>
+      } @else if (selectedFileName()) {
+        <span>{{ selectedFileName() }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Question bank</h2>
+
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
+      <input type="text" formControlName="domain" placeholder="Domain" />
+      <input type="text" formControlName="topic" placeholder="Topic" />
+      <select formControlName="difficulty">
+        <option value="">Any difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button type="submit">Filter</button>
+    </form>
+
+    @if (errorMessage()) {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+    }
+
+    @if (loading() && items().length === 0) {
+      <p>Loading…</p>
+    } @else if (items().length === 0) {
+      <p>No questions match these filters.</p>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Topic</th>
+            <th>Subpattern</th>
+            <th>Difficulty</th>
+            <th>Question</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (question of items(); track question.id) {
+            <tr>
+              <td>{{ question.domain }}</td>
+              <td>{{ question.topic }}</td>
+              <td>{{ question.subpattern ?? '—' }}</td>
+              <td>{{ question.difficulty }}</td>
+              <td>{{ truncate(question.questionText) }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      @if (hasMore) {
+        <button type="button" [disabled]="loading()" (click)="loadMore()">
+          {{ loading() ? 'Loading…' : 'Load more' }}
+        </button>
+      }
+    }
+  </section>
+</div>

@@ -35,6 +35,37 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/candidate/history/history-detail/history-detail.component').then((m) => m.HistoryDetailComponent),
   },
+  // Admin routes (Feature 6 - admin UI). Backend already rejects cross-role
+  // calls with 403, so authGuard here is a UX nicety, not the security boundary.
+  {
+    path: 'admin',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/admin/dashboard/dashboard.component').then((m) => m.AdminDashboardComponent),
+    children: [
+      { path: '', redirectTo: 'candidates', pathMatch: 'full' },
+      {
+        path: 'candidates',
+        loadComponent: () => import('./features/admin/candidates/candidates.component').then((m) => m.CandidatesComponent),
+      },
+      {
+        path: 'questions',
+        loadComponent: () => import('./features/admin/questions/questions.component').then((m) => m.QuestionsComponent),
+      },
+      {
+        path: 'tests',
+        loadComponent: () => import('./features/admin/tests/tests.component').then((m) => m.TestsComponent),
+      },
+      {
+        path: 'attempts',
+        loadComponent: () => import('./features/admin/attempts/attempts.component').then((m) => m.AttemptsComponent),
+      },
+      {
+        path: 'extensions',
+        loadComponent: () =>
+          import('./features/admin/extension-requests/extension-requests.component').then((m) => m.ExtensionRequestsComponent),
+      },
+    ],
+  },
   {
     path: '',
     canActivate: [authGuard, candidateHomeRedirectGuard],

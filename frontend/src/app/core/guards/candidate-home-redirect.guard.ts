@@ -3,17 +3,20 @@ import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 /**
- * The bare '' route still renders the placeholder ShellComponent (useful for
- * admin until Feature 6's admin routes land here). Candidates get a real home
- * screen instead - this guard redirects them to /tests without touching
- * anything admin-related.
+ * The bare '' route redirects signed-in users to their role's home screen:
+ * candidates -> /tests, admins -> /admin. Anyone else (shouldn't happen once
+ * authGuard has run) falls through to the placeholder ShellComponent.
  */
 export const candidateHomeRedirectGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (authService.session()?.role === 'candidate') {
+  const role = authService.session()?.role;
+  if (role === 'candidate') {
     return router.createUrlTree(['/tests']);
+  }
+  if (role === 'admin') {
+    return router.createUrlTree(['/admin']);
   }
   return true;
 };

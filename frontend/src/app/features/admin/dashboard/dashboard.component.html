@@ -1,0 +1,21 @@
+<div class="admin-shell">
+  <header class="page-header">
+    <div>
+      <h1>Tarka Admin</h1>
+      <p>Signed in as <strong>{{ authService.session()?.displayName }}</strong></p>
+    </div>
+    <button type="button" (click)="logout()">Log out</button>
+  </header>
+
+  <nav class="tabs">
+    <a routerLink="/admin/candidates" routerLinkActive="active">Candidates</a>
+    <a routerLink="/admin/questions" routerLinkActive="active">Questions</a>
+    <a routerLink="/admin/tests" routerLinkActive="active">Tests</a>
+    <a routerLink="/admin/attempts" routerLinkActive="active">Attempts</a>
+    <a routerLink="/admin/extensions" routerLinkActive="active">Extension Requests</a>
+  </nav>
+
+  <div class="admin-content">
+    <router-outlet />
+  </div>
+</div>

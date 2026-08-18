@@ -1,0 +1,125 @@
+<div class="attempts-page">
+  <section class="panel">
+    <h2>Attempts</h2>
+
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
+      <input type="text" formControlName="candidateId" placeholder="Candidate ID" />
+      <select formControlName="status">
+        <option value="">Any status</option>
+        <option value="in_progress">In progress</option>
+        <option value="submitted">Submitted</option>
+        <option value="expired">Expired</option>
+      </select>
+      <button type="submit">Filter</button>
+    </form>
+
+    @if (errorMessage()) {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+    }
+    @if (releaseError()) {
+      <p class="error" role="alert">{{ releaseError() }}</p>
+    }
+
+    @if (loading() && items().length === 0) {
+      <p>Loading…</p>
+    } @else if (items().length === 0) {
+      <p>No attempts match these filters.</p>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>Test</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Submitted</th>
+            <th>Released</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (attempt of items(); track attempt.id) {
+            <tr class="attempt-row" (click)="toggleDetail(attempt)">
+              <td>{{ attempt.candidate.displayName }} ({{ attempt.candidate.loginId }})</td>
+              <td>{{ attempt.test.title }}</td>
+              <td>{{ attempt.status }}</td>
+              <td>{{ attempt.score ?? '—' }}</td>
+              <td>{{ attempt.submittedAt ? (attempt.submittedAt | date: 'medium') : '—' }}</td>
+              <td>{{ attempt.resultsReleasedAt ? 'Yes' : 'No' }}</td>
+              <td>
+                @if (canRelease(attempt)) {
+                  <button
+                    type="button"
+                    [disabled]="releasingId() === attempt.id"
+                    (click)="$event.stopPropagation(); release(attempt)"
+                  >
+                    {{ releasingId() === attempt.id ? 'Releasing…' : 'Release results' }}
+                  </button>
+                }
+              </td>
+            </tr>
+            @if (expandedId() === attempt.id) {
+              <tr class="detail-row">
+                <td colspan="7">
+                  @if (detailLoading()) {
+                    <p>Loading breakdown…</p>
+                  } @else if (detailError()) {
+                    <p class="error">{{ detailError() }}</p>
+                  } @else if (detail()) {
+                    @if (detail(); as d) {
+                    <ol class="answers">
+                      @for (answer of d.answers; track answer.questionId) {
+                        <li class="answer-card" [class.correct]="answer.isCorrect === true" [class.incorrect]="answer.isCorrect === false">
+                          <p class="answer-index">Question {{ answer.position + 1 }}</p>
+                          <p class="question-text">{{ answer.questionText }}</p>
+                          <ul class="options">
+                            @for (option of answer.options; track option.id) {
+                              <li
+                                [class.selected]="answer.selectedOptionIds.includes(option.id)"
+                                [class.correct-option]="answer.correctOptionIds.includes(option.id)"
+                              >
+                                {{ option.text }}
+                                @if (answer.correctOptionIds.includes(option.id)) {
+                                  <span class="tag">correct</span>
+                                }
+                                @if (answer.selectedOptionIds.includes(option.id)) {
+                                  <span class="tag">candidate's answer</span>
+                                }
+                              </li>
+                            }
+                          </ul>
+                          <p class="verdict">
+                            @if (answer.isCorrect === true) {
+                              Correct
+                            } @else if (answer.isCorrect === false) {
+                              Incorrect
+                            } @else {
+                              Not answered
+                            }
+                            @if (answer.timeSpentSeconds !== null) {
+                              · {{ answer.timeSpentSeconds }}s spent
+                            }
+                          </p>
+                          @if (answer.explanation) {
+                            <p class="explanation">{{ answer.explanation }}</p>
+                          }
+                        </li>
+                      }
+                    </ol>
+                    }
+                  }
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+
+      @if (hasMore) {
+        <button type="button" [disabled]="loading()" (click)="loadMore()">
+          {{ loading() ? 'Loading…' : 'Load more' }}
+        </button>
+      }
+    }
+  </section>
+</div>

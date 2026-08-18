@@ -1,0 +1,77 @@
+<div class="tests-page">
+  <section class="panel">
+    <h2>Create test</h2>
+
+    @if (createError()) {
+      <p class="error" role="alert">{{ createError() }}</p>
+    }
+    @if (created(); as t) {
+      <p class="success">Created "{{ t.title }}" ({{ t.questionCount }} questions, id {{ t.id }}).</p>
+    }
+
+    <form [formGroup]="testForm" (ngSubmit)="createTest()" class="create-form">
+      <input type="text" formControlName="title" placeholder="Test title" />
+      <label class="duration-label">
+        Duration (minutes)
+        <input type="number" formControlName="durationMinutes" min="1" />
+      </label>
+      <button type="submit" [disabled]="testForm.invalid || selectedIds().length === 0 || creating()">
+        {{ creating() ? 'Creating…' : 'Create test' }}
+      </button>
+    </form>
+
+    <div class="selected-panel">
+      <h3>{{ selectedIds().length }} selected</h3>
+      @if (selectedIds().length === 0) {
+        <p class="hint">Click questions below to add them, in order.</p>
+      } @else {
+        <ol class="selected-list">
+          @for (id of selectedIds(); track id) {
+            <li>
+              <span>{{ titleFor(id) }}</span>
+              <button type="button" (click)="removeSelected(id)">Remove</button>
+            </li>
+          }
+        </ol>
+      }
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Question bank</h2>
+
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
+      <input type="text" formControlName="domain" placeholder="Domain" />
+      <input type="text" formControlName="topic" placeholder="Topic" />
+      <button type="submit">Filter</button>
+    </form>
+
+    @if (errorMessage()) {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+    }
+
+    @if (loading() && items().length === 0) {
+      <p>Loading…</p>
+    } @else if (items().length === 0) {
+      <p>No questions match these filters.</p>
+    } @else {
+      <ul class="question-list">
+        @for (question of items(); track question.id) {
+          <li [class.selected]="isSelected(question.id)" (click)="toggleQuestion(question)">
+            <input type="checkbox" [checked]="isSelected(question.id)" (click)="$event.stopPropagation(); toggleQuestion(question)" />
+            <div>
+              <p class="meta">{{ question.domain }} · {{ question.topic }} · {{ question.difficulty }}</p>
+              <p class="text">{{ question.questionText }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+
+      @if (hasMore) {
+        <button type="button" [disabled]="loading()" (click)="loadMore()">
+          {{ loading() ? 'Loading…' : 'Load more' }}
+        </button>
+      }
+    }
+  </section>
+</div>

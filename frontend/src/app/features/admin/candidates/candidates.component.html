@@ -1,0 +1,83 @@
+<div class="candidates-page">
+  <section class="panel create-panel">
+    <h2>Create candidate</h2>
+    @if (createError()) {
+      <p class="error" role="alert">{{ createError() }}</p>
+    }
+    <form [formGroup]="createForm" (ngSubmit)="createCandidate()" class="inline-form">
+      <input type="text" formControlName="loginId" placeholder="Login ID" />
+      <input type="text" formControlName="displayName" placeholder="Display name" />
+      <button type="submit" [disabled]="createForm.invalid || creating()">
+        {{ creating() ? 'Creating…' : 'Create candidate' }}
+      </button>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>Candidates</h2>
+
+    @if (errorMessage()) {
+      <p class="error" role="alert">{{ errorMessage() }}</p>
+    }
+    @if (resetError()) {
+      <p class="error" role="alert">{{ resetError() }}</p>
+    }
+
+    @if (loading() && items().length === 0) {
+      <p>Loading…</p>
+    } @else if (items().length === 0) {
+      <p>No candidates yet.</p>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Login ID</th>
+            <th>Display name</th>
+            <th>Must change password</th>
+            <th>Active</th>
+            <th>Last login</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (candidate of items(); track candidate.id) {
+            <tr>
+              <td>{{ candidate.loginId }}</td>
+              <td>{{ candidate.displayName }}</td>
+              <td>{{ candidate.mustChangePassword ? 'Yes' : 'No' }}</td>
+              <td>{{ candidate.isActive ? 'Yes' : 'No' }}</td>
+              <td>{{ candidate.lastLoginAt ? (candidate.lastLoginAt | date: 'medium') : '—' }}</td>
+              <td>
+                <button type="button" [disabled]="resettingId() === candidate.id" (click)="resetPassword(candidate)">
+                  {{ resettingId() === candidate.id ? 'Resetting…' : 'Reset password' }}
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      @if (hasMore) {
+        <button type="button" [disabled]="loading()" (click)="loadMore()">
+          {{ loading() ? 'Loading…' : 'Load more' }}
+        </button>
+      }
+    }
+  </section>
+
+  @if (credentialDialog(); as cred) {
+    <div class="modal-backdrop">
+      <div class="modal">
+        <h2>One-time password</h2>
+        <p class="warning">Copy this now. It will never be shown again.</p>
+        <dl>
+          <dt>Login ID</dt>
+          <dd>{{ cred.loginId }}</dd>
+          <dt>Password</dt>
+          <dd class="password">{{ cred.password }}</dd>
+        </dl>
+        <button type="button" (click)="dismissCredentialDialog()">I've copied it, close</button>
+      </div>
+    </div>
+  }
+</div>
