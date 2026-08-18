@@ -1,10 +1,10 @@
-import { DecimalPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TestAttemptService } from '../../../core/services/test-attempt.service';
 import { CandidateQuestion, QuestionResponse, QuestionType } from '../../../core/models/question.model';
 import { SubmitTestResponse } from '../../../core/models/test-attempt.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 // Cosmetic tick rate for the client-side countdown display; the real value is
 // always re-synced from the server's remainingSeconds on every API response.
@@ -41,7 +41,7 @@ function readAttemptProgress(attemptId: string): AttemptProgress {
 @Component({
   selector: 'app-take-test',
   standalone: true,
-  imports: [RouterLink, DecimalPipe],
+  imports: [RouterLink, IconComponent],
   templateUrl: './take-test.component.html',
   styleUrl: './take-test.component.scss',
 })
@@ -63,6 +63,12 @@ export class TakeTestComponent implements OnInit, OnDestroy {
   readonly viewingIndex = signal(0);
   readonly question = signal<CandidateQuestion | null>(null);
   readonly remainingSeconds = signal(0);
+  readonly remainingLabel = computed(() => {
+    const total = Math.max(0, this.remainingSeconds());
+    const minutes = Math.floor(total / 60);
+    const seconds = total % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  });
   readonly selectedOptionIds = signal<string[]>([]);
 
   readonly savingAnswer = signal(false);
@@ -75,6 +81,7 @@ export class TakeTestComponent implements OnInit, OnDestroy {
 
   readonly submittingTest = signal(false);
   readonly submitResult = signal<SubmitTestResponse | null>(null);
+  readonly showSubmitConfirm = signal(false);
 
   get isTimesUp(): boolean {
     return this.remainingSeconds() <= 0;
@@ -200,10 +207,15 @@ export class TakeTestComponent implements OnInit, OnDestroy {
     if (this.submittingTest()) {
       return;
     }
-    const confirmed = window.confirm('Submit this test? You will not be able to change your answers afterwards.');
-    if (!confirmed) {
-      return;
-    }
+    this.showSubmitConfirm.set(true);
+  }
+
+  cancelSubmit(): void {
+    this.showSubmitConfirm.set(false);
+  }
+
+  proceedSubmit(): void {
+    this.showSubmitConfirm.set(false);
     this.submitTest();
   }
 

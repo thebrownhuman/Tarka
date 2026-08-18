@@ -10,6 +10,7 @@ export interface AttemptSummary {
   startedAt: string;
   submittedAt: string | null;
   resultsReleasedAt: string | null;
+  resultsIncludeAnswers: boolean;
 }
 
 export interface AttemptSummaryListResponse {

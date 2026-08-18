@@ -2,12 +2,16 @@
   <section class="panel card create-panel">
     <h2>Create candidate</h2>
     @if (createError()) {
-      <p class="banner-error" role="alert">{{ createError() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />
+        {{ createError() }}
+      </div>
     }
     <form [formGroup]="createForm" (ngSubmit)="createCandidate()" class="inline-form">
       <input class="input-field" type="text" formControlName="loginId" placeholder="Login ID" />
       <input class="input-field" type="text" formControlName="displayName" placeholder="Display name" />
       <button type="submit" class="btn-primary" [disabled]="createForm.invalid || creating()">
+        <app-icon name="plus" [size]="16" />
         {{ creating() ? 'Creating…' : 'Create candidate' }}
       </button>
     </form>
@@ -17,16 +21,25 @@
     <h2>Candidates</h2>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />
+        {{ errorMessage() }}
+      </div>
     }
     @if (resetError()) {
-      <p class="banner-error" role="alert">{{ resetError() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />
+        {{ resetError() }}
+      </div>
     }
 
     @if (loading() && items().length === 0) {
-      <p class="status-line">Loading…</p>
+      <p class="status-line"><span class="spinner"></span>Loading…</p>
     } @else if (items().length === 0) {
       <div class="empty-state">
+        <div class="empty-state-icon">
+          <app-icon name="users" [size]="24" />
+        </div>
         <p>No candidates yet.</p>
       </div>
     } @else {
@@ -81,7 +94,10 @@
   @if (credentialDialog(); as cred) {
     <div class="modal-backdrop">
       <div class="modal-card">
-        <h2>One-time password</h2>
+        <h2>
+          <app-icon name="check-circle" [size]="20" />
+          One-time password
+        </h2>
         <p class="warning">Copy this now. It will never be shown again.</p>
         <dl>
           <dt>Login ID</dt>

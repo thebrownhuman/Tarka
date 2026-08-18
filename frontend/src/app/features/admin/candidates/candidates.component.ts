@@ -4,13 +4,14 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminService } from '../../../core/services/admin.service';
 import { Candidate } from '../../../core/models/candidate.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-admin-candidates',
   standalone: true,
-  imports: [ReactiveFormsModule, DatePipe],
+  imports: [ReactiveFormsModule, DatePipe, IconComponent],
   templateUrl: './candidates.component.html',
   styleUrl: './candidates.component.scss',
 })

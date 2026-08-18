@@ -2,6 +2,7 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from '@nestj
 import { QuestionView, TestAttemptService } from './test-attempt.service';
 import { AttemptDetailResult, AttemptHistoryService } from './attempt-history.service';
 import { TestsRepository } from './tests.repository';
+import { TestAttemptsRepository } from './test-attempts.repository';
 import { StartAttemptDto } from './dto/start-attempt.dto';
 import { GotoQuestionDto } from './dto/goto-question.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
@@ -23,19 +24,27 @@ export class TestAttemptsController {
     private readonly testAttemptService: TestAttemptService,
     private readonly attemptHistoryService: AttemptHistoryService,
     private readonly testsRepository: TestsRepository,
+    private readonly testAttemptsRepository: TestAttemptsRepository,
   ) {}
 
   /** Minimal candidate-facing test catalog - no admin-only fields (question
-   * ids, etc), just enough for a candidate to pick a test and start it. */
+   * ids, etc), just enough for a candidate to pick a test and start it, plus
+   * whether they already have an in-progress attempt so the frontend can
+   * offer "Continue Test" instead of "Start Test". */
   @HttpCode(HttpStatus.OK)
   @Get('available-tests')
-  async availableTests() {
-    const tests = await this.testsRepository.listAll();
+  async availableTests(@CurrentUser() user: AuthenticatedUser) {
+    const [tests, activeAttemptIds] = await Promise.all([
+      this.testsRepository.listAll(),
+      this.testAttemptsRepository.activeAttemptIdsByTestForCandidate(user.id),
+    ]);
+
     return {
       tests: tests.map((test) => ({
         id: test.id,
         title: test.title,
         duration_seconds: test.durationSeconds,
+        active_attempt_id: activeAttemptIds.get(test.id) ?? null,
       })),
     };
   }
@@ -133,6 +142,7 @@ export class TestAttemptsController {
       total_questions: result.totalQuestions,
       submitted_at: result.submittedAt,
       results_released_at: result.resultsReleasedAt,
+      results_include_answers: result.resultsIncludeAnswers,
       answers: result.answers.map((answer) => ({
         question_id: answer.questionId,
         position: answer.position,

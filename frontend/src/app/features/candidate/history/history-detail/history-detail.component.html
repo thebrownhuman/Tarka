@@ -1,15 +1,21 @@
 <div class="history-detail-page">
-  <a routerLink="/history" class="back-link">&larr; Back to history</a>
+  <a routerLink="/history" class="back-link"><app-icon name="chevron-left" [size]="16" />Back to history</a>
 
   @if (loading()) {
-    <p class="status-line">Loading…</p>
+    <p class="status-line"><span class="spinner"></span>Loading…</p>
   } @else if (pendingRelease()) {
     <div class="panel card">
-      <h1>Results pending release</h1>
+      <div class="pending-heading">
+        <app-icon name="clock" [size]="24" />
+        <h1>Results pending release</h1>
+      </div>
       <p>The admin hasn't released results for this attempt yet. Check back later.</p>
     </div>
   } @else if (errorMessage()) {
-    <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+    <div class="banner-error" role="alert">
+      <app-icon name="alert-triangle" [size]="16" />
+      <span>{{ errorMessage() }}</span>
+    </div>
   } @else if (detail()) {
     @if (detail(); as d) {
     <header class="detail-header">

@@ -12,6 +12,12 @@
   }
 }
 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .status-line {
   color: var(--color-muted);
 }
@@ -69,6 +75,13 @@
 
 .load-more {
   margin-top: var(--space-md);
+}
+
+.release-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .answers {
@@ -129,7 +142,7 @@
     background: var(--color-surface);
 
     &.selected {
-      background: #eef3fd;
+      background: var(--color-danger-bg);
     }
 
     &.correct-option {
@@ -153,7 +166,7 @@
 }
 
 .tag-selected {
-  background: var(--color-ink);
+  background: rgba(0, 0, 0, 0.55);
   color: #fff;
 }
 

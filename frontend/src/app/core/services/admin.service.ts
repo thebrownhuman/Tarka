@@ -48,8 +48,8 @@ export class AdminService {
     });
   }
 
-  releaseResults(attemptId: string): Observable<AttemptSummary> {
-    return this.http.post<AttemptSummary>(`${BASE_URL}/dashboard/attempts/release`, { attemptId });
+  releaseResults(attemptId: string, includeAnswers: boolean): Observable<AttemptSummary> {
+    return this.http.post<AttemptSummary>(`${BASE_URL}/dashboard/attempts/release`, { attemptId, includeAnswers });
   }
 
   getAttemptDetail(attemptId: string): Observable<AttemptDetailResponse> {

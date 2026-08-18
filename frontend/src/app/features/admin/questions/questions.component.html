@@ -1,6 +1,6 @@
 <div class="questions-page">
   <section class="panel card">
-    <h2>Upload questions</h2>
+    <h2 class="section-title"><app-icon name="upload" [size]="18" />Upload questions</h2>
     <p class="hint">
       Choose a .json file containing either a JSON array of questions, or an object with a
       <code>questions</code> array. Each question needs domain, topic, difficulty, question_type, question_text,
@@ -8,16 +8,20 @@
     </p>
 
     @if (uploadError()) {
-      <p class="banner-error" role="alert">{{ uploadError() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />{{ uploadError() }}
+      </div>
     }
     @if (uploadSuccess() !== null) {
-      <p class="banner-success">Inserted {{ uploadSuccess() }} question(s).</p>
+      <div class="banner-success">
+        <app-icon name="check-circle" [size]="16" />Inserted {{ uploadSuccess() }} question(s).
+      </div>
     }
 
     <div class="upload-row">
       <input type="file" accept="application/json,.json" [disabled]="uploading()" (change)="onFileSelected($event)" />
       @if (uploading()) {
-        <span>Uploading…</span>
+        <span><span class="spinner"></span>Uploading…</span>
       } @else if (selectedFileName()) {
         <span>{{ selectedFileName() }}</span>
       }
@@ -25,7 +29,7 @@
   </section>
 
   <section class="panel card">
-    <h2>Question bank</h2>
+    <h2 class="section-title"><app-icon name="list-checks" [size]="18" />Question bank</h2>
 
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
       <input class="input-field" type="text" formControlName="domain" placeholder="Domain" />
@@ -36,17 +40,20 @@
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-      <button type="submit" class="btn-primary">Filter</button>
+      <button type="submit" class="btn-primary"><app-icon name="search" [size]="16" />Filter</button>
     </form>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />{{ errorMessage() }}
+      </div>
     }
 
     @if (loading() && items().length === 0) {
-      <p class="status-line">Loading…</p>
+      <p class="status-line"><span class="spinner"></span>Loading…</p>
     } @else if (items().length === 0) {
       <div class="empty-state">
+        <div class="empty-state-icon"><app-icon name="file-question" [size]="24" /></div>
         <p>No questions match these filters.</p>
       </div>
     } @else {

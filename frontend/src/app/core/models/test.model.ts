@@ -2,6 +2,7 @@ export interface AvailableTest {
   id: string;
   title: string;
   durationSeconds: number;
+  activeAttemptId: string | null;
 }
 
 export interface AvailableTestsResponse {

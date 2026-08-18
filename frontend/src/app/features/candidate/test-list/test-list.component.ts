@@ -3,13 +3,16 @@ import { Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../../core/services/auth.service';
 import { TestAttemptService } from '../../../core/services/test-attempt.service';
+import { ThemeService } from '../../../core/services/theme.service';
 import { AvailableTest } from '../../../core/models/test.model';
 import { storeAttemptProgress } from '../take-test/take-test.component';
+import { IconComponent } from '../../../shared/icon/icon.component';
+import { badgeColorForIndex } from '../../../shared/badge-color.util';
 
 @Component({
   selector: 'app-test-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, IconComponent],
   templateUrl: './test-list.component.html',
   styleUrl: './test-list.component.scss',
 })
@@ -17,6 +20,7 @@ export class TestListComponent implements OnInit {
   private readonly testAttemptService = inject(TestAttemptService);
   private readonly router = inject(Router);
   readonly authService = inject(AuthService);
+  readonly themeService = inject(ThemeService);
 
   readonly tests = signal<AvailableTest[]>([]);
   readonly loading = signal(true);
@@ -54,6 +58,14 @@ export class TestListComponent implements OnInit {
         this.errorMessage.set(this.messageFor(err));
       },
     });
+  }
+
+  initial(): string {
+    return (this.authService.session()?.displayName ?? '?').trim().charAt(0).toUpperCase();
+  }
+
+  badgeColor(index: number): string {
+    return badgeColorForIndex(index);
   }
 
   logout(): void {

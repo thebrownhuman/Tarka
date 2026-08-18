@@ -29,6 +29,7 @@ function toAttemptResponse(item: TestAttemptSummary) {
     started_at: item.startedAt,
     submitted_at: item.submittedAt,
     results_released_at: item.resultsReleasedAt,
+    results_include_answers: item.resultsIncludeAnswers,
   };
 }
 
@@ -87,7 +88,7 @@ export class AdminDashboardController {
   @HttpCode(HttpStatus.OK)
   @Post('attempts/release')
   async releaseResults(@Body() dto: ReleaseResultsDto) {
-    const attempt = await this.adminDashboardService.releaseResults(dto.attempt_id);
+    const attempt = await this.adminDashboardService.releaseResults(dto.attempt_id, dto.include_answers ?? false);
 
     return {
       id: attempt.id,
@@ -99,6 +100,7 @@ export class AdminDashboardController {
       started_at: attempt.startedAt,
       submitted_at: attempt.submittedAt,
       results_released_at: attempt.resultsReleasedAt,
+      results_include_answers: attempt.resultsIncludeAnswers,
     };
   }
 
@@ -126,6 +128,7 @@ export class AdminDashboardController {
       total_questions: result.totalQuestions,
       submitted_at: result.submittedAt,
       results_released_at: result.resultsReleasedAt,
+      results_include_answers: result.resultsIncludeAnswers,
       answers: result.answers.map((answer) => ({
         question_id: answer.questionId,
         position: answer.position,

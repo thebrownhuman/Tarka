@@ -15,6 +15,7 @@ interface TestAttemptRow {
   submitted_at: Date | null;
   score: number | null;
   results_released_at: Date | null;
+  results_include_answers: boolean;
   created_at: Date;
   updated_at: Date | null;
   deleted_at: Date | null;
@@ -33,6 +34,7 @@ function toEntity(row: TestAttemptRow): TestAttemptEntity {
     submittedAt: row.submitted_at,
     score: row.score,
     resultsReleasedAt: row.results_released_at,
+    resultsIncludeAnswers: row.results_include_answers,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
     deletedAt: row.deleted_at,
@@ -59,6 +61,7 @@ export interface TestAttemptSummaryRow {
   started_at: Date;
   submitted_at: Date | null;
   results_released_at: Date | null;
+  results_include_answers: boolean;
   candidate_id: string;
   candidate_login_id: string;
   candidate_display_name: string;
@@ -76,6 +79,7 @@ export interface TestAttemptSummary {
   startedAt: Date;
   submittedAt: Date | null;
   resultsReleasedAt: Date | null;
+  resultsIncludeAnswers: boolean;
 }
 
 function toSummary(row: TestAttemptSummaryRow): TestAttemptSummary {
@@ -96,6 +100,7 @@ function toSummary(row: TestAttemptSummaryRow): TestAttemptSummary {
     startedAt: row.started_at,
     submittedAt: row.submitted_at,
     resultsReleasedAt: row.results_released_at,
+    resultsIncludeAnswers: row.results_include_answers,
   };
 }
 
@@ -132,6 +137,18 @@ export class TestAttemptsRepository {
       [testId, candidateId, TestAttemptStatus.IN_PROGRESS],
     );
     return result.rows[0] ? toEntity(result.rows[0]) : null;
+  }
+
+  /** Used by the available-tests list so the candidate sees "Continue Test"
+   * (with the existing attempt id) instead of "Start Test" for a test they
+   * already have an in-progress attempt on. */
+  async activeAttemptIdsByTestForCandidate(candidateId: string): Promise<Map<string, string>> {
+    const result: QueryResult<{ test_id: string; id: string }> = await this.pool.query(
+      `SELECT test_id, id FROM test_attempts
+       WHERE candidate_id = $1 AND status = $2 AND deleted_at IS NULL`,
+      [candidateId, TestAttemptStatus.IN_PROGRESS],
+    );
+    return new Map(result.rows.map((row) => [row.test_id, row.id]));
   }
 
   async updateCurrentQuestionIndex(id: string, currentQuestionIndex: number): Promise<TestAttemptEntity | null> {
@@ -250,6 +267,7 @@ export class TestAttemptsRepository {
          ta.started_at AS started_at,
          ta.submitted_at AS submitted_at,
          ta.results_released_at AS results_released_at,
+         ta.results_include_answers AS results_include_answers,
          u.id AS candidate_id,
          u.login_id AS candidate_login_id,
          u.display_name AS candidate_display_name,
@@ -270,13 +288,13 @@ export class TestAttemptsRepository {
   /** Releases graded results to the candidate. Only a submitted attempt has a
    * final score worth releasing - an in-progress or expired-but-unsubmitted
    * attempt has nothing to show, so this is a no-op (returns null) for those. */
-  async markResultsReleased(id: string): Promise<TestAttemptEntity | null> {
+  async markResultsReleased(id: string, includeAnswers: boolean): Promise<TestAttemptEntity | null> {
     const result: QueryResult<TestAttemptRow> = await this.pool.query(
       `UPDATE test_attempts
-       SET results_released_at = NOW(), updated_at = NOW()
+       SET results_released_at = NOW(), results_include_answers = $3, updated_at = NOW()
        WHERE id = $1 AND status = $2 AND deleted_at IS NULL
        RETURNING *`,
-      [id, TestAttemptStatus.SUBMITTED],
+      [id, TestAttemptStatus.SUBMITTED, includeAnswers],
     );
     return result.rows[0] ? toEntity(result.rows[0]) : null;
   }

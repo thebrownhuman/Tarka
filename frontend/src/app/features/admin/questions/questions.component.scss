@@ -12,6 +12,12 @@
   }
 }
 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .status-line {
   color: var(--color-muted);
 }

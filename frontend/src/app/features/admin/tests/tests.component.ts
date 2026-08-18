@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminService } from '../../../core/services/admin.service';
 import { AdminQuestion } from '../../../core/models/question.model';
 import { CreateTestResponse } from '../../../core/models/test.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 const PAGE_SIZE = 20;
 const SECONDS_PER_MINUTE = 60;
@@ -11,7 +12,7 @@ const SECONDS_PER_MINUTE = 60;
 @Component({
   selector: 'app-admin-tests',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IconComponent],
   templateUrl: './tests.component.html',
   styleUrl: './tests.component.scss',
 })

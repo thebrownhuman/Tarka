@@ -41,7 +41,7 @@ export class AdminDashboardService {
     return { items: result.items, total: result.total, offset, limit };
   }
 
-  async releaseResults(attemptId: string): Promise<TestAttemptEntity> {
+  async releaseResults(attemptId: string, includeAnswers: boolean): Promise<TestAttemptEntity> {
     const attempt = await this.testAttemptsRepository.byId(attemptId);
     if (!attempt) {
       throw new AppException(AppErrorCode.TEST_ATTEMPT_NOT_FOUND, 'Test attempt not found.', HttpStatus.NOT_FOUND);
@@ -55,7 +55,7 @@ export class AdminDashboardService {
       );
     }
 
-    const updated = await this.testAttemptsRepository.markResultsReleased(attemptId);
+    const updated = await this.testAttemptsRepository.markResultsReleased(attemptId, includeAnswers);
     if (!updated) {
       throw new AppException(
         AppErrorCode.TEST_ATTEMPT_NOT_SUBMITTED,

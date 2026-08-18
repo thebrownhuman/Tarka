@@ -4,11 +4,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TestAttemptService } from '../../../../core/services/test-attempt.service';
 import { AttemptDetailResponse } from '../../../../core/models/test-attempt.model';
+import { IconComponent } from '../../../../shared/icon/icon.component';
 
 @Component({
   selector: 'app-history-detail',
   standalone: true,
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, IconComponent],
   templateUrl: './history-detail.component.html',
   styleUrl: './history-detail.component.scss',
 })

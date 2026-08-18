@@ -1,20 +1,27 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../../core/services/auth.service';
 import { TestAttemptService } from '../../../../core/services/test-attempt.service';
+import { ThemeService } from '../../../../core/services/theme.service';
 import { AttemptHistoryItem } from '../../../../core/models/test-attempt.model';
+import { IconComponent } from '../../../../shared/icon/icon.component';
+import { badgeColorForIndex } from '../../../../shared/badge-color.util';
 
 const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-history-list',
   standalone: true,
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, IconComponent],
   templateUrl: './history-list.component.html',
   styleUrl: './history-list.component.scss',
 })
 export class HistoryListComponent implements OnInit {
   private readonly testAttemptService = inject(TestAttemptService);
+  private readonly router = inject(Router);
+  readonly authService = inject(AuthService);
+  readonly themeService = inject(ThemeService);
 
   readonly items = signal<AttemptHistoryItem[]>([]);
   readonly total = signal(0);
@@ -32,6 +39,31 @@ export class HistoryListComponent implements OnInit {
 
   loadMore(): void {
     this.loadPage(this.offset() + PAGE_SIZE);
+  }
+
+  initial(): string {
+    return (this.authService.session()?.displayName ?? '?').trim().charAt(0).toUpperCase();
+  }
+
+  badgeColor(index: number): string {
+    return badgeColorForIndex(index);
+  }
+
+  statusLabel(status: AttemptHistoryItem['status']): string {
+    switch (status) {
+      case 'submitted':
+        return 'Submitted';
+      case 'in_progress':
+        return 'In progress';
+      case 'expired':
+        return 'Expired';
+    }
+  }
+
+  logout(): void {
+    this.authService.logout().subscribe({
+      complete: () => this.router.navigate(['/login']),
+    });
   }
 
   private loadPage(offset: number): void {

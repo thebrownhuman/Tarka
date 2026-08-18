@@ -3,13 +3,14 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../../core/services/admin.service';
 import { AdminQuestion, QuestionDifficulty, UploadQuestionInput } from '../../../core/models/question.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-admin-questions',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, IconComponent],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
 })

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AdminService } from '../../../core/services/admin.service';
 import { ExtensionRequestItem, ExtensionRequestStatus } from '../../../core/models/extension-request.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 const PAGE_SIZE = 20;
 
@@ -13,7 +14,7 @@ type TabFilter = ExtensionRequestStatus;
 @Component({
   selector: 'app-admin-extension-requests',
   standalone: true,
-  imports: [FormsModule, DatePipe, RouterLink],
+  imports: [FormsModule, DatePipe, RouterLink, IconComponent],
   templateUrl: './extension-requests.component.html',
   styleUrl: './extension-requests.component.scss',
 })

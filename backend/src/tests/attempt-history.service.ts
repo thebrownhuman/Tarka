@@ -32,6 +32,7 @@ export interface AttemptDetailResult {
   totalQuestions: number;
   submittedAt: Date | null;
   resultsReleasedAt: Date | null;
+  resultsIncludeAnswers: boolean;
   answers: AttemptAnswerDetail[];
 }
 
@@ -82,7 +83,24 @@ export class AttemptHistoryService {
       );
     }
 
-    return this.buildDetail(attempt);
+    const detail = await this.buildDetail(attempt);
+    if (attempt.resultsIncludeAnswers) {
+      return detail;
+    }
+
+    // Basic release: the candidate learns whether their own answer was right
+    // or wrong (isCorrect/selectedOptionIds stay intact) and never sees the
+    // explanation. The answer key is only kept when it matches what they
+    // already answered correctly - it reveals nothing new in that case, but
+    // is stripped whenever they got a question wrong or left it blank.
+    return {
+      ...detail,
+      answers: detail.answers.map((answer) => ({
+        ...answer,
+        correctOptionIds: answer.isCorrect === true ? answer.correctOptionIds : [],
+        explanation: '',
+      })),
+    };
   }
 
   /** Admin detail view - no ownership check, no release-gate. Admins need full
@@ -123,6 +141,7 @@ export class AttemptHistoryService {
       totalQuestions,
       submittedAt: attempt.submittedAt,
       resultsReleasedAt: attempt.resultsReleasedAt,
+      resultsIncludeAnswers: attempt.resultsIncludeAnswers,
       answers,
     };
   }

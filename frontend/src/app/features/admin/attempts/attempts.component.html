@@ -1,6 +1,6 @@
 <div class="attempts-page">
   <section class="panel card">
-    <h2>Attempts</h2>
+    <h2 class="section-title"><app-icon name="clipboard-list" [size]="18" />Attempts</h2>
 
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
       <input class="input-field" type="text" formControlName="candidateId" placeholder="Candidate ID" />
@@ -10,20 +10,21 @@
         <option value="submitted">Submitted</option>
         <option value="expired">Expired</option>
       </select>
-      <button type="submit" class="btn-primary">Filter</button>
+      <button type="submit" class="btn-primary"><app-icon name="search" [size]="16" />Filter</button>
     </form>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert"><app-icon name="alert-triangle" [size]="16" /><span>{{ errorMessage() }}</span></div>
     }
     @if (releaseError()) {
-      <p class="banner-error" role="alert">{{ releaseError() }}</p>
+      <div class="banner-error" role="alert"><app-icon name="alert-triangle" [size]="16" /><span>{{ releaseError() }}</span></div>
     }
 
     @if (loading() && items().length === 0) {
-      <p class="status-line">Loading…</p>
+      <p class="status-line"><span class="spinner"></span>Loading…</p>
     } @else if (items().length === 0) {
       <div class="empty-state">
+        <div class="empty-state-icon"><app-icon name="inbox" [size]="24" /></div>
         <p>No attempts match these filters.</p>
       </div>
     } @else {
@@ -58,20 +59,38 @@
                 <td>{{ attempt.score ?? '—' }}</td>
                 <td>{{ attempt.submittedAt ? (attempt.submittedAt | date: 'medium') : '—' }}</td>
                 <td>
-                  <span class="badge" [class.badge-success]="attempt.resultsReleasedAt" [class.badge-neutral]="!attempt.resultsReleasedAt">
-                    {{ attempt.resultsReleasedAt ? 'Yes' : 'No' }}
-                  </span>
+                  @if (!attempt.resultsReleasedAt) {
+                    <span class="badge badge-neutral">No</span>
+                  } @else if (attempt.resultsIncludeAnswers) {
+                    <span class="badge badge-success">With answers</span>
+                  } @else {
+                    <span class="badge badge-success">Results only</span>
+                  }
                 </td>
                 <td>
                   @if (canRelease(attempt)) {
-                    <button
-                      type="button"
-                      class="btn-secondary"
-                      [disabled]="releasingId() === attempt.id"
-                      (click)="$event.stopPropagation(); release(attempt)"
-                    >
-                      {{ releasingId() === attempt.id ? 'Releasing…' : 'Release results' }}
-                    </button>
+                    <div class="release-actions">
+                      <button
+                        type="button"
+                        class="btn-secondary"
+                        [disabled]="releasingId() === attempt.id"
+                        (click)="$event.stopPropagation(); release(attempt, false)"
+                      >
+                        {{ releasingId() === attempt.id ? 'Releasing…' : 'Release results' }}
+                      </button>
+                      <button
+                        type="button"
+                        class="btn-primary"
+                        [disabled]="releasingId() === attempt.id"
+                        (click)="$event.stopPropagation(); release(attempt, true)"
+                      >
+                        <app-icon name="check-circle" [size]="14" />
+                        {{ releasingId() === attempt.id ? 'Releasing…' : 'Release with answers' }}
+                      </button>
+                    </div>
+                  }
+                  @if (!canRelease(attempt)) {
+                    <app-icon name="chevron-right" [size]="16" />
                   }
                 </td>
               </tr>
@@ -79,9 +98,9 @@
                 <tr class="detail-row">
                   <td colspan="7">
                     @if (detailLoading()) {
-                      <p class="status-line">Loading breakdown…</p>
+                      <p class="status-line"><span class="spinner"></span>Loading breakdown…</p>
                     } @else if (detailError()) {
-                      <p class="banner-error">{{ detailError() }}</p>
+                      <div class="banner-error"><app-icon name="alert-triangle" [size]="16" /><span>{{ detailError() }}</span></div>
                     } @else if (detail()) {
                       @if (detail(); as d) {
                       <ol class="answers">

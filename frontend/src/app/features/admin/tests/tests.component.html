@@ -1,12 +1,16 @@
 <div class="tests-page">
   <section class="panel card">
-    <h2>Create test</h2>
+    <h2 class="section-title"><app-icon name="plus" [size]="18" />Create test</h2>
 
     @if (createError()) {
-      <p class="banner-error" role="alert">{{ createError() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />{{ createError() }}
+      </div>
     }
     @if (created(); as t) {
-      <p class="banner-success">Created "{{ t.title }}" ({{ t.questionCount }} questions, id {{ t.id }}).</p>
+      <div class="banner-success">
+        <app-icon name="check-circle" [size]="16" />Created "{{ t.title }}" ({{ t.questionCount }} questions, id {{ t.id }}).
+      </div>
     }
 
     <form [formGroup]="testForm" (ngSubmit)="createTest()" class="create-form">
@@ -29,7 +33,9 @@
           @for (id of selectedIds(); track id) {
             <li>
               <span>{{ titleFor(id) }}</span>
-              <button type="button" class="remove-btn" (click)="removeSelected(id)">Remove</button>
+              <button type="button" class="remove-btn" (click)="removeSelected(id)">
+                <app-icon name="trash" [size]="14" />Remove
+              </button>
             </li>
           }
         </ol>
@@ -38,22 +44,25 @@
   </section>
 
   <section class="panel card">
-    <h2>Question bank</h2>
+    <h2 class="section-title"><app-icon name="list-checks" [size]="18" />Question bank</h2>
 
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
       <input class="input-field" type="text" formControlName="domain" placeholder="Domain" />
       <input class="input-field" type="text" formControlName="topic" placeholder="Topic" />
-      <button type="submit" class="btn-primary">Filter</button>
+      <button type="submit" class="btn-primary"><app-icon name="search" [size]="16" />Filter</button>
     </form>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />{{ errorMessage() }}
+      </div>
     }
 
     @if (loading() && items().length === 0) {
-      <p class="status-line">Loading…</p>
+      <p class="status-line"><span class="spinner"></span>Loading…</p>
     } @else if (items().length === 0) {
       <div class="empty-state">
+        <div class="empty-state-icon"><app-icon name="file-question" [size]="24" /></div>
         <p>No questions match these filters.</p>
       </div>
     } @else {

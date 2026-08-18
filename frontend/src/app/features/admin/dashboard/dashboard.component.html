@@ -1,18 +1,42 @@
 <div class="admin-shell">
-  <header class="page-header">
+  <header class="page-header hero-header">
     <div>
-      <h1>Tarka Admin</h1>
+      <div class="brand-mark">
+        <div class="brand-mark-icon">
+          <app-icon name="brand" [size]="18" />
+        </div>
+        Tarka
+        <span class="badge badge-neutral">Admin</span>
+      </div>
       <p>Signed in as <strong>{{ authService.session()?.displayName }}</strong></p>
     </div>
-    <button type="button" class="btn-secondary" (click)="logout()">Log out</button>
+    <button type="button" class="btn-secondary" (click)="logout()">
+      <app-icon name="log-out" [size]="16" />
+      Log out
+    </button>
   </header>
 
   <nav class="tabs">
-    <a routerLink="/admin/candidates" routerLinkActive="active">Candidates</a>
-    <a routerLink="/admin/questions" routerLinkActive="active">Questions</a>
-    <a routerLink="/admin/tests" routerLinkActive="active">Tests</a>
-    <a routerLink="/admin/attempts" routerLinkActive="active">Attempts</a>
-    <a routerLink="/admin/extensions" routerLinkActive="active">Extension Requests</a>
+    <a routerLink="/admin/candidates" routerLinkActive="active">
+      <span class="tab-icon tab-icon-blue"><app-icon name="users" [size]="16" /></span>
+      Candidates
+    </a>
+    <a routerLink="/admin/questions" routerLinkActive="active">
+      <span class="tab-icon tab-icon-violet"><app-icon name="file-question" [size]="16" /></span>
+      Questions
+    </a>
+    <a routerLink="/admin/tests" routerLinkActive="active">
+      <span class="tab-icon tab-icon-teal"><app-icon name="list-checks" [size]="16" /></span>
+      Tests
+    </a>
+    <a routerLink="/admin/attempts" routerLinkActive="active">
+      <span class="tab-icon tab-icon-amber"><app-icon name="clipboard-list" [size]="16" /></span>
+      Attempts
+    </a>
+    <a routerLink="/admin/extensions" routerLinkActive="active">
+      <span class="tab-icon tab-icon-rose"><app-icon name="clock" [size]="16" /></span>
+      Extension Requests
+    </a>
   </nav>
 
   <div class="admin-content">

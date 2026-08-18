@@ -1,36 +1,77 @@
 <div class="test-list-page">
-  <header class="page-header">
-    <div>
-      <h1>Available tests</h1>
-      <p>Signed in as <strong>{{ authService.session()?.displayName }}</strong></p>
+  <header class="page-header hero-header">
+    <div class="user-badge">
+      <span class="user-avatar">{{ initial() }}</span>
+      <div class="user-meta">
+        <span class="user-name">{{ authService.session()?.displayName }}</span>
+        <span class="user-role">Candidate</span>
+      </div>
     </div>
     <nav class="header-actions">
-      <a class="btn-ghost" routerLink="/history">My history</a>
-      <button type="button" class="btn-secondary" (click)="logout()">Log out</button>
+      <button
+        type="button"
+        class="icon-btn theme-btn"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        @if (themeService.theme() === 'dark') {
+          <app-icon name="sun" [size]="18" />
+        } @else {
+          <app-icon name="moon" [size]="18" />
+        }
+      </button>
+      <button type="button" class="btn-secondary" (click)="logout()">
+        <app-icon name="log-out" [size]="16" />Log out
+      </button>
     </nav>
   </header>
 
+  <div class="page-title-row">
+    <h1>Available tests</h1>
+    <a class="btn-ghost" routerLink="/history"><app-icon name="history" [size]="16" />My history</a>
+  </div>
+
   @if (errorMessage()) {
-    <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+    <div class="banner-error" role="alert">
+      <app-icon name="alert-triangle" [size]="16" />
+      <span>{{ errorMessage() }}</span>
+    </div>
   }
 
   @if (loading()) {
-    <p class="status-line">Loading tests…</p>
+    <p class="status-line"><span class="spinner"></span>Loading tests…</p>
   } @else if (tests().length === 0) {
     <div class="empty-state">
+      <div class="empty-state-icon"><app-icon name="inbox" [size]="24" /></div>
       <p>No tests are available right now.</p>
       <p class="empty-hint">Check back later, or contact your administrator.</p>
     </div>
   } @else {
+    <p class="section-lead">
+      <strong>{{ tests().length }}</strong> test{{ tests().length === 1 ? '' : 's' }} ready for you to take.
+    </p>
+
     <ul class="test-cards">
-      @for (test of tests(); track test.id) {
-        <li class="test-card card">
-          <div class="test-card-info">
-            <h2>{{ test.title }}</h2>
-            <p class="duration">{{ test.durationSeconds / 60 }} minutes</p>
+      @for (test of tests(); track test.id; let i = $index) {
+        <li
+          class="test-card card card-interactive stagger-item"
+          [style.--stagger-index]="i"
+        >
+          <div class="test-card-icon icon-badge" [class]="'icon-badge-' + badgeColor(i)">
+            <app-icon name="file-question" [size]="22" />
           </div>
-          <button type="button" class="btn-primary" [disabled]="startingTestId() === test.id" (click)="start(test)">
-            {{ startingTestId() === test.id ? 'Starting…' : 'Start Test' }}
+          <div class="test-card-body">
+            <h2>{{ test.title }}</h2>
+            <div class="test-card-meta">
+              <span class="duration-chip"><app-icon name="clock" [size]="14" />{{ test.durationSeconds / 60 }} minutes</span>
+              @if (test.activeAttemptId) {
+                <span class="badge badge-warning">In progress</span>
+              }
+            </div>
+          </div>
+          <button type="button" class="btn-primary start-btn" [disabled]="startingTestId() === test.id" (click)="start(test)">
+            {{ startingTestId() === test.id ? (test.activeAttemptId ? 'Resuming…' : 'Starting…') : test.activeAttemptId ? 'Continue Test' : 'Start Test' }}
+            <app-icon name="chevron-right" [size]="16" />
           </button>
         </li>
       }

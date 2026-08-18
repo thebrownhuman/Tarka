@@ -12,6 +12,12 @@
   }
 }
 
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .status-line {
   color: var(--color-muted);
 }
@@ -22,6 +28,9 @@
   margin-bottom: var(--space-md);
 
   button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
     padding: 8px 16px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);

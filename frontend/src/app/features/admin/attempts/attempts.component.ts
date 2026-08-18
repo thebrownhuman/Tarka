@@ -5,13 +5,14 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../../core/services/admin.service';
 import { AttemptSummary } from '../../../core/models/attempt-summary.model';
 import { AttemptDetailResponse } from '../../../core/models/test-attempt.model';
+import { IconComponent } from '../../../shared/icon/icon.component';
 
 const PAGE_SIZE = 20;
 
 @Component({
   selector: 'app-admin-attempts',
   standalone: true,
-  imports: [ReactiveFormsModule, DatePipe],
+  imports: [ReactiveFormsModule, DatePipe, IconComponent],
   templateUrl: './attempts.component.html',
   styleUrl: './attempts.component.scss',
 })
@@ -81,14 +82,14 @@ export class AttemptsComponent implements OnInit {
     return attempt.status === 'submitted' && !attempt.resultsReleasedAt;
   }
 
-  release(attempt: AttemptSummary): void {
+  release(attempt: AttemptSummary, includeAnswers: boolean): void {
     if (this.releasingId()) {
       return;
     }
     this.releaseError.set(null);
     this.releasingId.set(attempt.id);
 
-    this.adminService.releaseResults(attempt.id).subscribe({
+    this.adminService.releaseResults(attempt.id, includeAnswers).subscribe({
       next: () => {
         this.releasingId.set(null);
         this.loadPage(this.offset());

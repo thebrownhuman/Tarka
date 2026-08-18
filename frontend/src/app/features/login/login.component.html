@@ -1,5 +1,10 @@
 <div class="login-page">
   <form class="login-card card" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="brand-mark">
+      <span class="brand-mark-icon"><app-icon name="brand" [size]="18" /></span>
+      Tarka
+    </div>
+
     <h1>Sign in</h1>
     <p class="subtitle">Enter your credentials to access Tarka.</p>
 
@@ -25,16 +30,19 @@
           [attr.aria-label]="passwordVisible() ? 'Hide password' : 'Show password'"
         >
           @if (passwordVisible()) {
-            <span aria-hidden="true">&#128584;</span>
+            <app-icon name="eye-off" [size]="18" />
           } @else {
-            <span aria-hidden="true">&#128065;</span>
+            <app-icon name="eye" [size]="18" />
           }
         </button>
       </div>
     </div>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert">
+        <app-icon name="alert-triangle" [size]="16" />
+        <span>{{ errorMessage() }}</span>
+      </div>
     }
 
     <button type="submit" class="btn-primary submit-btn" [disabled]="form.invalid || submitting()">

@@ -64,5 +64,6 @@ export interface AttemptDetailResponse {
   totalQuestions: number;
   submittedAt: string | null;
   resultsReleasedAt: string | null;
+  resultsIncludeAnswers: boolean;
   answers: AttemptDetailAnswer[];
 }

@@ -1,24 +1,31 @@
 <div class="extensions-page">
   <section class="panel card">
-    <h2>Extension requests</h2>
+    <h2 class="section-title"><app-icon name="clock" [size]="18" />Extension requests</h2>
 
     <nav class="sub-tabs">
-      <button type="button" [class.active]="tab() === 'pending'" (click)="selectTab('pending')">Pending</button>
-      <button type="button" [class.active]="tab() === 'approved'" (click)="selectTab('approved')">Approved</button>
-      <button type="button" [class.active]="tab() === 'denied'" (click)="selectTab('denied')">Denied</button>
+      <button type="button" [class.active]="tab() === 'pending'" (click)="selectTab('pending')">
+        <app-icon name="clock" [size]="16" />Pending
+      </button>
+      <button type="button" [class.active]="tab() === 'approved'" (click)="selectTab('approved')">
+        <app-icon name="check-circle" [size]="16" />Approved
+      </button>
+      <button type="button" [class.active]="tab() === 'denied'" (click)="selectTab('denied')">
+        <app-icon name="x-circle" [size]="16" />Denied
+      </button>
     </nav>
 
     @if (errorMessage()) {
-      <p class="banner-error" role="alert">{{ errorMessage() }}</p>
+      <div class="banner-error" role="alert"><app-icon name="alert-triangle" [size]="16" /><span>{{ errorMessage() }}</span></div>
     }
     @if (actionError()) {
-      <p class="banner-error" role="alert">{{ actionError() }}</p>
+      <div class="banner-error" role="alert"><app-icon name="alert-triangle" [size]="16" /><span>{{ actionError() }}</span></div>
     }
 
     @if (loading() && items().length === 0) {
-      <p class="status-line">Loading…</p>
+      <p class="status-line"><span class="spinner"></span>Loading…</p>
     } @else if (items().length === 0) {
       <div class="empty-state">
+        <div class="empty-state-icon"><app-icon name="inbox" [size]="24" /></div>
         <p>No {{ tab() }} extension requests.</p>
       </div>
     } @else {
@@ -59,14 +66,14 @@
                   <input class="input-field" type="number" min="1" [(ngModel)]="grantSeconds[item.id]" />
                 </label>
                 <button type="button" class="btn-primary approve" [disabled]="actingId() === item.id" (click)="approve(item)">
-                  {{ actingId() === item.id ? 'Working…' : 'Approve' }}
+                  <app-icon name="check-circle" [size]="16" />{{ actingId() === item.id ? 'Working…' : 'Approve' }}
                 </button>
                 <label>
                   Note (optional)
                   <input class="input-field" type="text" [(ngModel)]="adminNotes[item.id]" />
                 </label>
                 <button type="button" class="btn-danger deny" [disabled]="actingId() === item.id" (click)="deny(item)">
-                  {{ actingId() === item.id ? 'Working…' : 'Deny' }}
+                  <app-icon name="x-circle" [size]="16" />{{ actingId() === item.id ? 'Working…' : 'Deny' }}
                 </button>
               </div>
             }
