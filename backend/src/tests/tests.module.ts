@@ -6,6 +6,7 @@ import { TestAttemptService } from './test-attempt.service';
 import { TestAttemptsController } from './test-attempts.controller';
 import { AdminTestsController } from './admin-tests.controller';
 import { AdminTestsService } from './admin-tests.service';
+import { AttemptHistoryService } from './attempt-history.service';
 import { QuestionsModule } from '../questions/questions.module';
 
 @Module({
@@ -17,7 +18,8 @@ import { QuestionsModule } from '../questions/questions.module';
     TestAttemptAnswersRepository,
     TestAttemptService,
     AdminTestsService,
+    AttemptHistoryService,
   ],
-  exports: [TestsRepository, TestAttemptsRepository, TestAttemptAnswersRepository],
+  exports: [TestsRepository, TestAttemptsRepository, TestAttemptAnswersRepository, AttemptHistoryService],
 })
 export class TestsModule {}

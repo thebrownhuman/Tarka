@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from '@nestjs/common';
 import { AdminDashboardService } from './admin-dashboard.service';
 import { ListCandidatesDto } from './dto/list-candidates.dto';
 import { ListAttemptsDto } from './dto/list-attempts.dto';
@@ -7,6 +7,9 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '../users/entities/user.entity';
 import { TestAttemptStatus } from '../tests/entities/test-attempt.entity';
 import { TestAttemptSummary } from '../tests/test-attempts.repository';
+import { AttemptDetailResult, AttemptHistoryService } from '../tests/attempt-history.service';
+import { AppException } from '../common/errors/app.exception';
+import { AppErrorCode } from '../common/errors/app-error-code';
 
 function toAttemptResponse(item: TestAttemptSummary) {
   return {
@@ -34,7 +37,10 @@ function toAttemptResponse(item: TestAttemptSummary) {
 @Controller('api/v1/admin/dashboard')
 @Roles(UserRole.ADMIN)
 export class AdminDashboardController {
-  constructor(private readonly adminDashboardService: AdminDashboardService) {}
+  constructor(
+    private readonly adminDashboardService: AdminDashboardService,
+    private readonly attemptHistoryService: AttemptHistoryService,
+  ) {}
 
   @HttpCode(HttpStatus.OK)
   @Post('candidates/list')
@@ -93,6 +99,48 @@ export class AdminDashboardController {
       started_at: attempt.startedAt,
       submitted_at: attempt.submittedAt,
       results_released_at: attempt.resultsReleasedAt,
+    };
+  }
+
+  // Full per-question breakdown for any attempt, regardless of results_released_at -
+  // admins need this to decide whether to release results (gap identified in Feature 5).
+  @HttpCode(HttpStatus.OK)
+  @Get('attempts/detail')
+  async attemptDetail(@Query('attempt_id') attemptId?: string) {
+    if (!attemptId) {
+      throw new AppException(AppErrorCode.VALIDATION_ERROR, 'attempt_id is required', HttpStatus.BAD_REQUEST);
+    }
+
+    const result = await this.attemptHistoryService.getAdminAttemptDetail(attemptId);
+    return this.toDetailResponse(result);
+  }
+
+  private toDetailResponse(result: AttemptDetailResult) {
+    return {
+      attempt_id: result.attemptId,
+      test_id: result.testId,
+      test_title: result.testTitle,
+      candidate_id: result.candidateId,
+      status: result.status,
+      score: result.score,
+      total_questions: result.totalQuestions,
+      submitted_at: result.submittedAt,
+      results_released_at: result.resultsReleasedAt,
+      answers: result.answers.map((answer) => ({
+        question_id: answer.questionId,
+        position: answer.position,
+        question_text: answer.questionText,
+        image_url: answer.imageUrl,
+        question_type: answer.questionType,
+        options: answer.options,
+        passage_text: answer.passageText,
+        correct_option_ids: answer.correctOptionIds,
+        explanation: answer.explanation,
+        selected_option_ids: answer.selectedOptionIds,
+        is_correct: answer.isCorrect,
+        time_spent_seconds: answer.timeSpentSeconds,
+        answered_at: answer.answeredAt,
+      })),
     };
   }
 }

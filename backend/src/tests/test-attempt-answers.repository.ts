@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Pool, QueryResult } from 'pg';
 import { PG_POOL } from '../database/database.providers';
 import { TestAttemptAnswerEntity } from './entities/test-attempt-answer.entity';
+import { QuestionOption, QuestionType } from '../questions/entities/question.entity';
 
 interface TestAttemptAnswerRow {
   id: string;
@@ -30,6 +31,56 @@ function toEntity(row: TestAttemptAnswerRow): TestAttemptAnswerEntity {
     createdAt: row.created_at,
     updatedAt: row.updated_at,
     deletedAt: row.deleted_at,
+  };
+}
+
+interface AttemptAnswerDetailRow {
+  question_id: string;
+  position: number;
+  question_text: string;
+  image_url: string | null;
+  question_type: string;
+  options: QuestionOption[];
+  passage_text: string | null;
+  correct_option_ids: string[];
+  explanation: string;
+  selected_option_ids: string[];
+  is_correct: boolean | null;
+  time_spent_seconds: number | null;
+  answered_at: Date | null;
+}
+
+export interface AttemptAnswerDetail {
+  questionId: string;
+  position: number;
+  questionText: string;
+  imageUrl: string | null;
+  questionType: QuestionType;
+  options: QuestionOption[];
+  passageText: string | null;
+  correctOptionIds: string[];
+  explanation: string;
+  selectedOptionIds: string[];
+  isCorrect: boolean | null;
+  timeSpentSeconds: number | null;
+  answeredAt: Date | null;
+}
+
+function toDetail(row: AttemptAnswerDetailRow): AttemptAnswerDetail {
+  return {
+    questionId: row.question_id,
+    position: row.position,
+    questionText: row.question_text,
+    imageUrl: row.image_url,
+    questionType: row.question_type as QuestionType,
+    options: row.options,
+    passageText: row.passage_text,
+    correctOptionIds: row.correct_option_ids,
+    explanation: row.explanation,
+    selectedOptionIds: row.selected_option_ids,
+    isCorrect: row.is_correct,
+    timeSpentSeconds: row.time_spent_seconds,
+    answeredAt: row.answered_at,
   };
 }
 
@@ -106,5 +157,38 @@ export class TestAttemptAnswersRepository {
       [attemptId],
     );
     return result.rows.map(toEntity);
+  }
+
+  /** Full per-question breakdown for history/analytics (Feature 6). Joins through
+   * test_attempts to resolve the attempt's test, then through test_questions to get
+   * each question's position within that test - no FK constraints (SCHEMA.md), so
+   * this is a plain multi-table JOIN on the id columns. Passage is a nullable left
+   * join since not every question has one. */
+  async detailedForAttempt(attemptId: string): Promise<AttemptAnswerDetail[]> {
+    const result: QueryResult<AttemptAnswerDetailRow> = await this.pool.query(
+      `SELECT
+         q.id AS question_id,
+         tq.position AS position,
+         q.question_text AS question_text,
+         q.image_url AS image_url,
+         q.question_type AS question_type,
+         q.options AS options,
+         p.text AS passage_text,
+         q.correct_option_ids AS correct_option_ids,
+         q.explanation AS explanation,
+         taa.selected_option_ids AS selected_option_ids,
+         taa.is_correct AS is_correct,
+         taa.time_spent_seconds AS time_spent_seconds,
+         taa.answered_at AS answered_at
+       FROM test_attempt_answers taa
+       JOIN test_attempts ta ON ta.id = taa.attempt_id
+       JOIN questions q ON q.id = taa.question_id
+       JOIN test_questions tq ON tq.test_id = ta.test_id AND tq.question_id = taa.question_id AND tq.deleted_at IS NULL
+       LEFT JOIN passages p ON p.id = q.passage_id
+       WHERE taa.attempt_id = $1 AND taa.deleted_at IS NULL
+       ORDER BY tq.position ASC`,
+      [attemptId],
+    );
+    return result.rows.map(toDetail);
   }
 }

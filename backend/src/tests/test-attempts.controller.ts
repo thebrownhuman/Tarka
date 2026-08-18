@@ -1,9 +1,11 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from '@nestjs/common';
 import { QuestionView, TestAttemptService } from './test-attempt.service';
+import { AttemptDetailResult, AttemptHistoryService } from './attempt-history.service';
 import { StartAttemptDto } from './dto/start-attempt.dto';
 import { GotoQuestionDto } from './dto/goto-question.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
 import { AttemptIdDto } from './dto/attempt-id.dto';
+import { HistoryListDto } from './dto/history-list.dto';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '../users/entities/user.entity';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
@@ -16,7 +18,10 @@ import { AppErrorCode } from '../common/errors/app-error-code';
 @Controller('api/v1/test-attempts')
 @Roles(UserRole.CANDIDATE)
 export class TestAttemptsController {
-  constructor(private readonly testAttemptService: TestAttemptService) {}
+  constructor(
+    private readonly testAttemptService: TestAttemptService,
+    private readonly attemptHistoryService: AttemptHistoryService,
+  ) {}
 
   @HttpCode(HttpStatus.OK)
   @Post('start')
@@ -68,6 +73,65 @@ export class TestAttemptsController {
   async submit(@CurrentUser() user: AuthenticatedUser, @Body() dto: AttemptIdDto) {
     const result = await this.testAttemptService.submitTest(dto.attempt_id, user.id);
     return { score: result.score, total_questions: result.totalQuestions };
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('history/list')
+  async historyList(@CurrentUser() user: AuthenticatedUser, @Body() dto: HistoryListDto) {
+    const result = await this.attemptHistoryService.getCandidateHistory(user.id, dto.offset, dto.limit);
+
+    return {
+      items: result.items.map((item) => ({
+        id: item.id,
+        test: { id: item.test.id, title: item.test.title },
+        status: item.status,
+        submitted_at: item.submittedAt,
+        results_released_at: item.resultsReleasedAt,
+        score: item.score,
+      })),
+      total: result.total,
+      offset: result.offset,
+      limit: result.limit,
+    };
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Get('history/detail')
+  async historyDetail(@CurrentUser() user: AuthenticatedUser, @Query('attempt_id') attemptId?: string) {
+    if (!attemptId) {
+      throw new AppException(AppErrorCode.VALIDATION_ERROR, 'attempt_id is required', HttpStatus.BAD_REQUEST);
+    }
+
+    const result = await this.attemptHistoryService.getCandidateAttemptDetail(attemptId, user.id);
+    return this.toDetailResponse(result);
+  }
+
+  private toDetailResponse(result: AttemptDetailResult) {
+    return {
+      attempt_id: result.attemptId,
+      test_id: result.testId,
+      test_title: result.testTitle,
+      status: result.status,
+      score: result.score,
+      total_questions: result.totalQuestions,
+      submitted_at: result.submittedAt,
+      results_released_at: result.resultsReleasedAt,
+      answers: result.answers.map((answer) => ({
+        question_id: answer.questionId,
+        position: answer.position,
+        question_text: answer.questionText,
+        image_url: answer.imageUrl,
+        question_type: answer.questionType,
+        options: answer.options,
+        passage_text: answer.passageText,
+        correct_option_ids: answer.correctOptionIds,
+        explanation: answer.explanation,
+        selected_option_ids: answer.selectedOptionIds,
+        is_correct: answer.isCorrect,
+        time_spent_seconds: answer.timeSpentSeconds,
+        answered_at: answer.answeredAt,
+      })),
+    };
   }
 
   private toQuestionResponse(result: QuestionView) {
