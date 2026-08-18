@@ -37,6 +37,7 @@ interface UploadQuestion {
 const REFERENCE_DIR = path.resolve(__dirname, '../../.planning/reference/questions');
 const ANALOGIES_MD_PATH = path.join(REFERENCE_DIR, '01-analogies.md');
 const HTML_BANK_PATH = path.join(REFERENCE_DIR, 'reasoning_practice_question_bank.html');
+const ANALOGY_EXPLORER_PATH = path.join(REFERENCE_DIR, 'competitive_exam_analogy_item_bank_explorer.html');
 const OUTPUT_PATH = path.join(REFERENCE_DIR, 'converted-questions.json');
 
 const LETTER_TO_ID: Record<string, string> = { A: 'a', B: 'b', C: 'c', D: 'd', E: 'e' };
@@ -168,12 +169,20 @@ function findMatchingBracket(content: string, openIndex: number): number {
   throw new Error('Could not find the matching closing bracket for QUESTION_REPOSITORY.');
 }
 
-function extractRepositoryArray(): RepositoryQuestion[] {
-  const content = fs.readFileSync(HTML_BANK_PATH, 'utf-8');
-  const startMarker = 'const QUESTION_REPOSITORY = [';
+/**
+ * Generic extractor: finds `const <startMarker>[` in `filePath`, then slices out
+ * the full array literal using bracket-depth-aware matching (see
+ * findMatchingBracket) and evaluates it as JS. These source files are trusted,
+ * local, hand-authored content (not user input), so `new Function` eval is the
+ * simplest reliable way to get real values back out without fighting a
+ * regex/JSON parser against unquoted keys and embedded LaTeX escapes.
+ */
+function extractArrayLiteral<T>(filePath: string, constName: string): T[] {
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const startMarker = `const ${constName} = [`;
   const startIndex = content.indexOf(startMarker);
   if (startIndex === -1) {
-    throw new Error('Could not find "const QUESTION_REPOSITORY = [" in the HTML source file.');
+    throw new Error(`Could not find "${startMarker}" in ${filePath}.`);
   }
 
   const arrayStart = startIndex + startMarker.length - 1; // include the opening '['
@@ -182,7 +191,52 @@ function extractRepositoryArray(): RepositoryQuestion[] {
   const arrayLiteral = content.slice(arrayStart, endIndex + 1);
   // eslint-disable-next-line @typescript-eslint/no-implied-eval
   const factory = new Function(`return (${arrayLiteral});`);
-  return factory() as RepositoryQuestion[];
+  return factory() as T[];
+}
+
+function extractRepositoryArray(): RepositoryQuestion[] {
+  return extractArrayLiteral<RepositoryQuestion>(HTML_BANK_PATH, 'QUESTION_REPOSITORY');
+}
+
+interface AnalogyExplorerItem {
+  id: number;
+  sub: string;
+  diff: string;
+  dom: string;
+  q: string;
+  opts: string[];
+  ans: string;
+  exp: string;
+}
+
+/**
+ * Parses "(A) Cub" style option strings (paren before the letter, unlike the
+ * "A) Cub" style used elsewhere) into [{id: 'a', text: 'Cub'}, ...].
+ */
+function parseParenLetterOptions(raw: string[]): UploadOption[] {
+  return raw.map((entry) => {
+    const match = /^\(([A-E])\)\s*(.*)$/.exec(entry.trim());
+    if (!match) {
+      throw new Error(`Unrecognized option format "${entry}"`);
+    }
+    return { id: letterToOptionId(match[1]), text: match[2].trim() };
+  });
+}
+
+function convertAnalogyExplorer(): UploadQuestion[] {
+  const items = extractArrayLiteral<AnalogyExplorerItem>(ANALOGY_EXPLORER_PATH, 'ITEM_BANK');
+
+  return items.map((item) => ({
+    domain: 'Verbal & Symbolic',
+    topic: 'Analogies',
+    subpattern: item.sub || null,
+    difficulty: item.diff.toLowerCase(),
+    question_type: 'single_choice',
+    question_text: item.q,
+    options: parseParenLetterOptions(item.opts),
+    correct_option_ids: [letterToOptionId(item.ans)],
+    explanation: item.exp,
+  }));
 }
 
 function parseHtmlOptions(raw: string[]): UploadOption[] {
@@ -217,14 +271,16 @@ function convertHtmlRepository(): UploadQuestion[] {
 function main(): void {
   const fromAnalogiesMd = convertAnalogiesMarkdown();
   const fromHtmlBank = convertHtmlRepository();
-  const allQuestions = [...fromAnalogiesMd, ...fromHtmlBank];
+  const fromAnalogyExplorer = convertAnalogyExplorer();
+  const allQuestions = [...fromAnalogiesMd, ...fromHtmlBank, ...fromAnalogyExplorer];
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({ questions: allQuestions }, null, 2), 'utf-8');
 
   console.log('Question conversion complete.');
-  console.log(`  01-analogies.md:                        ${fromAnalogiesMd.length} questions`);
-  console.log(`  reasoning_practice_question_bank.html:  ${fromHtmlBank.length} questions`);
-  console.log(`  Total:                                  ${allQuestions.length} questions`);
+  console.log(`  01-analogies.md:                                     ${fromAnalogiesMd.length} questions`);
+  console.log(`  reasoning_practice_question_bank.html:               ${fromHtmlBank.length} questions`);
+  console.log(`  competitive_exam_analogy_item_bank_explorer.html:    ${fromAnalogyExplorer.length} questions`);
+  console.log(`  Total:                                               ${allQuestions.length} questions`);
   console.log(`Output written to: ${OUTPUT_PATH}`);
 }
 
