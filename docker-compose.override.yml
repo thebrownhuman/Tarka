@@ -15,5 +15,5 @@ services:
     volumes:
       - ./frontend/src:/app/src
     ports:
-      - "${FRONTEND_PORT:-4200}:4200"
+      - "${FRONTEND_DEV_PORT:-4200}:4200"
     command: npm run start -- --host 0.0.0.0
