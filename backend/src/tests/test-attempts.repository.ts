@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Pool, QueryResult } from 'pg';
+import { Pool, PoolClient, QueryResult } from 'pg';
 import { PG_POOL } from '../database/database.providers';
 import { TestAttemptEntity, TestAttemptStatus } from './entities/test-attempt.entity';
 
@@ -100,6 +100,30 @@ export class TestAttemptsRepository {
        WHERE id = $1 AND deleted_at IS NULL
        RETURNING *`,
       [id, extendedSeconds],
+    );
+    return result.rows[0] ? toEntity(result.rows[0]) : null;
+  }
+
+  /** Used by ExtensionRequestService.approve() inside a transaction shared with
+   * ExtensionRequestsRepository.markApproved(). Grants extra time and, when the
+   * attempt had expired, flips it back to in_progress so the candidate can resume -
+   * an approved extension un-expires the attempt. The DB-level CHECK constraint
+   * (base + extended <= 7200) still applies and will reject the update if violated. */
+  async applyExtension(
+    id: string,
+    extendedSeconds: number,
+    reactivateIfExpired: boolean,
+    client?: PoolClient,
+  ): Promise<TestAttemptEntity | null> {
+    const executor = client ?? this.pool;
+    const result: QueryResult<TestAttemptRow> = await executor.query(
+      `UPDATE test_attempts
+       SET extended_seconds = $2,
+           status = CASE WHEN $3 AND status = $4 THEN $5 ELSE status END,
+           updated_at = NOW()
+       WHERE id = $1 AND deleted_at IS NULL
+       RETURNING *`,
+      [id, extendedSeconds, reactivateIfExpired, TestAttemptStatus.EXPIRED, TestAttemptStatus.IN_PROGRESS],
     );
     return result.rows[0] ? toEntity(result.rows[0]) : null;
   }
