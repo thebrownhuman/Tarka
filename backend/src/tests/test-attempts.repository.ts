@@ -45,6 +45,60 @@ export interface CreateTestAttemptParams {
   baseDurationSeconds: number;
 }
 
+export interface TestAttemptListFilters {
+  candidateId?: string;
+  testId?: string;
+  status?: TestAttemptStatus;
+}
+
+export interface TestAttemptSummaryRow {
+  id: string;
+  status: string;
+  score: number | null;
+  current_question_index: number;
+  started_at: Date;
+  submitted_at: Date | null;
+  results_released_at: Date | null;
+  candidate_id: string;
+  candidate_login_id: string;
+  candidate_display_name: string;
+  test_id: string;
+  test_title: string;
+}
+
+export interface TestAttemptSummary {
+  id: string;
+  candidate: { id: string; loginId: string; displayName: string };
+  test: { id: string; title: string };
+  status: TestAttemptStatus;
+  score: number | null;
+  currentQuestionIndex: number;
+  startedAt: Date;
+  submittedAt: Date | null;
+  resultsReleasedAt: Date | null;
+}
+
+function toSummary(row: TestAttemptSummaryRow): TestAttemptSummary {
+  return {
+    id: row.id,
+    candidate: {
+      id: row.candidate_id,
+      loginId: row.candidate_login_id,
+      displayName: row.candidate_display_name,
+    },
+    test: {
+      id: row.test_id,
+      title: row.test_title,
+    },
+    status: row.status as TestAttemptStatus,
+    score: row.score,
+    currentQuestionIndex: row.current_question_index,
+    startedAt: row.started_at,
+    submittedAt: row.submitted_at,
+    resultsReleasedAt: row.results_released_at,
+  };
+}
+
 @Injectable()
 export class TestAttemptsRepository {
   constructor(@Inject(PG_POOL) private readonly pool: Pool) {}
@@ -146,6 +200,83 @@ export class TestAttemptsRepository {
        WHERE id = $1 AND deleted_at IS NULL
        RETURNING *`,
       [id, TestAttemptStatus.EXPIRED],
+    );
+    return result.rows[0] ? toEntity(result.rows[0]) : null;
+  }
+
+  /** Admin dashboard listing - joins candidate and test details in a single query
+   * since there are no FK constraints (SCHEMA.md) but plain SQL JOINs on the id
+   * columns work fine. */
+  async listWithFilters(
+    filters: TestAttemptListFilters,
+    offset: number,
+    limit: number,
+  ): Promise<{ items: TestAttemptSummary[]; total: number }> {
+    const conditions: string[] = ['ta.deleted_at IS NULL'];
+    const values: unknown[] = [];
+
+    if (filters.candidateId) {
+      values.push(filters.candidateId);
+      conditions.push(`ta.candidate_id = $${values.length}`);
+    }
+    if (filters.testId) {
+      values.push(filters.testId);
+      conditions.push(`ta.test_id = $${values.length}`);
+    }
+    if (filters.status) {
+      values.push(filters.status);
+      conditions.push(`ta.status = $${values.length}`);
+    }
+
+    const whereClause = conditions.join(' AND ');
+
+    const countResult: QueryResult<{ count: string }> = await this.pool.query(
+      `SELECT COUNT(*) AS count FROM test_attempts ta WHERE ${whereClause}`,
+      values,
+    );
+    const total = Number(countResult.rows[0].count);
+
+    values.push(limit);
+    const limitIndex = values.length;
+    values.push(offset);
+    const offsetIndex = values.length;
+
+    const result: QueryResult<TestAttemptSummaryRow> = await this.pool.query(
+      `SELECT
+         ta.id AS id,
+         ta.status AS status,
+         ta.score AS score,
+         ta.current_question_index AS current_question_index,
+         ta.started_at AS started_at,
+         ta.submitted_at AS submitted_at,
+         ta.results_released_at AS results_released_at,
+         u.id AS candidate_id,
+         u.login_id AS candidate_login_id,
+         u.display_name AS candidate_display_name,
+         t.id AS test_id,
+         t.title AS test_title
+       FROM test_attempts ta
+       JOIN users u ON u.id = ta.candidate_id
+       JOIN tests t ON t.id = ta.test_id
+       WHERE ${whereClause}
+       ORDER BY ta.created_at DESC
+       LIMIT $${limitIndex} OFFSET $${offsetIndex}`,
+      values,
+    );
+
+    return { items: result.rows.map(toSummary), total };
+  }
+
+  /** Releases graded results to the candidate. Only a submitted attempt has a
+   * final score worth releasing - an in-progress or expired-but-unsubmitted
+   * attempt has nothing to show, so this is a no-op (returns null) for those. */
+  async markResultsReleased(id: string): Promise<TestAttemptEntity | null> {
+    const result: QueryResult<TestAttemptRow> = await this.pool.query(
+      `UPDATE test_attempts
+       SET results_released_at = NOW(), updated_at = NOW()
+       WHERE id = $1 AND status = $2 AND deleted_at IS NULL
+       RETURNING *`,
+      [id, TestAttemptStatus.SUBMITTED],
     );
     return result.rows[0] ? toEntity(result.rows[0]) : null;
   }

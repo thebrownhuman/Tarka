@@ -85,4 +85,22 @@ export class UsersRepository {
   async updateLastLogin(id: string): Promise<void> {
     await this.pool.query(`UPDATE users SET last_login_at = NOW(), updated_at = NOW() WHERE id = $1`, [id]);
   }
+
+  async listCandidates(offset: number, limit: number): Promise<{ items: UserEntity[]; total: number }> {
+    const countResult: QueryResult<{ count: string }> = await this.pool.query(
+      `SELECT COUNT(*) AS count FROM users WHERE role = $1 AND deleted_at IS NULL`,
+      [UserRole.CANDIDATE],
+    );
+    const total = Number(countResult.rows[0].count);
+
+    const result: QueryResult<UserRow> = await this.pool.query(
+      `SELECT * FROM users
+       WHERE role = $1 AND deleted_at IS NULL
+       ORDER BY created_at DESC
+       LIMIT $2 OFFSET $3`,
+      [UserRole.CANDIDATE, limit, offset],
+    );
+
+    return { items: result.rows.map(toEntity), total };
+  }
 }
