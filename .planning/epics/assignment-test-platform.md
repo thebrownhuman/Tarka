@@ -1,4 +1,4 @@
-# Epic: Assignment Test Platform
+# Epic: Tarka (Assignment Test Platform)
 
 **Created**: 2026-08-18
 **Status**: planning
