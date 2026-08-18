@@ -12,6 +12,7 @@
     "migrate:up": "node-pg-migrate up -m src/database/migrations",
     "migrate:down": "node-pg-migrate down -m src/database/migrations",
     "seed:admin": "ts-node -r tsconfig-paths/register scripts/seed-admin.ts",
+    "convert:questions": "ts-node scripts/convert-questions.ts",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "test": "jest",
     "test:watch": "jest --watch",

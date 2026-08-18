@@ -1,0 +1,4144 @@
+{
+  "questions": [
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "HAPPY : JOYFUL :: SAD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Angry"
+        },
+        {
+          "id": "b",
+          "text": "Excited"
+        },
+        {
+          "id": "c",
+          "text": "Sorrowful"
+        },
+        {
+          "id": "d",
+          "text": "Calm"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Both pairs are synonyms; joyful = happy, sorrowful = sad."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BIG : LARGE :: SMALL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tiny"
+        },
+        {
+          "id": "b",
+          "text": "Huge"
+        },
+        {
+          "id": "c",
+          "text": "Wide"
+        },
+        {
+          "id": "d",
+          "text": "Short"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Synonym pair; tiny means small."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BRAVE : COURAGEOUS :: FEARFUL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bold"
+        },
+        {
+          "id": "b",
+          "text": "Angry"
+        },
+        {
+          "id": "c",
+          "text": "Calm"
+        },
+        {
+          "id": "d",
+          "text": "Timid"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Synonym pair; timid means fearful."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "RAPID : QUICK :: SLOW : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fast"
+        },
+        {
+          "id": "b",
+          "text": "Sluggish"
+        },
+        {
+          "id": "c",
+          "text": "Steady"
+        },
+        {
+          "id": "d",
+          "text": "Late"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Synonym pair; sluggish means slow."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ANCIENT : ARCHAIC :: MODERN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Old"
+        },
+        {
+          "id": "b",
+          "text": "Historic"
+        },
+        {
+          "id": "c",
+          "text": "Contemporary"
+        },
+        {
+          "id": "d",
+          "text": "Classic"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Synonym pair; contemporary means modern."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "FRUGAL : THRIFTY :: LAVISH : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Extravagant"
+        },
+        {
+          "id": "b",
+          "text": "Stingy"
+        },
+        {
+          "id": "c",
+          "text": "Modest"
+        },
+        {
+          "id": "d",
+          "text": "Careful"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Synonym pair; extravagant means lavish."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "CANDID : FRANK :: EVASIVE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Honest"
+        },
+        {
+          "id": "b",
+          "text": "Direct"
+        },
+        {
+          "id": "c",
+          "text": "Open"
+        },
+        {
+          "id": "d",
+          "text": "Elusive"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Synonym pair; elusive means evasive."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "OBDURATE : STUBBORN :: PLIANT : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rigid"
+        },
+        {
+          "id": "b",
+          "text": "Flexible"
+        },
+        {
+          "id": "c",
+          "text": "Harsh"
+        },
+        {
+          "id": "d",
+          "text": "Fixed"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Synonym pair; pliant and flexible both mean easily bent/yielding."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Synonym",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "PERFIDIOUS : TREACHEROUS :: LOYAL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disloyal"
+        },
+        {
+          "id": "b",
+          "text": "Deceptive"
+        },
+        {
+          "id": "c",
+          "text": "Faithful"
+        },
+        {
+          "id": "d",
+          "text": "Cunning"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Synonym pair; faithful means loyal."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "HOT : COLD :: DAY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Morning"
+        },
+        {
+          "id": "b",
+          "text": "Sun"
+        },
+        {
+          "id": "c",
+          "text": "Night"
+        },
+        {
+          "id": "d",
+          "text": "Bright"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Opposite pairs; night is the opposite of day."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "UP : DOWN :: IN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Out"
+        },
+        {
+          "id": "b",
+          "text": "Inside"
+        },
+        {
+          "id": "c",
+          "text": "Enter"
+        },
+        {
+          "id": "d",
+          "text": "Near"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Opposite pairs; out is the opposite of in."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BUY : SELL :: BORROW : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Take"
+        },
+        {
+          "id": "b",
+          "text": "Owe"
+        },
+        {
+          "id": "c",
+          "text": "Save"
+        },
+        {
+          "id": "d",
+          "text": "Lend"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Opposite pairs; lend is the opposite of borrow."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "WIN : LOSE :: PRAISE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Admire"
+        },
+        {
+          "id": "b",
+          "text": "Criticize"
+        },
+        {
+          "id": "c",
+          "text": "Reward"
+        },
+        {
+          "id": "d",
+          "text": "Cheer"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Opposite pairs; criticize is the opposite of praise."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "TRANSPARENT : OPAQUE :: FLEXIBLE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Elastic"
+        },
+        {
+          "id": "b",
+          "text": "Soft"
+        },
+        {
+          "id": "c",
+          "text": "Rigid"
+        },
+        {
+          "id": "d",
+          "text": "Bendable"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Opposite pairs; rigid is the opposite of flexible."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "MISER : SPENDTHRIFT :: COWARD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hero"
+        },
+        {
+          "id": "b",
+          "text": "Timid"
+        },
+        {
+          "id": "c",
+          "text": "Weak"
+        },
+        {
+          "id": "d",
+          "text": "Fearful"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Opposite pairs; a hero is the opposite of a coward."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ABUNDANT : SCARCE :: GENEROUS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kind"
+        },
+        {
+          "id": "b",
+          "text": "Wealthy"
+        },
+        {
+          "id": "c",
+          "text": "Giving"
+        },
+        {
+          "id": "d",
+          "text": "Stingy"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Opposite pairs; stingy is the opposite of generous."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "PROFLIGATE : ABSTEMIOUS :: VOLATILE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unstable"
+        },
+        {
+          "id": "b",
+          "text": "Stable"
+        },
+        {
+          "id": "c",
+          "text": "Reactive"
+        },
+        {
+          "id": "d",
+          "text": "Explosive"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Opposite pairs; abstemious (restrained) opposes profligate (wasteful); stable opposes volatile."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Antonym",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "SANGUINE : PESSIMISTIC :: BENEVOLENT : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Kind"
+        },
+        {
+          "id": "b",
+          "text": "Generous"
+        },
+        {
+          "id": "c",
+          "text": "Malevolent"
+        },
+        {
+          "id": "d",
+          "text": "Charitable"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Opposite pairs; malevolent (wishing harm) is the opposite of benevolent (wishing good)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "PAGE : BOOK :: WHEEL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Road"
+        },
+        {
+          "id": "b",
+          "text": "Tyre"
+        },
+        {
+          "id": "c",
+          "text": "Car"
+        },
+        {
+          "id": "d",
+          "text": "Engine"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A page is part of a book; a wheel is part of a car."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "PETAL : FLOWER :: BRANCH : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tree"
+        },
+        {
+          "id": "b",
+          "text": "Leaf"
+        },
+        {
+          "id": "c",
+          "text": "Root"
+        },
+        {
+          "id": "d",
+          "text": "Forest"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A petal is part of a flower; a branch is part of a tree."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "FINGER : HAND :: TOE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Leg"
+        },
+        {
+          "id": "b",
+          "text": "Nail"
+        },
+        {
+          "id": "c",
+          "text": "Ankle"
+        },
+        {
+          "id": "d",
+          "text": "Foot"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A finger is part of a hand; a toe is part of a foot."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "KEY : KEYBOARD :: BRICK : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cement"
+        },
+        {
+          "id": "b",
+          "text": "Wall"
+        },
+        {
+          "id": "c",
+          "text": "House"
+        },
+        {
+          "id": "d",
+          "text": "Mortar"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A key is a unit that makes up a keyboard; a brick is a unit that makes up a wall."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "SCENE : ACT :: CHAPTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Story"
+        },
+        {
+          "id": "b",
+          "text": "Page"
+        },
+        {
+          "id": "c",
+          "text": "Book"
+        },
+        {
+          "id": "d",
+          "text": "Novel"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A scene is a subdivision of an act; a chapter is a subdivision of a book."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "NOTE : MELODY :: WORD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sentence"
+        },
+        {
+          "id": "b",
+          "text": "Letter"
+        },
+        {
+          "id": "c",
+          "text": "Paragraph"
+        },
+        {
+          "id": "d",
+          "text": "Language"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Notes combine to form a melody; words combine to form a sentence."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ATOM : MOLECULE :: CELL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Organ"
+        },
+        {
+          "id": "b",
+          "text": "Organism"
+        },
+        {
+          "id": "c",
+          "text": "Nucleus"
+        },
+        {
+          "id": "d",
+          "text": "Tissue"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Atoms combine to form a molecule; cells combine to form a tissue."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Part-to-whole",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "LIGAMENT : JOINT (bone-to-bone) :: TENDON : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bone"
+        },
+        {
+          "id": "b",
+          "text": "Muscle-to-bone junction"
+        },
+        {
+          "id": "c",
+          "text": "Cartilage"
+        },
+        {
+          "id": "d",
+          "text": "Nerve"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A ligament connects bone to bone at a joint; a tendon connects muscle to bone."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "TREE : BRANCH :: HAND : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Arm"
+        },
+        {
+          "id": "b",
+          "text": "Palm"
+        },
+        {
+          "id": "c",
+          "text": "Finger"
+        },
+        {
+          "id": "d",
+          "text": "Nail"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A tree has a branch as one of its parts; a hand has a finger as one of its parts."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "CAR : WHEEL :: BICYCLE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pedal"
+        },
+        {
+          "id": "b",
+          "text": "Road"
+        },
+        {
+          "id": "c",
+          "text": "Rider"
+        },
+        {
+          "id": "d",
+          "text": "Chain-only"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A car has a wheel as a component part; a bicycle has a pedal as a component part."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "HOUSE : ROOM :: BOOK : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Author"
+        },
+        {
+          "id": "b",
+          "text": "Cover"
+        },
+        {
+          "id": "c",
+          "text": "Shelf"
+        },
+        {
+          "id": "d",
+          "text": "Chapter"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A house is divided into rooms; a book is divided into chapters."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ORCHESTRA : VIOLIN :: TEAM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Coach"
+        },
+        {
+          "id": "b",
+          "text": "Player"
+        },
+        {
+          "id": "c",
+          "text": "Stadium"
+        },
+        {
+          "id": "d",
+          "text": "Match"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "An orchestra is composed of instruments like the violin; a team is composed of players."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "LIBRARY : SHELF :: OFFICE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Manager"
+        },
+        {
+          "id": "b",
+          "text": "File"
+        },
+        {
+          "id": "c",
+          "text": "Cabin"
+        },
+        {
+          "id": "d",
+          "text": "Meeting"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A library contains shelves as structural units; an office contains cabins as structural units."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "NECKLACE : BEAD :: CHAIN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Link"
+        },
+        {
+          "id": "b",
+          "text": "Metal"
+        },
+        {
+          "id": "c",
+          "text": "Lock"
+        },
+        {
+          "id": "d",
+          "text": "Clasp"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A necklace is made of beads; a chain is made of links."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Whole-to-part",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "SYMPHONY : MOVEMENT :: DRAMA : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Actor"
+        },
+        {
+          "id": "b",
+          "text": "Stage"
+        },
+        {
+          "id": "c",
+          "text": "Dialogue"
+        },
+        {
+          "id": "d",
+          "text": "Act"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A symphony is divided into movements; a drama is divided into acts."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "FIRE : BURN :: RAIN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cloud"
+        },
+        {
+          "id": "b",
+          "text": "Storm"
+        },
+        {
+          "id": "c",
+          "text": "Wet"
+        },
+        {
+          "id": "d",
+          "text": "Cold"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Fire causes burning; rain causes wetness."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "KNIFE : CUT :: EARTHQUAKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Damage"
+        },
+        {
+          "id": "b",
+          "text": "Sound"
+        },
+        {
+          "id": "c",
+          "text": "Rain"
+        },
+        {
+          "id": "d",
+          "text": "Fire"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A knife causes a cut; an earthquake causes damage."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "GERM : DISEASE :: VIRUS : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Medicine"
+        },
+        {
+          "id": "b",
+          "text": "Health"
+        },
+        {
+          "id": "c",
+          "text": "Cure"
+        },
+        {
+          "id": "d",
+          "text": "Infection"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Germs cause disease; a virus causes infection."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "STUDY : SUCCESS :: NEGLIGENCE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reward"
+        },
+        {
+          "id": "b",
+          "text": "Failure"
+        },
+        {
+          "id": "c",
+          "text": "Praise"
+        },
+        {
+          "id": "d",
+          "text": "Effort"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Study leads to success; negligence leads to failure."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "DROUGHT : FAMINE :: FLOOD : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rain"
+        },
+        {
+          "id": "b",
+          "text": "River"
+        },
+        {
+          "id": "c",
+          "text": "Devastation"
+        },
+        {
+          "id": "d",
+          "text": "Season"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Drought causes famine; a flood causes devastation."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "SMOKING : LUNG DAMAGE :: OVEREATING : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Obesity"
+        },
+        {
+          "id": "b",
+          "text": "Hunger"
+        },
+        {
+          "id": "c",
+          "text": "Fitness"
+        },
+        {
+          "id": "d",
+          "text": "Diet"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Smoking causes lung damage; overeating causes obesity."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "DEFORESTATION : SOIL EROSION :: OVERGRAZING : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rainfall"
+        },
+        {
+          "id": "b",
+          "text": "Forestation"
+        },
+        {
+          "id": "c",
+          "text": "Irrigation"
+        },
+        {
+          "id": "d",
+          "text": "Desertification"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Deforestation causes soil erosion; overgrazing causes desertification."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Cause-effect",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "INFLATION : PURCHASING POWER LOSS :: DEFLATION : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increased spending"
+        },
+        {
+          "id": "b",
+          "text": "Reduced spending"
+        },
+        {
+          "id": "c",
+          "text": "Stable prices"
+        },
+        {
+          "id": "d",
+          "text": "Higher wages"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Inflation reduces purchasing power; deflation typically reduces spending as consumers delay purchases."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "PEN : WRITE :: BROOM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cook"
+        },
+        {
+          "id": "b",
+          "text": "Cut"
+        },
+        {
+          "id": "c",
+          "text": "Sweep"
+        },
+        {
+          "id": "d",
+          "text": "Dig"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A pen is used to write; a broom is used to sweep."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SCISSORS : CUT :: HAMMER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hit/Drive nail"
+        },
+        {
+          "id": "b",
+          "text": "Saw"
+        },
+        {
+          "id": "c",
+          "text": "Dig"
+        },
+        {
+          "id": "d",
+          "text": "Paint"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Scissors are used to cut; a hammer is used to drive nails."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "THERMOMETER : TEMPERATURE :: BAROMETER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Humidity"
+        },
+        {
+          "id": "b",
+          "text": "Speed"
+        },
+        {
+          "id": "c",
+          "text": "Distance"
+        },
+        {
+          "id": "d",
+          "text": "Pressure"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A thermometer measures temperature; a barometer measures pressure."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "STETHOSCOPE : HEARTBEAT :: TELESCOPE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sound"
+        },
+        {
+          "id": "b",
+          "text": "Distant objects"
+        },
+        {
+          "id": "c",
+          "text": "Temperature"
+        },
+        {
+          "id": "d",
+          "text": "Weight"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A stethoscope is used to detect a heartbeat; a telescope is used to view distant objects."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "COMPASS : DIRECTION :: SPEEDOMETER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Distance"
+        },
+        {
+          "id": "b",
+          "text": "Time"
+        },
+        {
+          "id": "c",
+          "text": "Speed"
+        },
+        {
+          "id": "d",
+          "text": "Fuel"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A compass indicates direction; a speedometer indicates speed."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "MICROSCOPE : MAGNIFY :: FILTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Purify"
+        },
+        {
+          "id": "b",
+          "text": "Cook"
+        },
+        {
+          "id": "c",
+          "text": "Heat"
+        },
+        {
+          "id": "d",
+          "text": "Cut"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A microscope's function is to magnify; a filter's function is to purify."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "SEISMOGRAPH : EARTHQUAKE :: ANEMOMETER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rainfall"
+        },
+        {
+          "id": "b",
+          "text": "Humidity"
+        },
+        {
+          "id": "c",
+          "text": "Pressure"
+        },
+        {
+          "id": "d",
+          "text": "Wind speed"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A seismograph records earthquakes; an anemometer measures wind speed."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Function/use",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "SPECTROMETER : LIGHT SPECTRUM :: OSCILLOSCOPE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sound volume"
+        },
+        {
+          "id": "b",
+          "text": "Electrical waveform"
+        },
+        {
+          "id": "c",
+          "text": "Magnetic field"
+        },
+        {
+          "id": "d",
+          "text": "Radioactivity"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A spectrometer analyses a light spectrum; an oscilloscope displays an electrical waveform."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "CARPENTER : SAW :: PAINTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hammer"
+        },
+        {
+          "id": "b",
+          "text": "Needle"
+        },
+        {
+          "id": "c",
+          "text": "Brush"
+        },
+        {
+          "id": "d",
+          "text": "Chisel"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A carpenter uses a saw; a painter uses a brush."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "DOCTOR : STETHOSCOPE :: TAILOR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Needle"
+        },
+        {
+          "id": "b",
+          "text": "Scalpel"
+        },
+        {
+          "id": "c",
+          "text": "Hammer"
+        },
+        {
+          "id": "d",
+          "text": "Brush"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A doctor's tool is a stethoscope; a tailor's tool is a needle."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "FARMER : PLOUGH :: FISHERMAN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hammer"
+        },
+        {
+          "id": "b",
+          "text": "Brush"
+        },
+        {
+          "id": "c",
+          "text": "Saw"
+        },
+        {
+          "id": "d",
+          "text": "Net"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A farmer's tool is a plough; a fisherman's tool is a net."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "SURGEON : SCALPEL :: SCULPTOR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Brush"
+        },
+        {
+          "id": "b",
+          "text": "Chisel"
+        },
+        {
+          "id": "c",
+          "text": "Needle"
+        },
+        {
+          "id": "d",
+          "text": "Hammer"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A surgeon's primary tool is a scalpel; a sculptor's primary tool is a chisel."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "BARBER : SCISSORS :: WOODCUTTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Saw-only"
+        },
+        {
+          "id": "b",
+          "text": "Hammer"
+        },
+        {
+          "id": "c",
+          "text": "Axe"
+        },
+        {
+          "id": "d",
+          "text": "Plane"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A barber's tool is scissors; a woodcutter's classic tool is an axe."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ARCHITECT : BLUEPRINT :: AUTHOR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Manuscript"
+        },
+        {
+          "id": "b",
+          "text": "Pen"
+        },
+        {
+          "id": "c",
+          "text": "Book"
+        },
+        {
+          "id": "d",
+          "text": "Library"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "An architect works from a blueprint; an author works from a manuscript."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-tool",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "CARTOGRAPHER : MAP :: LEXICOGRAPHER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Book"
+        },
+        {
+          "id": "b",
+          "text": "Grammar"
+        },
+        {
+          "id": "c",
+          "text": "Thesaurus-only"
+        },
+        {
+          "id": "d",
+          "text": "Dictionary"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A cartographer creates maps; a lexicographer creates dictionaries."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "BAKER : BREAD :: COBBLER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cloth"
+        },
+        {
+          "id": "b",
+          "text": "Bricks"
+        },
+        {
+          "id": "c",
+          "text": "Shoes"
+        },
+        {
+          "id": "d",
+          "text": "Furniture"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A baker makes bread; a cobbler makes shoes."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "TEACHER : SCHOOL :: DOCTOR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hospital"
+        },
+        {
+          "id": "b",
+          "text": "Court"
+        },
+        {
+          "id": "c",
+          "text": "Factory"
+        },
+        {
+          "id": "d",
+          "text": "Farm"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A teacher works in a school; a doctor works in a hospital."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "JUDGE : COURT :: PRIEST : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Office"
+        },
+        {
+          "id": "b",
+          "text": "Shop"
+        },
+        {
+          "id": "c",
+          "text": "Factory"
+        },
+        {
+          "id": "d",
+          "text": "Church"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A judge works in a court; a priest works in a church."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "POTTER : POT :: WEAVER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shoes"
+        },
+        {
+          "id": "b",
+          "text": "Cloth"
+        },
+        {
+          "id": "c",
+          "text": "Bread"
+        },
+        {
+          "id": "d",
+          "text": "Furniture"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A potter makes pots; a weaver makes cloth."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "MASON : WALL :: CARPENTER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bread"
+        },
+        {
+          "id": "b",
+          "text": "Cloth"
+        },
+        {
+          "id": "c",
+          "text": "Furniture"
+        },
+        {
+          "id": "d",
+          "text": "Painting"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A mason builds walls; a carpenter builds furniture."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "CHEF : RESTAURANT :: PHARMACIST : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pharmacy"
+        },
+        {
+          "id": "b",
+          "text": "Hospital"
+        },
+        {
+          "id": "c",
+          "text": "Laboratory"
+        },
+        {
+          "id": "d",
+          "text": "Clinic"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A chef typically works in a restaurant; a pharmacist typically works in a pharmacy."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Worker-to-product/workplace",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "HOROLOGIST : CLOCKS/WATCHES :: NUMISMATIST : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stamps"
+        },
+        {
+          "id": "b",
+          "text": "Books"
+        },
+        {
+          "id": "c",
+          "text": "Antiques (general)"
+        },
+        {
+          "id": "d",
+          "text": "Coins"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A horologist studies/deals in clocks and watches; a numismatist studies/deals in coins."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "ROSE : FLOWER :: MANGO : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vegetable"
+        },
+        {
+          "id": "b",
+          "text": "Tree"
+        },
+        {
+          "id": "c",
+          "text": "Fruit"
+        },
+        {
+          "id": "d",
+          "text": "Seed"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A rose is a type of flower; a mango is a type of fruit."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SPARROW : BIRD :: COBRA : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reptile"
+        },
+        {
+          "id": "b",
+          "text": "Mammal"
+        },
+        {
+          "id": "c",
+          "text": "Fish"
+        },
+        {
+          "id": "d",
+          "text": "Amphibian"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "A sparrow belongs to the bird category; a cobra belongs to the reptile category."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "RUPEE : CURRENCY :: KILOGRAM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit of length"
+        },
+        {
+          "id": "b",
+          "text": "Unit of time"
+        },
+        {
+          "id": "c",
+          "text": "Unit of volume"
+        },
+        {
+          "id": "d",
+          "text": "Unit of weight"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rupee is a unit of currency; kilogram is a unit of weight."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "SONNET : POEM :: NOVEL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Drama"
+        },
+        {
+          "id": "b",
+          "text": "Fiction/Prose"
+        },
+        {
+          "id": "c",
+          "text": "Essay"
+        },
+        {
+          "id": "d",
+          "text": "Biography-only"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "A sonnet is a specific type of poem; a novel is a specific type of fiction/prose work."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "VIOLIN : STRING INSTRUMENT :: FLUTE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Percussion instrument"
+        },
+        {
+          "id": "b",
+          "text": "Brass instrument"
+        },
+        {
+          "id": "c",
+          "text": "Wind instrument"
+        },
+        {
+          "id": "d",
+          "text": "Keyboard instrument"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A violin is classified as a string instrument; a flute is classified as a wind instrument."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "MALARIA : DISEASE :: DIAMOND : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mineral/Gemstone"
+        },
+        {
+          "id": "b",
+          "text": "Metal"
+        },
+        {
+          "id": "c",
+          "text": "Rock"
+        },
+        {
+          "id": "d",
+          "text": "Alloy"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Malaria is a type of disease; a diamond is a type of mineral/gemstone."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "HAIKU : JAPANESE POETRY FORM :: SONNET : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "African poetry"
+        },
+        {
+          "id": "b",
+          "text": "Chinese poetry"
+        },
+        {
+          "id": "c",
+          "text": "American free verse"
+        },
+        {
+          "id": "d",
+          "text": "European (Italian/English) poetry form"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "A haiku originates as a Japanese poetic form; a sonnet originates as a European poetic form."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Specific-to-general",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "PENICILLIN : ANTIBIOTIC :: INSULIN : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vitamin"
+        },
+        {
+          "id": "b",
+          "text": "Hormone"
+        },
+        {
+          "id": "c",
+          "text": "Enzyme-only"
+        },
+        {
+          "id": "d",
+          "text": "Antiseptic"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Penicillin belongs to the antibiotic category; insulin belongs to the hormone category."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "WARM : HOT :: COOL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mild"
+        },
+        {
+          "id": "b",
+          "text": "Freezing-only"
+        },
+        {
+          "id": "c",
+          "text": "Cold"
+        },
+        {
+          "id": "d",
+          "text": "Dry"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Hot is a higher intensity of warm; cold is a higher intensity of cool."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "SMILE : LAUGH :: WORRY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Panic"
+        },
+        {
+          "id": "b",
+          "text": "Relax"
+        },
+        {
+          "id": "c",
+          "text": "Sleep"
+        },
+        {
+          "id": "d",
+          "text": "Ignore"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Laugh is a more intense form of smile; panic is a more intense form of worry."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "DRIZZLE : DOWNPOUR :: BREEZE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Calm"
+        },
+        {
+          "id": "b",
+          "text": "Fog"
+        },
+        {
+          "id": "c",
+          "text": "Mist"
+        },
+        {
+          "id": "d",
+          "text": "Storm/Gale"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Downpour is a more intense form of drizzle; a storm/gale is a more intense form of breeze."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "LIKE : LOVE :: DISLIKE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ignore"
+        },
+        {
+          "id": "b",
+          "text": "Hate"
+        },
+        {
+          "id": "c",
+          "text": "Prefer"
+        },
+        {
+          "id": "d",
+          "text": "Admire"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Love is a more intense form of like; hate is a more intense form of dislike."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "TAP : STRIKE :: WHISPER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Speak"
+        },
+        {
+          "id": "b",
+          "text": "Murmur"
+        },
+        {
+          "id": "c",
+          "text": "Shout"
+        },
+        {
+          "id": "d",
+          "text": "Silence"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Strike is a more forceful version of tap; shout is a more forceful version of whisper."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "IRRITATE : ENRAGE :: AMUSE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Delight/Overjoy"
+        },
+        {
+          "id": "b",
+          "text": "Bore"
+        },
+        {
+          "id": "c",
+          "text": "Sadden"
+        },
+        {
+          "id": "d",
+          "text": "Confuse"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Enrage is an intensified form of irritate; delight/overjoy is an intensified form of amuse."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Degree/intensity",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "TEPID : SCALDING :: DIM : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dark"
+        },
+        {
+          "id": "b",
+          "text": "Bright-only"
+        },
+        {
+          "id": "c",
+          "text": "Shadowy"
+        },
+        {
+          "id": "d",
+          "text": "Blinding/Dazzling"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Scalding is an extreme degree of tepid (warm) on the heat scale; blinding/dazzling is an extreme degree of dim on the light scale."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "KING : QUEEN :: PRINCE : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Duchess"
+        },
+        {
+          "id": "b",
+          "text": "Lady"
+        },
+        {
+          "id": "c",
+          "text": "Princess"
+        },
+        {
+          "id": "d",
+          "text": "Empress"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Male-female royal pair; princess is the female counterpart of prince."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "MAN : WOMAN :: BOY : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Girl"
+        },
+        {
+          "id": "b",
+          "text": "Lady"
+        },
+        {
+          "id": "c",
+          "text": "Female"
+        },
+        {
+          "id": "d",
+          "text": "Child-only"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Male-female pair; girl is the female counterpart of boy."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "LION : LIONESS :: TIGER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cub"
+        },
+        {
+          "id": "b",
+          "text": "Panther"
+        },
+        {
+          "id": "c",
+          "text": "Leopard"
+        },
+        {
+          "id": "d",
+          "text": "Tigress"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Male-female animal pair; tigress is the female tiger."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "BULL : COW :: STALLION : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Foal"
+        },
+        {
+          "id": "b",
+          "text": "Mare"
+        },
+        {
+          "id": "c",
+          "text": "Colt"
+        },
+        {
+          "id": "d",
+          "text": "Filly-only"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Male-female animal pair; mare is the female horse (stallion is the male)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "ACTOR : ACTRESS :: WAITER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hostess"
+        },
+        {
+          "id": "b",
+          "text": "Server-only"
+        },
+        {
+          "id": "c",
+          "text": "Waitress"
+        },
+        {
+          "id": "d",
+          "text": "Chef"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Male-female occupational pair; waitress is the female counterpart of waiter."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "DRAKE : DUCK :: GANDER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Goose"
+        },
+        {
+          "id": "b",
+          "text": "Swan"
+        },
+        {
+          "id": "c",
+          "text": "Hen"
+        },
+        {
+          "id": "d",
+          "text": "Peahen"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Male-female animal pair; goose is the female of gander (male goose)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "WIZARD : WITCH :: SORCERER : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Enchantress-only"
+        },
+        {
+          "id": "b",
+          "text": "Priestess"
+        },
+        {
+          "id": "c",
+          "text": "Fairy"
+        },
+        {
+          "id": "d",
+          "text": "Sorceress"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Male-female pair; sorceress is the female counterpart of sorcerer."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Gender pair",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "EMPEROR : EMPRESS :: TSAR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Duchess"
+        },
+        {
+          "id": "b",
+          "text": "Tsarina"
+        },
+        {
+          "id": "c",
+          "text": "Queen"
+        },
+        {
+          "id": "d",
+          "text": "Baroness"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Male-female royal-title pair; tsarina is the female counterpart of tsar."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "4 : 8 :: 6 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "12"
+        },
+        {
+          "id": "d",
+          "text": "18"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = first number × 2."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "5 : 10 :: 9 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "16"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second number = first number × 2."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "3 : 9 :: 4 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "16"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "20"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: second number = first number × 3."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "7 : 15 :: 9 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "17"
+        },
+        {
+          "id": "b",
+          "text": "19"
+        },
+        {
+          "id": "c",
+          "text": "21"
+        },
+        {
+          "id": "d",
+          "text": "23"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second number = (first × 2) + 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "12 : 7 :: 20 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "13"
+        },
+        {
+          "id": "b",
+          "text": "17"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "11"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = first number − 5 (constant difference)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "6 : 30 :: 8 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "56"
+        },
+        {
+          "id": "b",
+          "text": "48"
+        },
+        {
+          "id": "c",
+          "text": "64"
+        },
+        {
+          "id": "d",
+          "text": "40"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second number = first × (first − 1)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "15 : 5 :: 24 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: second number = first number ÷ 3."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "5 : 24 :: 7 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "46"
+        },
+        {
+          "id": "b",
+          "text": "48"
+        },
+        {
+          "id": "c",
+          "text": "50"
+        },
+        {
+          "id": "d",
+          "text": "42"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second number = (first)² − 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "8 : 65 :: 10 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "99"
+        },
+        {
+          "id": "b",
+          "text": "111"
+        },
+        {
+          "id": "c",
+          "text": "101"
+        },
+        {
+          "id": "d",
+          "text": "91"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = (first)² + 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — arithmetic",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "9 : 730 :: 6 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "217"
+        },
+        {
+          "id": "b",
+          "text": "215"
+        },
+        {
+          "id": "c",
+          "text": "219"
+        },
+        {
+          "id": "d",
+          "text": "213"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second number = (first)³ + 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "3 : 9 :: 5 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "15"
+        },
+        {
+          "id": "c",
+          "text": "25"
+        },
+        {
+          "id": "d",
+          "text": "20"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = square of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "2 : 8 :: 3 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "27"
+        },
+        {
+          "id": "b",
+          "text": "9"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "12"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second number = cube of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "4 : 16 :: 6 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "24"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "30"
+        },
+        {
+          "id": "d",
+          "text": "36"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: second number = square of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "2 : 4 :: 4 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "12"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second number = square of first (self-referential: 4² = 16, matching pattern set by 2² = 4)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "9 : 3 :: 25 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "10"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = square root of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "2 : 3 :: 5 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "11"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: pairs of consecutive prime numbers."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "121 : 11 :: 169 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: second number = square root of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "3 : 28 :: 4 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "63"
+        },
+        {
+          "id": "b",
+          "text": "65"
+        },
+        {
+          "id": "c",
+          "text": "60"
+        },
+        {
+          "id": "d",
+          "text": "68"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: second number = (first)³ + 1."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "5 : 30 :: 7 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "54"
+        },
+        {
+          "id": "b",
+          "text": "49"
+        },
+        {
+          "id": "c",
+          "text": "56"
+        },
+        {
+          "id": "d",
+          "text": "58"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: second number = first × (first + 1)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Number — geometric/powers",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "8 : 2 :: 27 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "9"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second number = cube root of first."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "A : C :: E : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "F"
+        },
+        {
+          "id": "b",
+          "text": "H"
+        },
+        {
+          "id": "c",
+          "text": "G"
+        },
+        {
+          "id": "d",
+          "text": "D"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: skip one letter (second letter = first + 2 positions)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "B : D :: F : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "H"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "I"
+        },
+        {
+          "id": "d",
+          "text": "E"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: second letter = first + 2 positions."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "Z : X :: T : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "S"
+        },
+        {
+          "id": "b",
+          "text": "V"
+        },
+        {
+          "id": "c",
+          "text": "Q"
+        },
+        {
+          "id": "d",
+          "text": "R"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: second letter = first − 2 positions."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "AB : CD :: EF : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FG"
+        },
+        {
+          "id": "b",
+          "text": "GH"
+        },
+        {
+          "id": "c",
+          "text": "HI"
+        },
+        {
+          "id": "d",
+          "text": "IJ"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: each letter shifts forward by 2 positions."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "CAT : DBU :: DOG : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "EPI"
+        },
+        {
+          "id": "b",
+          "text": "DPH"
+        },
+        {
+          "id": "c",
+          "text": "EPH"
+        },
+        {
+          "id": "d",
+          "text": "EQH"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: each letter of the word shifts forward by 1 position."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "BDF : CEG :: HJL : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IKM"
+        },
+        {
+          "id": "b",
+          "text": "IJK"
+        },
+        {
+          "id": "c",
+          "text": "HKM"
+        },
+        {
+          "id": "d",
+          "text": "IKN"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: each letter shifts forward by 1 position."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "JKL : MNO :: PQR : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RST"
+        },
+        {
+          "id": "b",
+          "text": "TUV"
+        },
+        {
+          "id": "c",
+          "text": "SUV"
+        },
+        {
+          "id": "d",
+          "text": "STU"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: each letter shifts forward by 3 positions."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ACE : BDF :: GIK : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HIJ"
+        },
+        {
+          "id": "b",
+          "text": "HJL"
+        },
+        {
+          "id": "c",
+          "text": "GJL"
+        },
+        {
+          "id": "d",
+          "text": "HKM"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: alternating letters (skip-one pattern), each shifting forward by 1 position."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "ZYXW : YXWV :: NMLK : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MLJK"
+        },
+        {
+          "id": "b",
+          "text": "NMKJ"
+        },
+        {
+          "id": "c",
+          "text": "MLKJ"
+        },
+        {
+          "id": "d",
+          "text": "LKJI"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: the whole descending letter-block shifts back by 1 position."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Letter — positional shift",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "A1 : C4 :: E9 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "G16"
+        },
+        {
+          "id": "b",
+          "text": "G14"
+        },
+        {
+          "id": "c",
+          "text": "F16"
+        },
+        {
+          "id": "d",
+          "text": "G18"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: letters are the 1st, 3rd, 5th, 7th letters (A, C, E, G); numbers are consecutive perfect squares (1, 4, 9, 16)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "A1 : B2 :: C3 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D3"
+        },
+        {
+          "id": "b",
+          "text": "C4"
+        },
+        {
+          "id": "c",
+          "text": "D4"
+        },
+        {
+          "id": "d",
+          "text": "E4"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: both the letter and the number increase by 1 each step."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "5E : 6F :: 7G : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8H"
+        },
+        {
+          "id": "b",
+          "text": "8G"
+        },
+        {
+          "id": "c",
+          "text": "9H"
+        },
+        {
+          "id": "d",
+          "text": "7H"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: both the number and the letter increase by 1 each step."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "C3 : F6 :: I9 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "L9"
+        },
+        {
+          "id": "b",
+          "text": "K12"
+        },
+        {
+          "id": "c",
+          "text": "L10"
+        },
+        {
+          "id": "d",
+          "text": "L12"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "Rule: letters skip by 3 (C, F, I, L = 3rd, 6th, 9th, 12th letters), and the number always equals the letter's position."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "K11 : M13 :: O15 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "P17"
+        },
+        {
+          "id": "b",
+          "text": "Q17"
+        },
+        {
+          "id": "c",
+          "text": "Q16"
+        },
+        {
+          "id": "d",
+          "text": "Q18"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Rule: the number always equals the letter's alphabetic position, increasing by 2 each step."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "A1Z26 : B2Y25 :: C3X24 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D4W24"
+        },
+        {
+          "id": "b",
+          "text": "D3W23"
+        },
+        {
+          "id": "c",
+          "text": "D4W23"
+        },
+        {
+          "id": "d",
+          "text": "D4X23"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "Rule: the first letter-number pair counts up from the start of the alphabet (A1, B2, C3, D4); the second pair counts down from the end (Z26, Y25, X24, W23)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Alpha-numeric combined",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "2B : 6F :: 12L : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20T"
+        },
+        {
+          "id": "b",
+          "text": "18R"
+        },
+        {
+          "id": "c",
+          "text": "20S"
+        },
+        {
+          "id": "d",
+          "text": "22T"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Rule: the numbers follow n² + n (2, 6, 12, 20), and each number equals the position of its paired letter (B=2nd, F=6th, L=12th, T=20th)."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Analogies",
+      "subpattern": "Numerical Proportionality ($x : x^3 - x^2$)",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Find the missing number in the pair: 5 : 100 :: 7 : ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "294"
+        },
+        {
+          "id": "b",
+          "text": "343"
+        },
+        {
+          "id": "c",
+          "text": "240"
+        },
+        {
+          "id": "d",
+          "text": "310"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The underlying operation rule is $x : (x^3 - x^2)$. For 5, $5^3 - 5^2 = 125 - 25 = 100$. For 7, $7^3 - 7^2 = 343 - 49 = 294$."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Classification (Odd One Out)",
+      "subpattern": "Digital Sum Product Rule",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Which number is the odd one out based on positional digit logic: 248, 326, 414, 520, 616?",
+      "options": [
+        {
+          "id": "a",
+          "text": "248"
+        },
+        {
+          "id": "b",
+          "text": "326"
+        },
+        {
+          "id": "c",
+          "text": "414"
+        },
+        {
+          "id": "d",
+          "text": "520"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "For 248 ($2 \\times 4 = 8$), 326 ($3 \\times 2 = 6$), 414 ($4 \\times 1 = 4$), and 616 ($6 \\times 1 = 6$), the product of the first two digits equals the third digit. 520 ($5 \\times 2 = 10 \\neq 0$) violates this rule."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Coding-Decoding",
+      "subpattern": "Consonant-Vowel Differential Rule",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Vowels are coded as reverse positional numbers ($A=26, E=22$) and Consonants are coded as double their positional rank ($C=6$). What is the code for 'CAGE'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6-26-14-22"
+        },
+        {
+          "id": "b",
+          "text": "6-1-14-5"
+        },
+        {
+          "id": "c",
+          "text": "3-26-7-22"
+        },
+        {
+          "id": "d",
+          "text": "6-26-7-22"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "C (3) $\\to 3 \\times 2 = 6$. A (1) $\\to 27-1 = 26$. G (7) $\\to 7 \\times 2 = 14$. E (5) $\\to 27-5 = 22$. Assembling gives 6-26-14-22."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Blood Relations",
+      "subpattern": "Coded Relations",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "If $P + Q$ means $P$ is mother of $Q$, $P - Q$ means $P$ is brother of $Q$, and $P \\times Q$ means $P$ is father of $Q$, which expression indicates that $M$ is paternal uncle of $N$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "M - K × N"
+        },
+        {
+          "id": "b",
+          "text": "M + K × N"
+        },
+        {
+          "id": "c",
+          "text": "M × K - N"
+        },
+        {
+          "id": "d",
+          "text": "M - K + N"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "$M - K$ establishes $M$ as brother of $K$. $K \\times N$ establishes $K$ as father of $N$. Thus, $M$ is the brother of $N$'s father, making $M$ the paternal uncle."
+    },
+    {
+      "domain": "Verbal & Symbolic",
+      "topic": "Direction Sense Test",
+      "subpattern": "Shadow Alignment",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "One morning after sunrise, Vikram and Shailesh were standing back-to-back. Vikram's shadow fell directly to his left. Which direction was Shailesh facing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "North"
+        },
+        {
+          "id": "b",
+          "text": "South"
+        },
+        {
+          "id": "c",
+          "text": "East"
+        },
+        {
+          "id": "d",
+          "text": "West"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "In the morning, shadows fall toward West. If Vikram's shadow is to his left, Vikram faces North. Since Shailesh is back-to-back with Vikram, Shailesh faces South."
+    },
+    {
+      "domain": "Non-Verbal & Spatial",
+      "topic": "Mirror Images",
+      "subpattern": "Spatial Arrow Geometry",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "A square grid contains an arrow pointing to the top-right corner (NE) and a shaded circle in the bottom-left corner (SW). What does its vertical mirror image show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Arrow pointing NW, shaded circle in SE corner"
+        },
+        {
+          "id": "b",
+          "text": "Arrow pointing NW, shaded circle in SW corner"
+        },
+        {
+          "id": "c",
+          "text": "Arrow pointing SE, shaded circle in NE corner"
+        },
+        {
+          "id": "d",
+          "text": "Unchanged"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Reversing along the vertical plane transforms East components to West: the arrow points Top-Left (NW), and the bottom-left circle moves to the bottom-right corner (SE)."
+    },
+    {
+      "domain": "Non-Verbal & Spatial",
+      "topic": "Cube & Dice Logic",
+      "subpattern": "Dual Common Face Rule",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Three views of a single die show: View I (A, B, C), View II (B, C, D), View III (C, E, F). What letter is opposite to C?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "B"
+        },
+        {
+          "id": "c",
+          "text": "D"
+        },
+        {
+          "id": "d",
+          "text": "Unseen 6th Symbol"
+        }
+      ],
+      "correct_option_ids": [
+        "d"
+      ],
+      "explanation": "C is adjacent to A, B, D, E, and F across the views. Thus, C is adjacent to all 5 other faces, meaning it must be opposite the unseen 6th symbol."
+    },
+    {
+      "domain": "Non-Verbal & Spatial",
+      "topic": "Orthographic Projection",
+      "subpattern": "Chamfered Solid",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "The front view shows a square with a central cross; the side view shows a trapezoid with two vertical dashed lines. Which geometry matches this projection?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Truncated pyramid"
+        },
+        {
+          "id": "b",
+          "text": "Square prism with corner chamfers & central square bore"
+        },
+        {
+          "id": "c",
+          "text": "Stepped cylinder"
+        },
+        {
+          "id": "d",
+          "text": "Solid cube"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "The outer trapezoid indicates tapering chamfers on outer edges, while internal dashed lines represent a uniform interior square cavity running through the solid."
+    },
+    {
+      "domain": "Analytical & Constraint",
+      "topic": "Multi-Attribute Constraint Puzzles",
+      "subpattern": "Tri-Attribute Grid",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "A, B, C, D drive different colored cars (Red, Blue, Green, Yellow) and live in different cities (NY, LA, Chicago, Houston). A drives Red car and does not live in NY or LA. The Chicago resident drives Blue car. C lives in Houston. What car does C drive?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Red"
+        },
+        {
+          "id": "b",
+          "text": "Blue"
+        },
+        {
+          "id": "c",
+          "text": "Green or Yellow"
+        },
+        {
+          "id": "d",
+          "text": "Black"
+        }
+      ],
+      "correct_option_ids": [
+        "c"
+      ],
+      "explanation": "A drives Red. Chicago resident drives Blue. C lives in Houston, so C cannot drive Blue or Red (A's car). Thus, C drives Green or Yellow."
+    },
+    {
+      "domain": "Analytical & Constraint",
+      "topic": "Truth-Teller & Liar Logic",
+      "subpattern": "Triad Deduction",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Three citizens (X, Y, Z) are Knights (always tell truth) or Knaves (always lie). X states: 'Y is a Knave.' Y states: 'X and Z are of the same type.' What is Z?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Knight"
+        },
+        {
+          "id": "b",
+          "text": "Knave"
+        },
+        {
+          "id": "c",
+          "text": "Undetermined"
+        },
+        {
+          "id": "d",
+          "text": "Alternator"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "If X is Knight $\\to$ Y is Knave $\\to$ Y's claim is false $\\to$ X and Z are different types $\\to$ Z is Knave. If X is Knave $\\to$ Y is Knight $\\to$ Y's claim is true $\\to$ X and Z are same type $\\to$ Z is Knave. In both cases, Z is a Knave."
+    },
+    {
+      "domain": "Numerical & Quantitative",
+      "topic": "Number Series",
+      "subpattern": "Power Modification ($n^3-1$)",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "What is the next term in the sequence: 0, 7, 26, 63, 124, ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "215"
+        },
+        {
+          "id": "b",
+          "text": "217"
+        },
+        {
+          "id": "c",
+          "text": "180"
+        },
+        {
+          "id": "d",
+          "text": "242"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The series follows $n^3 - 1$ for $n = 1, 2, 3, 4, 5, 6$. For $n=6$, $6^3 - 1 = 216 - 1 = 215$."
+    },
+    {
+      "domain": "Numerical & Quantitative",
+      "topic": "Clock Arithmetic",
+      "subpattern": "Fast/Slow Clock Error Accumulation",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "A clock gains 5 minutes every 3 hours. It was set accurately at 8:00 AM. What is the true time when the clock reads 8:00 PM on the same day?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7:40 PM"
+        },
+        {
+          "id": "b",
+          "text": "7:42 PM"
+        },
+        {
+          "id": "c",
+          "text": "8:20 PM"
+        },
+        {
+          "id": "d",
+          "text": "7:30 PM"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The clock displays 12 hours (720 min) while running at speed ratio 37/36. Actual elapsed time $= 12 \\times (36/37) \\approx 11$ hours 40 minutes, making true time 7:40 PM."
+    },
+    {
+      "domain": "Numerical & Quantitative",
+      "topic": "Cryptarithmetic",
+      "subpattern": "Classic Alphametic",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "In the cryptarithmetic addition equation SEND + MORE = MONEY, what single digit corresponds to M?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0"
+        },
+        {
+          "id": "b",
+          "text": "1"
+        },
+        {
+          "id": "c",
+          "text": "9"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correct_option_ids": [
+        "b"
+      ],
+      "explanation": "Adding two 4-digit numbers can generate a 5-digit sum only with a carry-over of 1 at the most significant digit position. Thus, M must be 1."
+    },
+    {
+      "domain": "Critical & Epistemic",
+      "topic": "Necessary vs. Sufficient Assumption",
+      "subpattern": "Negation Test Application",
+      "difficulty": "medium",
+      "question_type": "single_choice",
+      "question_text": "Argument: 'Switching to electric buses will completely eliminate air pollution in Metroville.' Which assumption is necessary?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The electricity grid powering buses does not rely on local fossil-fuel plants producing equivalent pollution"
+        },
+        {
+          "id": "b",
+          "text": "Electric buses are cheaper than diesel buses"
+        },
+        {
+          "id": "c",
+          "text": "Everyone in Metroville will ride public buses"
+        },
+        {
+          "id": "d",
+          "text": "Diesel buses cause severe noise pollution"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Applying the Negation Test: If the electricity grid relies on local fossil fuel plants producing equivalent pollution, switching to electric buses will NOT eliminate air pollution. Thus, assumption A is necessary."
+    },
+    {
+      "domain": "Critical & Epistemic",
+      "topic": "Weakening Arguments",
+      "subpattern": "Sample Bias Highlight",
+      "difficulty": "hard",
+      "question_type": "single_choice",
+      "question_text": "Argument: 'A survey at an elite luxury gym showed 90% of respondents prefer organic food. Therefore, the general population overwhelmingly prefers organic food.' Which flaw weakens the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The sample was drawn from a high-income group not representative of the broader population"
+        },
+        {
+          "id": "b",
+          "text": "Organic food is more expensive than conventional food"
+        },
+        {
+          "id": "c",
+          "text": "Gym members exercise more frequently than average citizens"
+        },
+        {
+          "id": "d",
+          "text": "The luxury market fluctuates seasonally"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "Highlighting a socio-economically biased sample invalidates making a sweeping generalization about the entire general population."
+    },
+    {
+      "domain": "Critical & Epistemic",
+      "topic": "Parallel Reasoning",
+      "subpattern": "Modus Tollens Replication",
+      "difficulty": "easy",
+      "question_type": "single_choice",
+      "question_text": "Base: 'If it rains, the grass gets wet. The grass is not wet, so it did not rain.' Which argument shares the exact same logical structure?",
+      "options": [
+        {
+          "id": "a",
+          "text": "If the alarm rings, the guard wakes up. The guard is not awake, so the alarm did not ring"
+        },
+        {
+          "id": "b",
+          "text": "If you study, you pass. You passed, so you studied"
+        },
+        {
+          "id": "c",
+          "text": "Cars need fuel. This car has fuel, so it runs"
+        },
+        {
+          "id": "d",
+          "text": "Birds fly. Penguins are birds, so they fly"
+        }
+      ],
+      "correct_option_ids": [
+        "a"
+      ],
+      "explanation": "The base follows valid Modus Tollens ($P \\to Q, \\neg Q \\vdash \\neg P$). Option A uses the exact same valid deductive contrapositive structure."
+    }
+  ]
+}
