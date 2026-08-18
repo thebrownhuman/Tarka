@@ -1,0 +1,77 @@
+.history-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  a {
+    color: #2b5fd9;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+}
+
+.error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  overflow: hidden;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+  }
+
+  th {
+    background: #f4f5f7;
+    font-weight: 600;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  a {
+    color: #2b5fd9;
+  }
+}
+
+.pending {
+  color: #888;
+  font-style: italic;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

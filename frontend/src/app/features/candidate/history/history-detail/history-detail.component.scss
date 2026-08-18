@@ -1,0 +1,138 @@
+.history-detail-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2b5fd9;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.detail-header {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.3rem;
+  }
+
+  .summary {
+    margin: 0;
+    color: #555;
+  }
+}
+
+.answers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answer-card {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-left: 4px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+
+  &.correct {
+    border-left-color: #1a7f37;
+  }
+
+  &.incorrect {
+    border-left-color: #b00020;
+  }
+}
+
+.answer-index {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.passage {
+  background: #f4f5f7;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+}
+
+.question-text {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.question-image {
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+
+.options {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  li {
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: #f9f9f9;
+
+    &.selected {
+      background: #eef2ff;
+    }
+
+    &.correct-option {
+      background: #e6f4ea;
+    }
+  }
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  background: #333;
+  color: #fff;
+}
+
+.verdict {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.explanation {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: #555;
+}

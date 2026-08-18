@@ -1,0 +1,36 @@
+<div class="test-list-page">
+  <header class="page-header">
+    <div>
+      <h1>Available tests</h1>
+      <p>Signed in as <strong>{{ authService.session()?.displayName }}</strong></p>
+    </div>
+    <nav class="header-actions">
+      <a routerLink="/history">My history</a>
+      <button type="button" (click)="logout()">Log out</button>
+    </nav>
+  </header>
+
+  @if (errorMessage()) {
+    <p class="error" role="alert">{{ errorMessage() }}</p>
+  }
+
+  @if (loading()) {
+    <p>Loading tests…</p>
+  } @else if (tests().length === 0) {
+    <p>No tests are available right now.</p>
+  } @else {
+    <ul class="test-cards">
+      @for (test of tests(); track test.id) {
+        <li class="test-card">
+          <div class="test-card-info">
+            <h2>{{ test.title }}</h2>
+            <p>{{ test.durationSeconds / 60 }} minutes</p>
+          </div>
+          <button type="button" [disabled]="startingTestId() === test.id" (click)="start(test)">
+            {{ startingTestId() === test.id ? 'Starting…' : 'Start' }}
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>

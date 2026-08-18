@@ -1,0 +1,176 @@
+.take-test-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.status-line {
+  color: #555;
+}
+
+.error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.test-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.timer {
+  font-weight: 600;
+  font-size: 1rem;
+
+  &.timer-danger {
+    color: #b00020;
+  }
+}
+
+.submit-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.question-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.question-chip {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+
+  &.active {
+    background: #2b5fd9;
+    color: #fff;
+    border-color: #2b5fd9;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+
+  h1,
+  h2 {
+    margin-top: 0;
+  }
+
+  button {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #2b5fd9;
+    color: #fff;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #2b5fd9;
+  }
+}
+
+.time-up-panel {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.question-card {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.passage {
+  background: #f4f5f7;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+}
+
+.question-text {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.question-image {
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.saving-hint {
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem;
+}
+
+.next-btn {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  background: #2b5fd9;
+  color: #fff;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

@@ -1,6 +1,7 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from '@nestjs/common';
 import { QuestionView, TestAttemptService } from './test-attempt.service';
 import { AttemptDetailResult, AttemptHistoryService } from './attempt-history.service';
+import { TestsRepository } from './tests.repository';
 import { StartAttemptDto } from './dto/start-attempt.dto';
 import { GotoQuestionDto } from './dto/goto-question.dto';
 import { SubmitAnswerDto } from './dto/submit-answer.dto';
@@ -21,7 +22,23 @@ export class TestAttemptsController {
   constructor(
     private readonly testAttemptService: TestAttemptService,
     private readonly attemptHistoryService: AttemptHistoryService,
+    private readonly testsRepository: TestsRepository,
   ) {}
+
+  /** Minimal candidate-facing test catalog - no admin-only fields (question
+   * ids, etc), just enough for a candidate to pick a test and start it. */
+  @HttpCode(HttpStatus.OK)
+  @Get('available-tests')
+  async availableTests() {
+    const tests = await this.testsRepository.listAll();
+    return {
+      tests: tests.map((test) => ({
+        id: test.id,
+        title: test.title,
+        duration_seconds: test.durationSeconds,
+      })),
+    };
+  }
 
   @HttpCode(HttpStatus.OK)
   @Post('start')

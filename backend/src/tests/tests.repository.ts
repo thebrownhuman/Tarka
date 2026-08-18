@@ -85,6 +85,13 @@ export class TestsRepository {
     }
   }
 
+  async listAll(): Promise<TestEntity[]> {
+    const result: QueryResult<TestRow> = await this.pool.query(
+      `SELECT * FROM tests WHERE deleted_at IS NULL ORDER BY created_at DESC`,
+    );
+    return result.rows.map((row) => toTestEntity(row));
+  }
+
   async byId(id: string): Promise<TestEntity | null> {
     const result: QueryResult<TestRow> = await this.pool.query(
       `SELECT * FROM tests WHERE id = $1 AND deleted_at IS NULL LIMIT 1`,

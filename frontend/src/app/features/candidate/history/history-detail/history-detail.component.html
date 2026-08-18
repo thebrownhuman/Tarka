@@ -1,0 +1,76 @@
+<div class="history-detail-page">
+  <a routerLink="/history" class="back-link">← Back to history</a>
+
+  @if (loading()) {
+    <p>Loading…</p>
+  } @else if (pendingRelease()) {
+    <div class="panel">
+      <h1>Results pending release</h1>
+      <p>The admin hasn't released results for this attempt yet. Check back later.</p>
+    </div>
+  } @else if (errorMessage()) {
+    <p class="error" role="alert">{{ errorMessage() }}</p>
+  } @else if (detail()) {
+    @if (detail(); as d) {
+    <header class="detail-header">
+      <h1>{{ d.testTitle }}</h1>
+      <p class="summary">
+        Score: <strong>{{ d.score }} / {{ d.totalQuestions }}</strong>
+        · Submitted {{ d.submittedAt ? (d.submittedAt | date: 'medium') : '—' }}
+      </p>
+    </header>
+
+    <ol class="answers">
+      @for (answer of d.answers; track answer.questionId) {
+        <li class="answer-card" [class.correct]="answer.isCorrect === true" [class.incorrect]="answer.isCorrect === false">
+          <p class="answer-index">Question {{ answer.position + 1 }}</p>
+
+          @if (answer.passageText) {
+            <div class="passage">{{ answer.passageText }}</div>
+          }
+
+          <p class="question-text">{{ answer.questionText }}</p>
+
+          @if (answer.imageUrl) {
+            <img class="question-image" [src]="answer.imageUrl" alt="Question illustration" />
+          }
+
+          <ul class="options">
+            @for (option of answer.options; track option.id) {
+              <li
+                [class.selected]="answer.selectedOptionIds.includes(option.id)"
+                [class.correct-option]="answer.correctOptionIds.includes(option.id)"
+              >
+                {{ option.text }}
+                @if (answer.correctOptionIds.includes(option.id)) {
+                  <span class="tag">correct</span>
+                }
+                @if (answer.selectedOptionIds.includes(option.id)) {
+                  <span class="tag">your answer</span>
+                }
+              </li>
+            }
+          </ul>
+
+          <p class="verdict">
+            @if (answer.isCorrect === true) {
+              Correct
+            } @else if (answer.isCorrect === false) {
+              Incorrect
+            } @else {
+              Not answered
+            }
+            @if (answer.timeSpentSeconds !== null) {
+              · {{ answer.timeSpentSeconds }}s spent
+            }
+          </p>
+
+          @if (answer.explanation) {
+            <p class="explanation">{{ answer.explanation }}</p>
+          }
+        </li>
+      }
+    </ol>
+    }
+  }
+</div>
