@@ -38,7 +38,10 @@ const REFERENCE_DIR = path.resolve(__dirname, '../../.planning/reference/questio
 const ANALOGIES_MD_PATH = path.join(REFERENCE_DIR, '01-analogies.md');
 const HTML_BANK_PATH = path.join(REFERENCE_DIR, 'reasoning_practice_question_bank.html');
 const ANALOGY_EXPLORER_PATH = path.join(REFERENCE_DIR, 'competitive_exam_analogy_item_bank_explorer.html');
+const CODING_DECODING_PATH = path.join(REFERENCE_DIR, 'coding_decoding_question_bank_practice_portal.html');
 const OUTPUT_PATH = path.join(REFERENCE_DIR, 'converted-questions.json');
+
+const LETTER_TO_INDEX: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, E: 4 };
 
 const LETTER_TO_ID: Record<string, string> = { A: 'a', B: 'b', C: 'c', D: 'd', E: 'e' };
 
@@ -268,11 +271,52 @@ function convertHtmlRepository(): UploadQuestion[] {
   });
 }
 
+interface CodingDecodingItem {
+  id: number;
+  category: string;
+  subPattern: string;
+  diff: string;
+  question: string;
+  options: string[]; // plain text, no letter prefix - index maps directly to A/B/C/D
+  answer: string; // "A" | "B" | "C" | "D"
+  explanation: string;
+}
+
+/** Plain option text with no letter prefix at all - option id comes from array index. */
+function parsePlainOptions(raw: string[]): UploadOption[] {
+  const ids = ['a', 'b', 'c', 'd', 'e'];
+  return raw.map((text, index) => ({ id: ids[index], text: text.trim() }));
+}
+
+function convertCodingDecoding(): UploadQuestion[] {
+  const items = extractArrayLiteral<CodingDecodingItem>(CODING_DECODING_PATH, 'QUESTION_BANK');
+
+  return items.map((item) => {
+    const answerIndex = LETTER_TO_INDEX[item.answer.toUpperCase()];
+    if (answerIndex === undefined || !item.options[answerIndex]) {
+      throw new Error(`Question ${item.id}: unrecognized answer letter "${item.answer}"`);
+    }
+    const options = parsePlainOptions(item.options);
+    return {
+      domain: 'Verbal & Symbolic',
+      topic: 'Coding-Decoding',
+      subpattern: item.subPattern || item.category || null,
+      difficulty: item.diff.toLowerCase(),
+      question_type: 'single_choice',
+      question_text: item.question,
+      options,
+      correct_option_ids: [options[answerIndex].id],
+      explanation: item.explanation,
+    };
+  });
+}
+
 function main(): void {
   const fromAnalogiesMd = convertAnalogiesMarkdown();
   const fromHtmlBank = convertHtmlRepository();
   const fromAnalogyExplorer = convertAnalogyExplorer();
-  const allQuestions = [...fromAnalogiesMd, ...fromHtmlBank, ...fromAnalogyExplorer];
+  const fromCodingDecoding = convertCodingDecoding();
+  const allQuestions = [...fromAnalogiesMd, ...fromHtmlBank, ...fromAnalogyExplorer, ...fromCodingDecoding];
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({ questions: allQuestions }, null, 2), 'utf-8');
 
@@ -280,6 +324,7 @@ function main(): void {
   console.log(`  01-analogies.md:                                     ${fromAnalogiesMd.length} questions`);
   console.log(`  reasoning_practice_question_bank.html:               ${fromHtmlBank.length} questions`);
   console.log(`  competitive_exam_analogy_item_bank_explorer.html:    ${fromAnalogyExplorer.length} questions`);
+  console.log(`  coding_decoding_question_bank_practice_portal.html:  ${fromCodingDecoding.length} questions`);
   console.log(`  Total:                                               ${allQuestions.length} questions`);
   console.log(`Output written to: ${OUTPUT_PATH}`);
 }

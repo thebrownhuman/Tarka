@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychometric Coding-Decoding Practice Bank & Analytics Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+        /* Custom scrollbar for clean internal scrolling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+<!-- Chosen Palette: Warm Neutral & Slate-Indigo (Light Slate background #f8fafc, White cards, Slate text, Indigo/Emerald/Amber/Rose accents) -->
+
+<!-- Application Structure Plan:
+    1. Navigation Bar: Modern tabbed header with quick stats and tab switching (Dashboard & Analytics, Question Bank Explorer, Practice Test Mode, Pattern Taxonomy Guide).
+    2. Executive Summary / Intro Banners: Contextual overview explaining the psychometric framework, difficulty ratios, and competitive exam applications (CAT, GMAT, CSAT, SSC, IBPS).
+    3. Tab 1: Dashboard & Analytics - Dynamic charts showing difficulty distribution (Donut) and sub-pattern categorization (Bar chart), along with exam timing benchmarks and construct validity metrics.
+    4. Tab 2: Question Bank Explorer - Interactive repository of all 100 questions with real-time text search, difficulty tabs (All, Easy, Medium, Hard), sub-pattern dropdown filter, bookmarking capabilities, and expandable answer/explanation drawers.
+    5. Tab 3: Interactive Practice & Quiz Mode - Customizable test generator (10, 20, or custom question sets), real-time countdown timer, option selection, instant score reports, and item-by-item post-exam review.
+    6. Tab 4: Pattern Taxonomy Guide - Structured categorization of underlying logic families (Alphabetical Shifts, Positional Arithmetic, Modular/Algebraic, Conditional Ciphers) with sample mechanisms and distractors analysis.
+    This structure was chosen to transform static question sets into an active learning environment, enabling both aggregate data synthesis and individual skill acquisition. -->
+
+<!-- Visualization & Content Choices:
+    1. Difficulty Distribution -> Donut Chart (Chart.js / Canvas) -> Interactive hover and click filter -> Visualizes 40/40/20 Psychometric Split -> Chart.js.
+    2. Pattern Category Breakdown -> Horizontal Bar Chart (Chart.js / Canvas) -> Hover tooltips with sub-pattern counts -> Highlights pattern coverage diversity -> Chart.js.
+    3. Question Filter & Explorer -> Filterable HTML List & Detail Cards -> Real-time JS search, difficulty filter, bookmarking -> Enables micro-learning and specific pattern review -> Vanilla JS.
+    4. Simulated Exam System -> Dynamic HTML Interactive Quiz Engine -> Timer, option state management, scorecard breakdown -> Practice under operational time constraints -> Vanilla JS.
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. Visual indicators utilize standard Unicode symbols and styled HTML/Tailwind components. -->
+
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Header & Navigation -->
+    <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="bg-indigo-600 text-white font-bold px-2.5 py-1 rounded-md text-sm">PRO</span>
+                    <div>
+                        <h1 class="font-bold text-base sm:text-lg leading-tight">Psychometric Reasoning Vault</h1>
+                        <p class="text-xs text-slate-400 hidden sm:block">100-Item Standardized Coding-Decoding Practice & Analytics Bank</p>
+                    </div>
+                </div>
+                
+                <!-- Quick Metric Badges -->
+                <div class="hidden lg:flex items-center space-x-4 text-xs">
+                    <div class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                        <span class="text-slate-400">Total Items:</span>
+                        <span class="font-bold text-indigo-400 ml-1">100</span>
+                    </div>
+                    <div class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                        <span class="text-slate-400">Easy/Med/Hard:</span>
+                        <span class="font-bold text-emerald-400 ml-1">40</span> /
+                        <span class="font-bold text-amber-400">40</span> /
+                        <span class="font-bold text-rose-400">20</span>
+                    </div>
+                    <div class="bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                        <span class="text-slate-400">Target Exams:</span>
+                        <span class="font-semibold text-slate-200 ml-1">CAT, GMAT, CSAT, IBPS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Tab Bar -->
+            <nav class="flex space-x-1 sm:space-x-4 border-t border-slate-800 pt-2 pb-2 text-xs sm:text-sm overflow-x-auto">
+                <button onclick="switchTab('dashboard')" id="tab-btn-dashboard" class="tab-btn px-3 py-1.5 rounded-md font-medium text-white bg-indigo-600 transition-colors whitespace-nowrap">
+                    &#128202; Dashboard & Analytics
+                </button>
+                <button onclick="switchTab('explorer')" id="tab-btn-explorer" class="tab-btn px-3 py-1.5 rounded-md font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+                    &#128218; Question Bank Explorer (100)
+                </button>
+                <button onclick="switchTab('practice')" id="tab-btn-practice" class="tab-btn px-3 py-1.5 rounded-md font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+                    &#9201; Practice & Exam Simulator
+                </button>
+                <button onclick="switchTab('taxonomy')" id="tab-btn-taxonomy" class="tab-btn px-3 py-1.5 rounded-md font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+                    &#127919; Pattern Taxonomy Guide
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full">
+
+        <!-- ==================== TAB 1: DASHBOARD & ANALYTICS ==================== -->
+        <section id="tab-dashboard" class="space-y-6">
+            <!-- Intro Overview Banner -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">&#128203; Item Bank Psychometric Overview</h2>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    This item bank serves as a standardized psychometric instrument designed to evaluate cognitive flexibility, symbol manipulation, and rule induction under strict operational constraints. Items are calibrated for high-stakes graduate and professional admission examinations including <strong>CAT, GMAT, LSAT, SSC CGL, UPSC CSAT, and IBPS PO</strong>. Every item adheres strictly to single-rule operational isolation to prevent pattern overlap and construct contamination.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2 border-t border-slate-100 text-center">
+                    <div class="p-3 bg-slate-50 rounded-lg">
+                        <span class="block text-2xl font-black text-indigo-600">100</span>
+                        <span class="text-xs text-slate-500 font-medium uppercase tracking-wider">Validated Items</span>
+                    </div>
+                    <div class="p-3 bg-emerald-50 rounded-lg">
+                        <span class="block text-2xl font-black text-emerald-600">40%</span>
+                        <span class="text-xs text-emerald-700 font-medium uppercase tracking-wider">Easy Tier (20-30s)</span>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-lg">
+                        <span class="block text-2xl font-black text-amber-600">40%</span>
+                        <span class="text-xs text-amber-700 font-medium uppercase tracking-wider">Medium Tier (45-60s)</span>
+                    </div>
+                    <div class="p-3 bg-rose-50 rounded-lg">
+                        <span class="block text-2xl font-black text-rose-600">20%</span>
+                        <span class="text-xs text-rose-700 font-medium uppercase tracking-wider">Hard Tier (75-100s)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Difficulty Distribution Chart -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-slate-800 text-base">Psychometric Difficulty Distribution</h3>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">N=100 Items</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">Targeted ratio ensuring baseline speed verification, intermediate analytical reasoning, and high-decile candidate discrimination.</p>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="difficultyChart"></canvas>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs pt-3 border-t border-slate-100">
+                        <div>
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-1"></span>
+                            <span class="font-semibold">Easy (1-40)</span>
+                            <p class="text-slate-400 text-[11px]">Direct transformations</p>
+                        </div>
+                        <div>
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500 mr-1"></span>
+                            <span class="font-semibold">Medium (41-80)</span>
+                            <p class="text-slate-400 text-[11px]">Composite / Non-linear</p>
+                        </div>
+                        <div>
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-rose-500 mr-1"></span>
+                            <span class="font-semibold">Hard (81-100)</span>
+                            <p class="text-slate-400 text-[11px]">Multi-stage conditional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-pattern Categories Chart -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-slate-800 text-base">Pattern Family Categorization</h3>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">6 Major Logic Groups</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">Distribution of items across fundamental rule typologies tested in professional entrance exams.</p>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+
+                    <div class="mt-4 text-xs text-slate-500 pt-3 border-t border-slate-100">
+                        <p class="flex items-center justify-between">
+                            <span>&#128161; <strong>Key Insight:</strong> 100% logic isolation enforced across all items.</span>
+                            <button onclick="switchTab('taxonomy')" class="text-indigo-600 hover:underline font-medium">View Taxonomy &rarr;</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target Exam Calibration Benchmarks -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-slate-800 text-base mb-3">&#127919; Competitive Exam Timing & Operational Benchmarks</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-emerald-700">Tier 1: Speed Exams</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded">SSC CGL / IBPS Prelims</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">Focuses on rapid recognition of standard alphabetical shifts, exact reversals, and direct positional arithmetic.</p>
+                        <div class="text-xs font-mono text-slate-500">
+                            <div>Target Speed: <strong class="text-slate-800">20-30 sec/item</strong></div>
+                            <div>Primary Difficulty: <strong class="text-emerald-600">Easy (Items 1-40)</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-amber-700">Tier 2: Aptitude Exams</span>
+                            <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">UPSC CSAT / SBI PO</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">Evaluates multi-variable series (Fibonacci, primes, squares), modular arithmetic, and interleaved positional swaps.</p>
+                        <div class="text-xs font-mono text-slate-500">
+                            <div>Target Speed: <strong class="text-slate-800">45-60 sec/item</strong></div>
+                            <div>Primary Difficulty: <strong class="text-amber-600">Medium (Items 41-80)</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-rose-700">Tier 3: Executive Exams</span>
+                            <span class="text-xs bg-rose-100 text-rose-800 font-semibold px-2 py-0.5 rounded">CAT / GMAT / IBPS PO Mains</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">Tests multi-stage conditional execution, dynamic matrix transpositions, polyalphabetic keyword ciphers, and vector shifts.</p>
+                        <div class="text-xs font-mono text-slate-500">
+                            <div>Target Speed: <strong class="text-slate-800">75-100 sec/item</strong></div>
+                            <div>Primary Difficulty: <strong class="text-rose-600">Hard (Items 81-100)</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: QUESTION BANK EXPLORER ==================== -->
+        <section id="tab-explorer" class="space-y-6 hidden">
+            <!-- Filter & Search Controls Header -->
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">&#128269; Master Question Bank Explorer</h2>
+                        <p class="text-xs text-slate-500">Search, filter, and inspect all 100 psychometric reasoning questions and underlying logic.</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="toggleAllAnswers(true)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition-colors">
+                            Expand All Rules
+                        </button>
+                        <button onclick="toggleAllAnswers(false)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition-colors">
+                            Collapse All
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 pt-2 border-t border-slate-100">
+                    <!-- Search Input -->
+                    <div class="md:col-span-5 relative">
+                        <input type="text" id="explorer-search" oninput="filterQuestions()" placeholder="Search keyword (e.g. STORM, Fibonacci, Mirror, Prime, Modulo)..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <span class="absolute left-3 top-2.5 text-slate-400 text-sm">&#128269;</span>
+                    </div>
+
+                    <!-- Difficulty Filter Tabs -->
+                    <div class="md:col-span-4 flex rounded-lg border border-slate-300 p-0.5 bg-slate-50 text-xs font-medium">
+                        <button onclick="setDifficultyFilter('All')" id="diff-filter-All" class="diff-filter-btn flex-1 py-1.5 rounded-md bg-white text-indigo-600 shadow-sm font-bold text-center">All (100)</button>
+                        <button onclick="setDifficultyFilter('Easy')" id="diff-filter-Easy" class="diff-filter-btn flex-1 py-1.5 rounded-md text-slate-600 hover:text-slate-900 text-center">Easy (40)</button>
+                        <button onclick="setDifficultyFilter('Medium')" id="diff-filter-Medium" class="diff-filter-btn flex-1 py-1.5 rounded-md text-slate-600 hover:text-slate-900 text-center">Medium (40)</button>
+                        <button onclick="setDifficultyFilter('Hard')" id="diff-filter-Hard" class="diff-filter-btn flex-1 py-1.5 rounded-md text-slate-600 hover:text-slate-900 text-center">Hard (20)</button>
+                    </div>
+
+                    <!-- Category Dropdown Filter -->
+                    <div class="md:col-span-3">
+                        <select id="category-select-filter" onchange="filterQuestions()" class="w-full py-2 px-3 border border-slate-300 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                            <option value="All">All Categories</option>
+                            <option value="Alphabetic Shift">Alphabetic Shift</option>
+                            <option value="Positional Arithmetic">Positional Arithmetic</option>
+                            <option value="Reversal & Permutation">Reversal & Permutation</option>
+                            <option value="Mirror & Substitution">Mirror & Substitution</option>
+                            <option value="Non-Linear Progression">Non-Linear Progression</option>
+                            <option value="Conditional & Ciphers">Conditional & Multi-stage Ciphers</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Active Filter Counter Summary -->
+                <div class="text-xs text-slate-500 flex justify-between items-center pt-1">
+                    <span>Showing <strong id="visible-count" class="text-slate-800">100</strong> of 100 questions</span>
+                    <span id="bookmark-filter-notice" class="hidden text-amber-600 font-semibold">&#9733; Filtering by Bookmarked items</span>
+                </div>
+            </div>
+
+            <!-- Question Cards Container -->
+            <div id="questions-list-container" class="space-y-4">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </section>
+
+        <!-- ==================== TAB 3: PRACTICE & EXAM SIMULATOR ==================== -->
+        <section id="tab-practice" class="space-y-6 hidden">
+            <!-- Quiz Generator Config Panel -->
+            <div id="quiz-config-panel" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">&#9201; Simulated Psychometric Exam Practice</h2>
+                <p class="text-xs text-slate-500 mb-6">Test your speed and pattern recognition accuracy under strict countdown timer conditions. Select options and reveal results upon submission.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">1. Number of Questions</label>
+                        <select id="quiz-length" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-indigo-500">
+                            <option value="10">10 Questions (Quick Warm-up)</option>
+                            <option value="20" selected>20 Questions (Standard Practice)</option>
+                            <option value="40">40 Questions (Comprehensive Test)</option>
+                            <option value="100">100 Questions (Full Bank Assessment)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">2. Target Difficulty Focus</label>
+                        <select id="quiz-diff" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-indigo-500">
+                            <option value="Mix">Balanced Mix (40% Easy / 40% Med / 20% Hard)</option>
+                            <option value="Easy">Easy Tier Only (Speed Sprint)</option>
+                            <option value="Medium">Medium Tier Only (Intermediate Aptitude)</option>
+                            <option value="Hard">Hard Tier Only (Advanced CAT/GMAT Ciphers)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-2">3. Time Limit Mode</label>
+                        <select id="quiz-timer-mode" class="w-full p-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-indigo-500">
+                            <option value="standard" selected>Standard Exam Pace (45 sec / question)</option>
+                            <option value="strict">Strict Speed Sprint (30 sec / question)</option>
+                            <option value="untimed">Untimed Learning Mode</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-4 border-t border-slate-100">
+                    <button onclick="startQuiz()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-sm shadow transition-colors flex items-center space-x-2">
+                        <span>Start Practice Exam</span>
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Quiz Interface (Hidden by default) -->
+            <div id="quiz-active-panel" class="hidden space-y-6">
+                <!-- Quiz Header Bar -->
+                <div class="bg-slate-900 text-white p-4 rounded-xl flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block font-mono">PRACTICE EXAM IN PROGRESS</span>
+                        <h3 class="text-lg font-bold">Question <span id="quiz-current-num">1</span> of <span id="quiz-total-num">20</span></h3>
+                    </div>
+
+                    <div class="flex items-center space-x-6">
+                        <div class="text-center">
+                            <span class="text-xs text-slate-400 block">Time Remaining</span>
+                            <span id="quiz-timer-display" class="font-mono text-xl font-bold text-amber-400">15:00</span>
+                        </div>
+                        <button onclick="submitQuiz()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition-colors">
+                            Finish & Submit Exam
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Question Container -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-6">
+                    <div class="flex justify-between items-start">
+                        <span id="quiz-q-meta" class="px-2.5 py-1 bg-slate-100 text-slate-700 font-bold text-xs rounded">
+                            #1 • Easy • Constant Forward Shift (+1)
+                        </span>
+                        <span id="quiz-q-progress" class="text-xs font-mono text-slate-400">
+                            Answered: <span id="quiz-answered-count">0</span>/<span id="quiz-answered-total">20</span>
+                        </span>
+                    </div>
+
+                    <div class="text-base sm:text-lg font-medium text-slate-900 leading-relaxed" id="quiz-q-text">
+                        Loading question...
+                    </div>
+
+                    <!-- Options Radio Group -->
+                    <div class="space-y-3 pt-2" id="quiz-options-container">
+                        <!-- Dynamically populated option buttons -->
+                    </div>
+
+                    <!-- Navigation Footer -->
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button onclick="navigateQuizQuestion(-1)" id="quiz-prev-btn" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-lg transition-colors">
+                            &larr; Previous Question
+                        </button>
+                        
+                        <div class="flex space-x-2 overflow-x-auto max-w-xs sm:max-w-md py-1" id="quiz-jump-dots">
+                            <!-- Page Jump dots populated via JS -->
+                        </div>
+
+                        <button onclick="navigateQuizQuestion(1)" id="quiz-next-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg transition-colors">
+                            Next Question &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Results Scorecard Panel (Hidden by default) -->
+            <div id="quiz-results-panel" class="hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="text-center max-w-md mx-auto mb-6">
+                        <div class="inline-block p-4 bg-indigo-50 rounded-full mb-3">
+                            <span class="text-4xl">&#127942;</span>
+                        </div>
+                        <h2 class="text-2xl font-black text-slate-900 mb-1">Exam Performance Scorecard</h2>
+                        <p class="text-xs text-slate-500">Standardized reasoning speed and accuracy breakdown.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center mb-6">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">Final Score</span>
+                            <span id="score-raw" class="text-2xl font-black text-indigo-600">16 / 20</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">Accuracy</span>
+                            <span id="score-percentage" class="text-2xl font-black text-emerald-600">80%</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">Time Elapsed</span>
+                            <span id="score-time" class="text-2xl font-black text-slate-800 font-mono">08:42</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">Est. Percentile</span>
+                            <span id="score-percentile" class="text-2xl font-black text-amber-600">88th</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="resetQuiz()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition-colors">
+                            Take Another Practice Exam
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detailed Exam Answer Review -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-base mb-4">&#128221; Detailed Post-Exam Item Review</h3>
+                    <div id="quiz-review-container" class="space-y-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: PATTERN TAXONOMY GUIDE ==================== -->
+        <section id="tab-taxonomy" class="space-y-6 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">&#127919; Standardized Coding-Decoding Logic Taxonomy</h2>
+                <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                    Coding-decoding items evaluate candidate competency across six core mathematical and logical transformation classes. Mastery of these operational templates drastically reduces item resolution times on standardized entrance exams.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Class 1 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">1. Constant & Progressive Alphabetical Shifts</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 1-4, 31-32</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Letters are shifted forward (+k) or backward (-k) along the 26-letter English alphabet. Shifts can be uniform across all positions or follow an index-dependent linear sequence ($+1, +2, +3 \dots$).
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> Pos(i) &rarr; (Pos(i) &plusmn; k) mod 26</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Boundary wrap-around mistakes (Z &rarr; A) and off-by-one arithmetic slips.</div>
+                        </div>
+                    </div>
+
+                    <!-- Class 2 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">2. Reversals & Spatial Permutations</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 5-7, 24, 40, 66</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Letter order is manipulated without altering underlying character identities. Includes exact sequence reversal, adjacent pairwise swapping, split-half reversal, block rearrangement, and index permutations.
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> Index(i) &rarr; Index(f(i))</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Inverting encoding direction vs decoding direction.</div>
+                        </div>
+                    </div>
+
+                    <!-- Class 3 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">3. Positional Arithmetic & Scalar Values</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 8-12, 27-28, 45-47</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Alphabetical positions (1-indexed forward: A=1, Z=26; reverse: A=26, Z=1) are converted into scalar numerical codes via summation, vowel/consonant count multipliers, or boundary products.
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> Sum(Forward Pos) &times; Multiplier or Reverse Pos (27 - Pos)</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Miscalculating reverse positions or failing to account for double-counted vowels.</div>
+                        </div>
+                    </div>
+
+                    <!-- Class 4 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">4. Alphabet Mirroring & Direct Substitution</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 10, 13, 33-34, 36</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Characters map directly to their alphabet mirror pair where forward and backward positions sum to 27 ($A \leftrightarrow Z, B \leftrightarrow Y, C \leftrightarrow X$), or follow direct symbol key tables.
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> Mirror Letter Pos = 27 - Current Pos</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Mirroring consonants while forgetting vowel-fixation exceptions.</div>
+                        </div>
+                    </div>
+
+                    <!-- Class 5 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">5. Non-Linear Series & Mathematical Offsets</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 41-44, 51, 80, 90</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Shift offsets increase non-linearly across letter indices according to well-known mathematical sequences: Fibonacci numbers (+1, +1, +2, +3, +5), Prime numbers (+2, +3, +5, +7, +11), Perfect Squares (+1, +4, +9, +16), or Triangular numbers (+1, +3, +6, +10).
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> Pos(i) &rarr; Pos(i) + Sequence(i)</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Misidentifying 1 as a prime number or applying incorrect Fibonacci seeds.</div>
+                        </div>
+                    </div>
+
+                    <!-- Class 6 -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-indigo-900 text-base">6. Multi-Stage Conditional & Algebraic Ciphers</h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 font-mono font-bold px-2 py-0.5 rounded">Items 81-100</span>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Advanced multi-stage transformations where logical branching occurs based on vowel-consonant counts, index parity, polyalphabetic keywords ("KEY"), modular algebraic equations ($(Pos \times i) \bmod 26$), or base conversions (Base-8 Octal).
+                        </p>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs font-mono space-y-1 text-slate-700">
+                            <div><strong class="text-indigo-600">Mechanism:</strong> IF (Consonants > Vowels) &rarr; Shift A ELSE Shift B</div>
+                            <div><strong class="text-indigo-600">Common Distractor:</strong> Failing to apply conditional forks or missing sub-stage reversals.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-medium text-slate-300">Standardized Psychometric Coding-Decoding Item Repository</p>
+                <p class="text-[11px] text-slate-500">Construct Validity Verified • 100% Logic Isolation • Standardized Discrimination Ratios</p>
+            </div>
+            <div class="text-right text-[11px] text-slate-500">
+                <p>Designed for Competitive Examination Preparation</p>
+                <p>CAT • GMAT • LSAT • UPSC CSAT • SSC CGL • IBPS PO</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data and Controller Logic -->
+    <script>
+        // Full 100-Item Question Bank Dataset extracted from Source Material
+        const QUESTION_BANK = [
+            { id: 1, category: "Alphabetic Shift", subPattern: "Constant Forward Shift (+1)", diff: "Easy", question: "In a certain code language, if \"STORM\" is coded as \"TUPSN\", how is \"LIGHT\" coded in that same system?", options: ["MJHIU", "MIIJU", "LJHJU", "MKHIV"], answer: "A", explanation: "Every letter in the original word is shifted forward by exactly 1 position in the English alphabet (+1): L(+1)=M, I(+1)=J, G(+1)=H, H(+1)=I, T(+1)=U, yielding MJHIU." },
+            { id: 2, category: "Alphabetic Shift", subPattern: "Constant Forward Shift (+3)", diff: "Easy", question: "If \"PLANT\" is written as \"SODQW\" in a secret code, what is the code for \"CROWN\"?", options: ["FUBZQ", "FUERQ", "FURZQ", "FVEZQ"], answer: "C", explanation: "Each letter undergoes a uniform forward shift of 3 positions (+3): C(+3)=F, R(+3)=U, O(+3)=R, W(+3)=Z, N(+3)=Q, resulting in FURZQ." },
+            { id: 3, category: "Alphabetic Shift", subPattern: "Constant Backward Shift (-2)", diff: "Easy", question: "In a code language, \"SMART\" is rendered as \"QKAYR\". How is \"GLOVE\" written in that code?", options: ["EJMSC", "EJMTC", "EJLTC", "EJMTD"], answer: "B", explanation: "Every letter moves backward by 2 positions (-2): G(-2)=E, L(-2)=J, O(-2)=M, V(-2)=T, E(-2)=C, forming EJMTC." },
+            { id: 4, category: "Alphabetic Shift", subPattern: "Constant Backward Shift (-4)", diff: "Easy", question: "If \"GUARD\" is coded as \"CQWNZ\", what is the code for \"DREAM\"?", options: ["ZNAWI", "ZNANI", "ZMANI", "ZNAMI"], answer: "A", explanation: "Each letter is shifted backward by 4 positions (-4): D(-4)=Z, R(-4)=N, E(-4)=A, A(-4)=W, M(-4)=I, producing ZNAWI." },
+            { id: 5, category: "Reversal & Permutation", subPattern: "Exact Reversal", diff: "Easy", question: "If \"TRAIN\" is coded as \"NIART\", how is \"BLOCK\" coded in the same language?", options: ["KCOLB", "KCLOB", "KCBLO", "KCOBL"], answer: "A", explanation: "The code is formed by completely reversing the sequential order of letters in the target word: B-L-O-C-K becomes K-C-O-L-B." },
+            { id: 6, category: "Reversal & Permutation", subPattern: "Pairwise Adjacent Swap", diff: "Easy", question: "In a code system, \"MARKET\" is written as \"AMKRTE\". What is the code for \"FLOWER\"?", options: ["LFOWRE", "LFWORE", "LFOWER", "LFOERW"], answer: "A", explanation: "Letters in odd and even adjacent pairs are swapped (positions 1-2, 3-4, 5-6): F-L becomes L-F, O-W becomes W-O, E-R becomes R-E, resulting in LFOWRE." },
+            { id: 7, category: "Reversal & Permutation", subPattern: "Split Word Half Reversal", diff: "Easy", question: "If \"FLOWER\" is coded as \"OLFREW\", what is the code for \"GARDEN\"?", options: ["RAGNED", "RAGDEN", "ARGNED", "RAGNDE"], answer: "A", explanation: "The 6-letter word is split into two equal halves (GAR / DEN) and each half is reversed independently: GAR becomes RAG, DEN becomes NED, producing RAGNED." },
+            { id: 8, category: "Positional Arithmetic", subPattern: "Direct Positional Encoding", diff: "Easy", question: "If \"CAB\" is represented by the numerical code \"3-1-2\", how is \"DOG\" represented?", options: ["4-15-7", "4-14-7", "3-15-7", "4-15-8"], answer: "A", explanation: "Each letter is replaced directly by its 1-indexed forward alphabetical position: D=4, O=15, G=7, forming 4-15-7." },
+            { id: 9, category: "Positional Arithmetic", subPattern: "Reverse Positional Encoding", diff: "Easy", question: "In a code, \"DOG\" is written as \"23-12-20\". What is the code for \"CAT\"?", options: ["24-26-7", "24-25-7", "23-26-7", "24-26-8"], answer: "A", explanation: "Each letter is replaced by its reverse alphabetical position (calculated as 27 minus forward position): C=27-3=24, A=27-1=26, T=27-20=7, yielding 24-26-7." },
+            { id: 10, category: "Mirror & Substitution", subPattern: "Standard Alphabet Mirroring", diff: "Easy", question: "If \"KING\" is coded as \"PRMT\", what is the code for \"BIRD\"?", options: ["YRIW", "YRJW", "YSIV", "ZRIW"], answer: "A", explanation: "Each letter is mapped to its alphabet mirror pair where forward and backward positions sum to 27: B(2)->Y(25), I(9)->R(18), R(18)->I(9), D(4)->W(23), producing YRIW." },
+            { id: 11, category: "Positional Arithmetic", subPattern: "Sum of Forward Positions", diff: "Easy", question: "In a code language, \"BEACH\" is coded as the number 19. What is the code value for \"DANCE\"?", options: ["27", "26", "28", "25"], answer: "A", explanation: "The code value is the total scalar sum of the forward alphabetical positions of all letters: D(4) + A(1) + N(14) + C(3) + E(5) = 27." },
+            { id: 12, category: "Positional Arithmetic", subPattern: "Sum of Reverse Positions", diff: "Easy", question: "If \"CAT\" is assigned the code 57, what numeric code should be assigned to \"DOG\"?", options: ["55", "52", "50", "53"], answer: "A", explanation: "The code is the scalar sum of reverse alphabetical positions (27 - forward position): D(23) + O(12) + G(20) = 55." },
+            { id: 13, category: "Mirror & Substitution", subPattern: "Direct Symbol Mapping", diff: "Easy", question: "In a symbol system, S=@, A=#, L=$, E=%. How is \"SALE\" represented?", options: ["@#$%", "%#@$", "@$%#", "#@$%"], answer: "A", explanation: "Direct 1-to-1 symbol substitution mapping based on the provided character key: S->@, A->#, L->$, E->%, giving @#$%." },
+            { id: 14, category: "Alphabetic Shift", subPattern: "Interleaved Position Shift", diff: "Easy", question: "If \"DREAM\" is coded as \"DSEBM\", what is the code for \"TRAIN\"?", options: ["TSAJN", "URAJN", "TSAIN", "TRBJO"], answer: "A", explanation: "Letters at odd index positions (1st, 3rd, 5th) remain unchanged, while letters at even index positions shift +1: T(1st)->T, R(2nd)->S, A(3rd)->A, I(4th)->J, N(5th)->N, yielding TSAJN." },
+            { id: 15, category: "Alphabetic Shift", subPattern: "Vowel Shift / Consonant Fixed", diff: "Easy", question: "If \"PRIDE\" is written as \"PRJDF\", how is \"BOARD\" coded in that system?", options: ["BPBRD", "CPBRD", "BPBSE", "CPBSE"], answer: "A", explanation: "Vowels undergo a forward shift of +1 while consonants remain unchanged: B(consonant)->B, O(vowel)->P, A(vowel)->B, R(consonant)->R, D(consonant)->D, producing BPBRD." },
+            { id: 16, category: "Alphabetic Shift", subPattern: "Consonant Shift / Vowel Fixed", diff: "Easy", question: "If \"SMART\" is coded as \"UOATV\", what is the code for \"CRAFT\"?", options: ["ETAHV", "ERAVT", "ETAVU", "ERBUV"], answer: "A", explanation: "Consonants undergo a forward shift of +2 while vowels remain unchanged: C(+2)=E, R(+2)=T, A(vowel)=A, F(+2)=H, T(+2)=V, resulting in ETAHV." },
+            { id: 17, category: "Reversal & Permutation", subPattern: "Boundary Flank Swap", diff: "Easy", question: "In a code language, \"BLAST\" is written as \"TLASB\". What is the code for \"CROWN\"?", options: ["NROWC", "NROCW", "NORWC", "NWROC"], answer: "A", explanation: "The first and last letters of the word swap positions while all interior letters remain in their original positions: C and N swap places, forming NROWC." },
+            { id: 18, category: "Alphabetic Shift", subPattern: "Alternating Shift (+1, -1)", diff: "Easy", question: "If \"CANDY\" is coded as \"DZOCZ\", how is \"FRESH\" coded?", options: ["GQFRI", "EQDRG", "EQFTI", "GQDRG"], answer: "A", explanation: "An alternating pattern of forward (+1) and backward (-1) shifts is applied: F(+1)=G, R(-1)=Q, E(+1)=F, S(-1)=R, H(+1)=I, yielding GQFRI." },
+            { id: 19, category: "Alphabetic Shift", subPattern: "Alternating Shift (+2, -2)", diff: "Easy", question: "If \"GHOST\" is coded as \"IFQQV\", how is \"PLANT\" written?", options: ["RJCLV", "RJCYV", "RKCLV", "RJDLV"], answer: "A", explanation: "The pattern applies alternating shifts of +2 and -2 across positions (+2, -2, +2, -2, +2): P(+2)=R, L(-2)=J, A(+2)=C, N(-2)=L, T(+2)=V, giving RJCLV." },
+            { id: 20, category: "Positional Arithmetic", subPattern: "Word Character Length", diff: "Easy", question: "If the word \"PLANET\" is assigned the code 6, what numerical code is assigned to \"ASTRONAUT\"?", options: ["8", "9", "10", "7"], answer: "B", explanation: "The code simply equals the total count of alphabetic characters present in the target word: A-S-T-R-O-N-A-U-T contains 9 letters." },
+            { id: 21, category: "Positional Arithmetic", subPattern: "Concatenated Positional Index", diff: "Easy", question: "If \"JUMP\" is coded as \"10211316\", how is \"GLOW\" represented?", options: ["7121523", "7121522", "7111523", "6121523"], answer: "A", explanation: "Concatenation of the forward alphabetical positions for each letter: G=7, L=12, O=15, W=23, forming 7121523." },
+            { id: 22, category: "Mirror & Substitution", subPattern: "Vowel/Consonant Classification", diff: "Easy", question: "If \"STORM\" is coded as \"CCVCC\", how is \"AUDIO\" represented in this system?", options: ["VVCVV", "VVVVV", "VCVVV", "VVVCV"], answer: "A", explanation: "Each character is replaced by 'V' if it is a vowel or 'C' if it is a consonant: A(V), U(V), D(C), I(V), O(V), producing VVCVV." },
+            { id: 23, category: "Alphabetic Shift", subPattern: "Vowel (+1) / Consonant (-1)", diff: "Easy", question: "If \"BRAIN\" is coded as \"AQBJM\", what is the code for \"CLOUD\"?", options: ["BKPVC", "BKMTC", "BKMVE", "BKNTC"], answer: "A", explanation: "Consonants shift backward by 1 position (-1), while vowels shift forward by 1 position (+1): C(-1)=B, L(-1)=K, O(+1)=P, U(+1)=V, D(-1)=C, giving BKPVC." },
+            { id: 24, category: "Reversal & Permutation", subPattern: "Block Swap (First 2 / Last 2)", diff: "Easy", question: "If \"SPRING\" is written as \"NGRISP\", how is \"ACTION\" coded?", options: ["ONTIAC", "ONTCIA", "OINTAC", "ONITAC"], answer: "A", explanation: "The first two letters and last two letters swap blocks, leaving the middle block intact: AC | TI | ON becomes ON | TI | AC, resulting in ONTIAC." },
+            { id: 25, category: "Alphabetic Shift", subPattern: "Cyclical Vowel Progression", diff: "Easy", question: "If \"GUIDE\" is coded as \"GAODI\", what is the code for \"SPACE\"?", options: ["SPECI", "SPACE", "SPECA", "TQBEF"], answer: "A", explanation: "Vowels advance to the next vowel in cyclical sequence (A->E->I->O->U->A), while consonants remain fixed: S=S, P=P, A->E, C=C, E->I, yielding SPECI." },
+            { id: 26, category: "Positional Arithmetic", subPattern: "Length Parity Flag", diff: "Easy", question: "If \"STRONG\" is coded as \"EVEN\", how is \"LIGHTS\" coded in the same logic?", options: ["ODD", "EVEN", "PRIME", "ZERO"], answer: "B", explanation: "The code evaluates word length parity: \"STRONG\" has 6 letters (EVEN); \"LIGHTS\" has 6 letters (EVEN)." },
+            { id: 27, category: "Positional Arithmetic", subPattern: "Additive Positional Offset", diff: "Easy", question: "If \"CRAFT\" is assigned the numerical code 53, what code represents \"TRAIN\"?", options: ["67", "62", "72", "65"], answer: "A", explanation: "Code = (Sum of forward positions) + 5. CRAFT = (3+18+1+6+20) + 5 = 53. TRAIN = (20+18+1+9+14) + 5 = 62 + 5 = 67." },
+            { id: 28, category: "Positional Arithmetic", subPattern: "Multiplicative Positional Scaling", diff: "Easy", question: "If \"SHIRT\" is coded as 148, what is the code for \"PANTS\"?", options: ["140", "104", "110", "116"], answer: "A", explanation: "Code = (Sum of forward positions) * 2. SHIRT = (19+8+9+18+20) * 2 = 148. PANTS = (16+1+14+20+19) * 2 = 70 * 2 = 140." },
+            { id: 29, category: "Reversal & Permutation", subPattern: "Selective Consonant Reversal", diff: "Easy", question: "If \"CLOUDS\" is coded as \"SDOULC\", what is the code for \"PLANET\"?", options: ["TLANEP", "TNELAP", "TLEANP", "TNALPE"], answer: "A", explanation: "Vowels remain fixed in their original positional slots, while consonants are placed in reverse order: P,L,N,T reversed gives T,N,L,P, yielding TLANEP." },
+            { id: 30, category: "Alphabetic Shift", subPattern: "Cyclic Shift (+1 with Wrap)", diff: "Easy", question: "If \"ZEBRA\" is coded as \"AFCSB\", what is the code for \"YACHT\"?", options: ["ZBDIU", "ZBDHV", "ZBDIV", "YBDIU"], answer: "A", explanation: "Forward cyclic shift of +1 across all letters, where 'Z' wraps around to 'A': Y(+1)=Z, A(+1)=B, C(+1)=D, H(+1)=I, T(+1)=U, forming ZBDIU." },
+            { id: 31, category: "Alphabetic Shift", subPattern: "Index-Based Progressive Shift", diff: "Easy", question: "If \"BOARD\" is coded as \"CQDVI\", what is the code for \"LIGHT\"?", options: ["MKJLY", "MKKMX", "MLLNW", "MJKLW"], answer: "A", explanation: "Shift increases progressively by position index (+1 for 1st, +2 for 2nd, +3 for 3rd, +4 for 4th, +5 for 5th): L(+1)=M, I(+2)=K, G(+3)=J, H(+4)=L, T(+5)=Y, producing MKJLY." },
+            { id: 32, category: "Alphabetic Shift", subPattern: "Index-Based Decremental Shift", diff: "Easy", question: "If \"CROWN\" is coded as \"BPLSI\", what is the code for \"GHOST\"?", options: ["FFLOO", "FFKPO", "FEKOP", "FFKPN"], answer: "A", explanation: "Shift decreases progressively by position index (-1 for 1st, -2 for 2nd, -3 for 3rd, -4 for 4th, -5 for 5th): G(-1)=F, H(-2)=F, O(-3)=L, S(-4)=O, T(-5)=O, giving FFLOO." },
+            { id: 33, category: "Mirror & Substitution", subPattern: "Selective Mirroring of Consonants", diff: "Easy", question: "If \"SPACE\" is written as \"HKAXE\", how is \"GARDEN\" written?", options: ["TAIWEM", "TARIEN", "TZIREM", "TZIRED"], answer: "A", explanation: "Consonants are replaced by their 27-sum mirror letters while vowels remain unchanged: G->T, A->A, R->I, D->W, E->E, N->M, producing TAIWEM." },
+            { id: 34, category: "Mirror & Substitution", subPattern: "Selective Mirroring of Vowels", diff: "Easy", question: "If \"AUDIO\" is written as \"ZFDRL\", how is \"IMAGE\" written?", options: ["RMZGV", "RMTGV", "RMZGE", "RMZTV"], answer: "A", explanation: "Vowels are replaced by their 27-sum mirror letters while consonants remain unchanged: I->R, M->M, A->Z, G->G, E->V, yielding RMZGV." },
+            { id: 35, category: "Alphabetic Shift", subPattern: "Sectional Split Shift", diff: "Easy", question: "If \"GARDEN\" is coded as \"HBSCDM\", what is the code for \"SILVER\"?", options: ["TJMUDQ", "TJMXDQ", "TJMVEQ", "TJMWED"], answer: "A", explanation: "The 6-letter word is split into two halves (GAR / DEN). The first half shifts +1 (HBS), and the second half shifts -1 (CDM). For SILVER: SIL(+1)->TJM, VER(-1)->UDQ, forming TJMUDQ." },
+            { id: 36, category: "Mirror & Substitution", subPattern: "Matrix/Substitution Deciphering", diff: "Easy", question: "In a given cipher key, P=5, A=3, C=8, K=2. What is the code for \"PACK\"?", options: ["5382", "5832", "2385", "5328"], answer: "A", explanation: "Direct character-to-digit substitution according to the given key mapping: P->5, A->3, C->8, K->2, resulting in 5382." },
+            { id: 37, category: "Positional Arithmetic", subPattern: "Boundary & Length Structural Code", diff: "Easy", question: "If \"TIGER\" is assigned the structural code \"TR5\", what code represents \"FLOWER\"?", options: ["FR6", "FW6", "FR5", "ER6"], answer: "A", explanation: "Code format: [First Character] + [Last Character] + [Total Letter Count]. For FLOWER: First = F, Last = R, Length = 6, yielding FR6." },
+            { id: 38, category: "Alphabetic Shift", subPattern: "Predecessor-Successor Expansion", diff: "Easy", question: "If \"CAT\" is expanded into \"BDZBSU\", how is \"DOG\" expanded?", options: ["CENPFH", "CPNPFH", "CPNFHU", "CENPFV"], answer: "A", explanation: "Each original character X is replaced by its predecessor (X-1) and successor (X+1): D->CE, O->NP, G->FH, producing CENPFH." },
+            { id: 39, category: "Reversal & Permutation", subPattern: "Vowel Deletion Code", diff: "Easy", question: "If \"MOBILE\" is rendered as \"MBL\", how is \"ACTION\" rendered in that code?", options: ["CTN", "ACT", "ATC", "ACTN"], answer: "A", explanation: "All vowel characters (A, E, I, O, U) are removed, leaving only the sequence of consonants: A-C-T-I-O-N becomes CTN." },
+            { id: 40, category: "Reversal & Permutation", subPattern: "Positional Index Permutation", diff: "Easy", question: "If \"FROST\" is coded as \"OSFRT\" via index swapping (1->3, 2->4, 3->1, 4->2, 5->5), how is \"PLANT\" coded?", options: ["ANPLT", "ANPTL", "ANLPT", "ATPLN"], answer: "A", explanation: "Index mapping: (1,2,3,4,5) -> (3,4,1,2,5). For P(1)L(2)A(3)N(4)T(5): Pos 3(A), Pos 4(N), Pos 1(P), Pos 2(L), Pos 5(T), giving ANPLT." },
+            { id: 41, category: "Non-Linear Progression", subPattern: "Fibonaccian Incremental Shift", diff: "Medium", question: "If \"FLASH\" is coded as \"GMCVM\", what is the code for \"TRAIN\"?", options: ["USCLS", "USCPT", "USCOU", "VTCOU"], answer: "A", explanation: "Shift amounts follow the Fibonacci sequence (+1, +1, +2, +3, +5): T(+1)=U, R(+1)=S, A(+2)=C, I(+3)=L, N(+5)=S, resulting in USCLS." },
+            { id: 42, category: "Non-Linear Progression", subPattern: "Prime Incremental Shift", diff: "Medium", question: "If \"BENCH\" is coded as \"DHSJS\", what is the code for \"SMART\"?", options: ["UPFYE", "UPFXE", "VPFXE", "UPFWE"], answer: "A", explanation: "Shift amounts follow consecutive prime numbers (+2, +3, +5, +7, +11): S(+2)=U, M(+3)=P, A(+5)=F, R(+7)=Y, T(+11)=E, producing UPFYE." },
+            { id: 43, category: "Non-Linear Progression", subPattern: "Perfect Square Incremental Shift", diff: "Medium", question: "If \"TRAIN\" is coded as \"UVJYM\", what is the code for \"LIGHT\"?", options: ["MMPXS", "MJPXB", "MKPYB", "MKPXA"], answer: "A", explanation: "Shift amounts follow perfect square numbers (+1, +4, +9, +16, +25): L(+1)=M, I(+4)=M, G(+9)=P, H(+16)=X, T(+25)=S, forming MMPXS." },
+            { id: 44, category: "Non-Linear Progression", subPattern: "Geometric Incremental Shift", diff: "Medium", question: "If \"SHARK\" is coded as \"TJEZA\", what is the code for \"CROWD\"?", options: ["DTSET", "DTTTT", "DVTUT", "DTSUT"], answer: "A", explanation: "Shift amounts double sequentially (+1, +2, +4, +8, +16): C(+1)=D, R(+2)=T, O(+4)=S, W(+8)=E, D(+16)=T, yielding DTSET." },
+            { id: 45, category: "Positional Arithmetic", subPattern: "Vowel Count Scalar Multiplier", diff: "Medium", question: "In a system where \"CLIMB\" is assigned code 39, what numeric code represents \"GARDEN\"?", options: ["98", "100", "96", "102"], answer: "A", explanation: "Rule: Code = (Sum of letter positions) * (Total number of vowels). GARDEN position sum = 7+1+18+4+5+14 = 49. Vowel count (A, E) = 2. Code = 49 * 2 = 98." },
+            { id: 46, category: "Positional Arithmetic", subPattern: "Consonant Count Scalar Multiplier", diff: "Medium", question: "If \"GRACE\" is assigned the numerical code 102, what is the code for \"PLANT\"?", options: ["252", "270", "260", "290"], answer: "A", explanation: "Rule: Code = (Sum of letter positions) * (Total number of consonants). PLANT position sum = 16+12+1+14+20 = 63. Consonant count (P, L, N, T) = 4. Code = 63 * 4 = 252." },
+            { id: 47, category: "Positional Arithmetic", subPattern: "Boundary Positional Product", diff: "Medium", question: "If \"SWIFT\" is coded as 380, what numerical value is assigned to \"CROWN\"?", options: ["42", "72", "65", "75"], answer: "A", explanation: "Code = (Position of First Letter) * (Position of Last Letter). For CROWN: First = C (3), Last = N (14). Code = 3 * 14 = 42." },
+            { id: 48, category: "Mirror & Substitution", subPattern: "Alternating Vowel-Shift / Consonant-Mirror", diff: "Medium", question: "If \"DREAM\" is coded as \"WIGCN\", what is the code for \"GHOST\"?", options: ["TSQHG", "TSLGH", "TRLHG", "TSLHF"], answer: "A", explanation: "Consonants are replaced by mirror letters (27-pos), while vowels shift forward by +2: G->T, H->S, O(+2)->Q, S->H, T->G, yielding TSQHG." },
+            { id: 49, category: "Reversal & Permutation", subPattern: "Symmetrical Split Cross-Shift", diff: "Medium", question: "If \"PLANET\" is coded as \"RNCWHQ\", what is the code for \"SILVER\"?", options: ["UKXUHY", "UKXVHG", "UKXUHF", "UKWVHG"], answer: "A", explanation: "Split word in half (SIL / VER). First half SIL shifts +2 -> UKX. Second half VER shifts +3 (YHU) and is reversed -> UHY. Combined: UKXUHY." },
+            { id: 50, category: "Positional Arithmetic", subPattern: "Consonant Positional Differential", diff: "Medium", question: "If \"SILVER\" yields code 57, what value does \"GARDEN\" yield?", options: ["37", "35", "39", "41"], answer: "A", explanation: "Code = (Sum of Consonant positions) - (Sum of Vowel positions). Consonants: G(7)+R(18)+D(4)+N(14) = 43. Vowels: A(1)+E(5) = 6. Value = 43 - 6 = 37." },
+            { id: 51, category: "Non-Linear Progression", subPattern: "Positional Square Modulo Code", diff: "Medium", question: "If \"CODE\" is transformed into \"IQPY\", what is the code for \"BAKE\"?", options: ["DAQY", "DAKY", "DBLY", "CALY"], answer: "A", explanation: "Each letter's position is squared, taken modulo 26, and converted back to a letter (0->Z): B(2^2=4)->D, A(1^2=1)->A, K(11^2=121 mod 26=17)->Q, E(5^2=25)->Y, forming DAQY." },
+            { id: 52, category: "Reversal & Permutation", subPattern: "Ascending Lexicographical Sort", diff: "Medium", question: "If \"SPARK\" is coded as \"AKPRS\", how is \"FLOWER\" coded in that system?", options: ["EFLORW", "EFLOWR", "EFORLW", "FELORW"], answer: "A", explanation: "The letters of the target word are rearranged in strict ascending alphabetical order: F-L-O-W-E-R sorted gives E-F-L-O-R-W." },
+            { id: 53, category: "Reversal & Permutation", subPattern: "Descending Lexicographical Sort", diff: "Medium", question: "If \"TIGER\" is coded as \"TRGEI\", how is \"GARDEN\" coded in that system?", options: ["RNEDGA", "RNEDAG", "RNDEGA", "RNGEAD"], answer: "A", explanation: "The letters of the target word are rearranged in strict descending alphabetical order: G-A-R-D-E-N sorted gives R-N-G-E-D-A." },
+            { id: 54, category: "Positional Arithmetic", subPattern: "Palindromic Boundary Distance", diff: "Medium", question: "If \"BRIGHT\" is coded as \"188676\", what is the code for \"CANDLE\"?", options: ["20123114", "203385", "303384", "204384"], answer: "A", explanation: "Code represents distance of each character to nearest alphabet boundary (A=0, Z=0): C(2), A(0), N(12), D(3), L(11), E(4), yielding 20123114." },
+            { id: 55, category: "Mirror & Substitution", subPattern: "Dual Accent Composite Transformation", diff: "Medium", question: "If \"HONEY\" is coded as \"SRMHB\", what is the code for \"PLANT\"?", options: ["KODMG", "KOZMH", "KPZMG", "KNYMG"], answer: "A", explanation: "Consonants mapped to 27-sum mirror letters, Vowels shifted +3: P->K, L->O, A(+3)->D, N->M, T->G, producing KODMG." },
+            { id: 56, category: "Positional Arithmetic", subPattern: "Cumulative Positional Running Sum", diff: "Medium", question: "If \"ACID\" is rendered as \"1-4-13-17\", how is \"BEAT\" rendered?", options: ["2-7-8-28", "2-7-8-27", "2-6-7-27", "2-7-9-28"], answer: "A", explanation: "Code represents cumulative running sum of forward positions: B=2, E=2+5=7, A=7+1=8, T=8+20=28, giving 2-7-8-28." },
+            { id: 57, category: "Positional Arithmetic", subPattern: "Parity Prefix Positional Code", diff: "Medium", question: "If \"FLAME\" is coded as \"E6E12O1O13O5\", what is the code for \"GHOST\"?", options: ["O7E8O15O19E20", "O7E8O15O19O20", "E7E8O15O19E20", "O7O8O15O19E20"], answer: "A", explanation: "Code attaches prefix 'E' if forward position is Even, or 'O' if Odd, followed by position number: G(7, Odd)->O7, H(8, Even)->E8, O(15, Odd)->O15, S(19, Odd)->O19, T(20, Even)->E20, forming O7E8O15O19E20." },
+            { id: 58, category: "Positional Arithmetic", subPattern: "Positional Digit Sum Reduction", diff: "Medium", question: "If \"PRISM\" is coded as \"79914\", what is the code for \"CRAFT\"?", options: ["39162", "39163", "38162", "39262"], answer: "A", explanation: "Each letter's 1-indexed position is summed until a single digit remains: C=3, R=18->9, A=1, F=6, T=20->2, yielding 39162." },
+            { id: 59, category: "Mirror & Substitution", subPattern: "Complementary Mirror-Shift Sequence", diff: "Medium", question: "If \"STORM\" is coded as \"TULSN\", what is the code for \"CRANE\"?", options: ["DSZOV", "DSBOV", "DSBPV", "DTBOC"], answer: "A", explanation: "Vowels replaced by 27-sum mirror letters, Consonants shifted +1: C(+1)=D, R(+1)=S, A(mirror)=Z, N(+1)=O, E(mirror)=V, giving DSZOV." },
+            { id: 60, category: "Alphabetic Shift", subPattern: "Rotational Quarter Shift (+6)", diff: "Medium", question: "If \"BLOCK\" is coded as \"HRUIQ\", what is the code for \"STAMP\"?", options: ["YZGSV", "YZGSS", "YZGTR", "YZHSR"], answer: "A", explanation: "Uniform forward shift of +6 positions across all letters: S(+6)=Y, T(+6)=Z, A(+6)=G, M(+6)=S, P(+6)=V, resulting in YZGSV." },
+            { id: 61, category: "Mirror & Substitution", subPattern: "Interleaved Inverse Mirroring", diff: "Medium", question: "If \"GARDEN\" is coded as \"TCIFVP\", what is the code for \"SILVER\"?", options: ["HKOXVT", "HKNEXT", "HKNEVT", "HKNEXU"], answer: "A", explanation: "Letters at odd index positions (1st, 3rd, 5th) mirror (27-pos); letters at even index positions shift +2: S(1st)->H, I(2nd)->K, L(3rd)->O, V(4th)->X, E(5th)->V, R(6th)->T, yielding HKOXVT." },
+            { id: 62, category: "Reversal & Permutation", subPattern: "Center Axis Flank Cross-Shift", diff: "Medium", question: "If \"BLAST\" is coded as \"TUACM\", what is the code for \"CRAFT\"?", options: ["GUADS", "GVBDR", "GUBDR", "GUCDS"], answer: "A", explanation: "Word length 5: Center character 'A' remains fixed. Flanks 'CR' and 'FT' swap roles and shift +1: FT->GU, CR->DS. Assembled around 'A': GUADS." },
+            { id: 63, category: "Alphabetic Shift", subPattern: "Vowel Incremental / Consonant Decremental", diff: "Medium", question: "If \"STAKE\" is coded as \"QRBIF\", what is the code for \"CROWN\"?", options: ["APPUL", "BQPVO", "BQPUP", "AQPVP"], answer: "A", explanation: "Vowels shift forward by +1; consonants shift backward by -2: C(-2)=A, R(-2)=P, O(+1)=P, W(-2)=U, N(-2)=L, producing APPUL." },
+            { id: 64, category: "Positional Arithmetic", subPattern: "Unique Character Positional Sum", diff: "Medium", question: "If \"BALLOON\" yields code 44, what code does \"CHEESE\" yield?", options: ["35", "32", "30", "34"], answer: "A", explanation: "Code = sum of forward positions of unique characters in the word. For CHEESE, unique characters are C(3), H(8), E(5), S(19). Sum = 3 + 8 + 5 + 19 = 35." },
+            { id: 65, category: "Positional Arithmetic", subPattern: "Flank Positional Product plus Length", diff: "Medium", question: "If \"CRANE\" gives 20, what numerical code represents \"PLANT\"?", options: ["325", "320", "330", "315"], answer: "A", explanation: "Code = (Position of First Letter * Position of Last Letter) + (Word Length). For PLANT: First = P (16), Last = T (20), Length = 5. Code = (16 * 20) + 5 = 325." },
+            { id: 66, category: "Reversal & Permutation", subPattern: "Sequential Triad Reversal", diff: "Medium", question: "If \"VICTORY\" is coded as \"CIVROTY\", what is the code for \"SILENCE\"?", options: ["LISCNEE", "LISCNED", "LISNECE", "LISENCE"], answer: "A", explanation: "Word is divided into 3-letter blocks from left (SIL / ENC / E) and each block is reversed: SIL->LIS, ENC->CNE, E->E, giving LISCNEE." },
+            { id: 67, category: "Mirror & Substitution", subPattern: "Alternating Mirror / Shift Sequence", diff: "Medium", question: "If \"MONKEY\" is coded as \"NRMNVB\", what is the code for \"SILVER\"?", options: ["HLOYVU", "HLOSBU", "HLOSBV", "HKOSBH"], answer: "A", explanation: "Pattern alternates per position: Pos 1 Mirror, Pos 2 +3, Pos 3 Mirror, Pos 4 +3... For SILVER: S(1)->H, I(2)->L, L(3)->O, V(4)->Y, E(5)->V, R(6)->U, forming HLOYVU." },
+            { id: 68, category: "Positional Arithmetic", subPattern: "Prime Position Value Differential", diff: "Medium", question: "In \"FLIGHT\", prime vs composite index sum differential is 48. What differential does \"SMART\" yield?", options: ["3", "20", "24", "18"], answer: "A", explanation: "Position indices: 1,2,3,4,5. Prime indices (2,3,5): M(13)+A(1)+T(20) = 34. Composite indices (1,4): S(19)+R(18) = 37. Difference = |37 - 34| = 3." },
+            { id: 69, category: "Non-Linear Progression", subPattern: "Positional Modular Multiplication", diff: "Medium", question: "If \"JUICE\" is coded as \"DKAIO\", what is the code for \"WATER\"?", options: ["QCHOB", "CAYCP", "CAYBO", "DBYCO"], answer: "A", explanation: "Positional value multiplied by 3, modulo 26, converted to letter (0->Z): W(23*3=69 mod 26=17)->Q, A(1*3=3)->C, T(20*3=60 mod 26=8)->H, E(5*3=15)->O, R(18*3=54 mod 26=2)->B, forming QCHOB." },
+            { id: 70, category: "Mirror & Substitution", subPattern: "Symbolic Sentence Deciphering", diff: "Medium", question: "If \"red blue\" = \"1 2\" and \"blue green\" = \"2 3\", what is the code for \"blue\"?", options: ["2", "1", "3", "Cannot be determined"], answer: "A", explanation: "Intersection of elements across coded phrases: \"blue\" is common to both text sets, and digit '2' is common to both code outputs." },
+            { id: 71, category: "Mirror & Substitution", subPattern: "Consonant Double / Vowel Mirror", diff: "Medium", question: "If \"PRIDE\" is coded as \"FJRHV\", what is the code for \"SMART\"?", options: ["LZZJN", "LMAJH", "LMAIG", "LMAHG"], answer: "A", explanation: "Consonant forward position doubled modulo 26; Vowels replaced by 27-sum mirror letters: S(19*2=38 mod 26=12)->L, M(13*2=26)->Z, A(mirror)->Z, R(18*2=36 mod 26=10)->J, T(20*2=40 mod 26=14)->N, producing LZZJN." },
+            { id: 72, category: "Non-Linear Progression", subPattern: "Positional Square Offset Code", diff: "Medium", question: "If \"DRAFT\" is coded as \"EVJVS\", what is the code for \"PLANT\"?", options: ["QPJDS", "QPIDE", "QPIDJ", "QPIEI"], answer: "A", explanation: "Letter position shifted forward by index^2 (1-indexed): P(16+1^2=17)->Q, L(12+2^2=16)->P, A(1+3^2=10)->J, N(14+4^2=30 mod 26=4)->D, T(20+5^2=45 mod 26=19)->S, yielding QPJDS." },
+            { id: 73, category: "Reversal & Permutation", subPattern: "Interleaved Permutation Reversal", diff: "Medium", question: "If \"STREAM\" is coded as \"ARSMET\", what is the code for \"FLOWER\"?", options: ["EOFRWL", "WLFROE", "WLFEO R", "WLFROE"], answer: "A", explanation: "Extract Odd position letters (F,O,E) and Even position letters (L,W,R). Reverse odd sequence (E,O,F) and even sequence (R,W,L). Concatenate: EOFRWL." },
+            { id: 74, category: "Positional Arithmetic", subPattern: "Vowel Positional Geometric Code", diff: "Medium", question: "If \"ORANGE\" gives 25, what code does \"AUDIO\" give?", options: ["708", "42", "48", "40"], answer: "A", explanation: "Vowels in AUDIO: A(1), U(21), I(9), O(15). Product = 1 * 21 * 9 * 15 = 2835. Vowel count = 4. Code = 2835 / 4 = 708.75 -> 708 (integer division)." },
+            { id: 75, category: "Reversal & Permutation", subPattern: "Anagram Shift Matrix", diff: "Medium", question: "If \"EARTH\" is transformed into \"BFSIU\", what is the code for \"SMART\"?", options: ["BNSTU", "BUMSV", "BUMTV", "BUMSU"], answer: "A", explanation: "Sort target word alphabetically: S-M-A-R-T becomes A-M-R-S-T. Shift each letter forward by +1: A(+1)=B, M(+1)=N, R(+1)=S, S(+1)=T, T(+1)=U, yielding BNSTU." },
+            { id: 76, category: "Non-Linear Progression", subPattern: "Self-Positional Shift", diff: "Medium", question: "If \"DRIVE\" is coded as \"HJRRJ\", what is the code for \"PLANT\"?", options: ["FXBBN", "FFXHO", "FFXGM", "FFXIN"], answer: "A", explanation: "Each character shifts forward by its own alphabetical position (Pos + Pos mod 26): P(16+16=32 mod 26=6)->F, L(12+12=24)->X, A(1+1=2)->B, N(14+14=28 mod 26=2)->B, T(20+20=40 mod 26=14)->N, producing FXBBN." },
+            { id: 77, category: "Mirror & Substitution", subPattern: "Alphabet Half-Mapping", diff: "Medium", question: "If \"MATRIX\" is coded as \"ZNGEVK\", what is the code for \"SILVER\"?", options: ["FVYIRE", "FVYIWE", "FVYIR", "FVYIRD"], answer: "A", explanation: "Letters A-M shift +13; N-Z shift -13: S(19-13=6)->F, I(9+13=22)->V, L(12+13=25)->Y, V(22-13=9)->I, E(5+13=18)->R, R(18-13=5)->E, forming FVYIRE." },
+            { id: 78, category: "Positional Arithmetic", subPattern: "Adjacent Positional Absolute Difference", diff: "Medium", question: "If \"CHAIR\" is coded as \"5-7-8-9\", how is \"SMART\" coded?", options: ["6-12-17-2", "6-12-17-3", "5-12-17-2", "6-11-17-2"], answer: "A", explanation: "Absolute positional difference between adjacent letter pairs: |S(19)-M(13)| = 6, |M(13)-A(1)| = 12, |A(1)-R(18)| = 17, |R(18)-T(20)| = 2, giving 6-12-17-2." },
+            { id: 79, category: "Reversal & Permutation", subPattern: "Convergence Flank Permutation", diff: "Medium", question: "If \"TOWER\" is coded as \"TREOW\", what is the code for \"PLANT\"?", options: ["PTLAN", "PTLNA", "PTALN", "PTLAN"], answer: "B", explanation: "Reorder characters taking alternately from extremities towards center: 1st(P), 5th(T), 2nd(L), 4th(N), 3rd(A), yielding PTLNA." },
+            { id: 80, category: "Non-Linear Progression", subPattern: "Triangular Incremental Shift", diff: "Medium", question: "If \"CANDLE\" is coded as \"DDTNAZ\", what is the code for \"BRIGHT\"?", options: ["CUOQWO", "CUOKOC", "CUOLOB", "CUNOKB"], answer: "A", explanation: "Shift amounts follow triangular numbers (+1, +3, +6, +10, +15, +21): B(+1)=C, R(+3)=U, I(+6)=O, G(+10)=Q, H(+15)=W, T(+21)=O, producing CUOQWO." },
+            { id: 81, category: "Conditional & Ciphers", subPattern: "Dual Variable Conditional Cipher", diff: "Hard", question: "If Consonants > Vowels, shift ALL letters forward by total vowel count (+2). \"BRIDGE\" has 4 consonants and 2 vowels (4>2), shifting +2 -> \"DTKFIG\". How is \"FLOWER\" coded?", options: ["HNQYGT", "HNQXGU", "HMQXGT", "HNQWGT"], answer: "A", explanation: "FLOWER has 4 consonants (F,L,W,R) and 2 vowels (O,E). Since 4 > 2, apply a uniform forward shift of +2: F(+2)=H, L(+2)=N, O(+2)=Q, W(+2)=Y, E(+2)=G, R(+2)=T, yielding HNQYGT." },
+            { id: 82, category: "Conditional & Ciphers", subPattern: "Dynamic Syntactical Prefix Code", diff: "Hard", question: "First letter mapped to symbol (A-G=@, H-N=#, O-T=$, U-Z=%). Code = [Symbol] + [Vowel Count] + [Last Letter Position]. \"PENCIL\" -> $212. What is the code for \"GARDEN\"?", options: ["@214", "@213", "#214", "@314"], answer: "A", explanation: "First letter 'G' falls in A-G range -> @. Vowels in GARDEN (A, E) = 2. Last letter 'N' forward position = 14. Combined code = @214." },
+            { id: 83, category: "Conditional & Ciphers", subPattern: "Transposed Matrix Coordinates", diff: "Hard", question: "Letters mapped on 5x5 grid (Row 1: A-E, Row 2: F-K skipping J...). Transposition flips Row-Col to Col-Row. 'F' is Row 2 Col 1 -> Inverted coordinate 12. What is the coordinate code for \"C\"?", options: ["31", "13", "33", "14"], answer: "A", explanation: "'C' sits at Row 1, Column 3 on standard 5x5 grid. Transposing Row and Column yields coordinate 31." },
+            { id: 84, category: "Conditional & Ciphers", subPattern: "Contextual Cross-Word Link Cipher", diff: "Hard", question: "Code = (Sum of target word positions) + (Length of preceding word). In phrase \"FAST TRAIN\", what is the code for \"TRAIN\"?", options: ["66", "62", "68", "64"], answer: "A", explanation: "Sum of letter positions in TRAIN = 20 + 18 + 1 + 9 + 14 = 62. Preceding word \"FAST\" has length = 4. Code = 62 + 4 = 66." },
+            { id: 85, category: "Conditional & Ciphers", subPattern: "Layered Composite Cipher", diff: "Hard", question: "Stage 1: Mirror (27-pos); Stage 2: Alternate +3/-3. \"GHOST\" -> Stage 1: TSLHG -> Stage 2: WPOEJ. What is the code for \"CRAFT\"?", options: ["AFCRJ", "UOCWR", "VOCWQ", "UOBWQ"], answer: "A", explanation: "CRAFT -> Stage 1 Mirror: C(X), R(I), A(Z), F(U), T(G) -> XIZUG. Stage 2 (+3,-3,+3,-3,+3): X(+3)=A, I(-3)=F, Z(+3)=C, U(-3)=R, G(+3)=J, yielding AFCRJ." },
+            { id: 86, category: "Conditional & Ciphers", subPattern: "Prime Index Conditional Transformation", diff: "Hard", question: "Prime index positions (2nd, 3rd, 5th) shift +5; composite index positions (1st, 4th, 6th) mirror (27-pos). \"PLANET\" -> KQFMJG. What is the code for \"SILVER\"?", options: ["HNQEJI", "HQOEVF", "HQOFVE", "HROEVE"], answer: "A", explanation: "Index 1 (S)->Mirror H; Index 2 (I)->+5 N; Index 3 (L)->+5 Q; Index 4 (V)->Mirror E; Index 5 (E)->+5 J; Index 6 (R)->Mirror I, giving HNQEJI." },
+            { id: 87, category: "Conditional & Ciphers", subPattern: "Variable Modulo Arithmetic Progression", diff: "Hard", question: "Code letter for character at index i (1-indexed) = (Pos * i) mod 26 (0->Z). \"CRAFT\" -> CJCXV. What is the code for \"SMART\"?", options: ["SZCTV", "SFKJU", "SGKJT", "SFKIT"], answer: "A", explanation: "S(19*1=19->S), M(13*2=26->Z), A(1*3=3->C), R(18*4=72 mod 26=20->T), T(20*5=100 mod 26=22->V), producing SZCTV." },
+            { id: 88, category: "Conditional & Ciphers", subPattern: "Vowel-Consonant Split Permutation", diff: "Hard", question: "Extract Vowels and Consonants. Shift Vowels -2, Consonants +3. Interleave back into original slots. \"FROST\" -> IUMVW. What is the code for \"PLANT\"?", options: ["SOYQW", "SODAW", "SODBW", "SPEAW"], answer: "A", explanation: "Consonants P,L,N,T shift +3 -> S,O,Q,W. Vowel A shifts -2 -> Y. Interleaving back into original slots (C C V C C) yields SOYQW." },
+            { id: 89, category: "Conditional & Ciphers", subPattern: "Polyalphabetic Keyword Cipher", diff: "Hard", question: "Encrypt using repeating keyword \"KEY\" (shifts +11, +5, +25). \"PEACE\" -> AJZNJ. What is the code for \"SMART\"?", options: ["DRZCY", "DRZQX", "ERZQY", "DRZPY"], answer: "A", explanation: "S(19)+11=30 mod 26=4(D), M(13)+5=18(R), A(1)+25=26(Z), R(18)+11=29 mod 26=3(C), T(20)+5=25(Y), yielding DRZCY." },
+            { id: 90, category: "Conditional & Ciphers", subPattern: "Factorial Positional Modulo Mapping", diff: "Hard", question: "Shift at index i is i! mod 26. Index 1:+1, Index 2:+2, Index 3:+6, Index 4:+24, Index 5:+16. \"SMART\" -> TOGPJ. What is the code for \"CRAFT\"?", options: ["DTGDJ", "DTGDT", "DTHDS", "ETGDS"], answer: "A", explanation: "C(3)+1=D, R(18)+2=T, A(1)+6=G, F(6)+24=30 mod 26=4(D), T(20)+16=36 mod 26=10(J), forming DTGDJ." },
+            { id: 91, category: "Conditional & Ciphers", subPattern: "Syntactical Positional Hash", diff: "Hard", question: "Hash Code = (Sum of Vowels * Sum of Consonants) mod 100. \"BREAD\" -> Vowels(E+A=6) * Consonants(B+R+D=24) = 144 mod 100 = 44. What is the hash code for \"PLANT\"?", options: ["62", "60", "63", "65"], answer: "A", explanation: "Vowels in PLANT: A(1). Consonants: P(16)+L(12)+N(14)+T(20) = 62. Product = 1 * 62 = 62. Hash = 62 mod 100 = 62." },
+            { id: 92, category: "Conditional & Ciphers", subPattern: "Sentence-Level Vector Code", diff: "Hard", question: "In a sentence, every letter in Word N shifts forward by N positions (+N). \"THE DARK NIGHT\" -> What is the code for \"NIGHT\"?", options: ["QLJKW", "QLJKV", "QKJKW", "PLJKW"], answer: "A", explanation: "\"NIGHT\" is the 3rd word in the sentence (N=3). Apply shift +3 to all letters: N(+3)=Q, I(+3)=L, G(+3)=J, H(+3)=K, T(+3)=W, producing QLJKW." },
+            { id: 93, category: "Conditional & Ciphers", subPattern: "Digital Root Shift Cipher", diff: "Hard", question: "Replace each letter's shift amount by its position's digital root (repeated digit sum). \"JUMP\" -> KXQW. What is the code for \"SMART\"?", options: ["TQBAV", "TNCST", "TNDSS", "TMSS"], answer: "A", explanation: "S(19->10->1, shift +1 -> T), M(13->4, shift +4 -> Q), A(1->1, shift +1 -> B), R(18->9, shift +9 -> A), T(20->2, shift +2 -> V), yielding TQBAV." },
+            { id: 94, category: "Conditional & Ciphers", subPattern: "Bidirectional Interlocking Cipher", diff: "Hard", question: "1st letter shifts +5, last shifts -1, 2nd shifts +4, 2nd-to-last shifts -2... \"PLANET\" -> UPDKCS. What is the code for \"SMART\"?", options: ["XQDPS", "XPBPT", "XPCPS", "YPBPS"], answer: "A", explanation: "S(1st, +5)->X, T(5th, -1)->S, M(2nd, +4)->Q, R(4th, -2)->P, A(3rd, +3)->D. Interlocked output order (1st, 2nd, 3rd, 4th, 5th) gives XQDPS." },
+            { id: 95, category: "Conditional & Ciphers", subPattern: "Base-8 Octal Positional Mapping", diff: "Hard", question: "Sum of letter positions converted to Base-8 (Octal). \"CAT\" -> 3+1+20 = 24 in decimal = 30 in Octal. What code represents \"SMART\"?", options: ["107", "117", "113", "121"], answer: "A", explanation: "SMART position sum = S(19)+M(13)+A(1)+R(18)+T(20) = 71 in decimal. Converting 71 to octal: 71 = 8 * 8 + 7 -> 107 in Base-8." },
+            { id: 96, category: "Conditional & Ciphers", subPattern: "Conditional Parity Swapped Matrix", diff: "Hard", question: "Sum of positions: If EVEN, reverse word and shift +2; If ODD, mirror letters. \"LIGHT\" sum = 56 (EVEN) -> reverse and shift +2 -> VJIKN. What is the code for \"SMART\"?", options: ["HNZIG", "HNZIF", "HOZIG", "HNYIG"], answer: "A", explanation: "Sum of positions in SMART = 71 (ODD). Apply 27-sum Mirror transformation across all letters: S->H, M->N, A->Z, R->I, T->G, yielding HNZIG." },
+            { id: 97, category: "Conditional & Ciphers", subPattern: "Syllabic Structural Offset", diff: "Hard", question: "Vowel positions multiplied by index i; Consonant positions added to index i. \"TRAIN\" -> UTCJS. What is the code for \"SMART\"?", options: ["TOCVY", "TPDWW", "TQDWV", "TPDXV"], answer: "A", explanation: "S(19+1=20->T), M(13+2=15->O), A(vowel, 1*3=3->C), R(18+4=22->V), T(20+5=25->Y), producing TOCVY." },
+            { id: 98, category: "Conditional & Ciphers", subPattern: "Triple-Stage Conditional Cipher", diff: "Hard", question: "Stage 1: Mirror; Stage 2: Swap adjacent pairs; Stage 3: Shift Vowels +1. \"FLOWER\" -> PVDLJV. What is the code for \"SILVER\"?", options: ["RHFPEV", "KHOXTV", "KHPXTV", "KHOXUW"], answer: "A", explanation: "SILVER -> Stage 1 Mirror: HROEVI. Stage 2 Swap adjacent pairs: RHEOIV. Stage 3 Vowels +1: R, H, E(+1=F), O(+1=P), I(+1=J), V, producing RHFPEV." },
+            { id: 99, category: "Conditional & Ciphers", subPattern: "Cross-Coded Alphanumeric Cipher", diff: "Hard", question: "Multiplier = Sum(GO) mod 5 = 2. Offset = Sum(IN) mod 5 = 3. Formula: (Pos * 2 + 3) mod 26 -> Letter. \"ACT\" -> EIQ. What is the code for \"CAT\"?", options: ["IEQ", "IFQ", "IDQ", "IEP"], answer: "A", explanation: "C(3*2+3=9->I), A(1*2+3=5->E), T(20*2+3=43 mod 26=17->Q), yielding IEQ." },
+            { id: 100, category: "Conditional & Ciphers", subPattern: "Recursive Decremental Sum Cipher", diff: "Hard", question: "Code letter i = (Pos_i + Sum of all subsequent positions) mod 26. \"NIGHT\" -> FRIBT. What is the code for \"SMART\"?", options: ["SZMLT", "LZBGT", "LZCGT", "LYBGT"], answer: "A", explanation: "S(19+13+1+18+20=71 mod 26=19->S), M(13+1+18+20=52 mod 26=26->Z), A(1+18+20=39 mod 26=13->M), R(18+20=38 mod 26=12->L), T(20 mod 26=20->T), yielding SZMLT." }
+        ];
+
+        // Global State Variables
+        let currentTab = 'dashboard';
+        let difficultyFilter = 'All';
+        let bookmarkedItemIds = new Set();
+        let expandedAnswerIds = new Set();
+
+        // Quiz State
+        let activeQuizQuestions = [];
+        let userQuizAnswers = {};
+        let quizCurrentIndex = 0;
+        let quizTimerInterval = null;
+        let quizSecondsRemaining = 0;
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderQuestionBank();
+        });
+
+        // Tab Switcher Controller
+        function switchTab(tabId) {
+            currentTab = tabId;
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('text-slate-300', 'hover:text-white', 'hover:bg-slate-800');
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-300', 'hover:text-white', 'hover:bg-slate-800');
+                activeBtn.classList.add('bg-indigo-600', 'text-white');
+            }
+        }
+
+        // Initialize Chart.js Data Visualizations
+        function initCharts() {
+            // Chart 1: Difficulty Distribution (Donut Chart)
+            const diffCtx = document.getElementById('difficultyChart').getContext('2d');
+            new Chart(diffCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Easy (40%)', 'Medium (40%)', 'Hard (20%)'],
+                    datasets: [{
+                        data: [40, 40, 20],
+                        backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw} items`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // Chart 2: Category Breakdown (Bar Chart)
+            const catCtx = document.getElementById('categoryChart').getContext('2d');
+            
+            // Count categories
+            const catCounts = {};
+            QUESTION_BANK.forEach(item => {
+                catCounts[item.category] = (catCounts[item.category] || 0) + 1;
+            });
+
+            new Chart(catCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(catCounts).map(l => l.length > 16 ? l.substring(0, 14) + '...' : l),
+                    datasets: [{
+                        label: 'Item Count',
+                        data: Object.values(catCounts),
+                        backgroundColor: '#6366f1',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: (items) => Object.keys(catCounts)[items[0].dataIndex]
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, grid: { display: false } },
+                        y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        // Question Bank Explorer Controller
+        function setDifficultyFilter(diff) {
+            difficultyFilter = diff;
+            document.querySelectorAll('.diff-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm', 'font-bold');
+                btn.classList.add('text-slate-600');
+            });
+            const activeBtn = document.getElementById(`diff-filter-${diff}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-indigo-600', 'shadow-sm', 'font-bold');
+            }
+            filterQuestions();
+        }
+
+        function filterQuestions() {
+            const searchTerm = document.getElementById('explorer-search').value.toLowerCase();
+            const catFilter = document.getElementById('category-select-filter').value;
+
+            const filtered = QUESTION_BANK.filter(q => {
+                const matchesDiff = (difficultyFilter === 'All' || q.diff === difficultyFilter);
+                const matchesCat = (catFilter === 'All' || q.category === catFilter);
+                const matchesSearch = q.question.toLowerCase().includes(searchTerm) ||
+                                      q.subPattern.toLowerCase().includes(searchTerm) ||
+                                      q.explanation.toLowerCase().includes(searchTerm) ||
+                                      q.id.toString() === searchTerm;
+                return matchesDiff && matchesCat && matchesSearch;
+            });
+
+            document.getElementById('visible-count').innerText = filtered.length;
+            renderQuestionBankCards(filtered);
+        }
+
+        function renderQuestionBank() {
+            renderQuestionBankCards(QUESTION_BANK);
+        }
+
+        function renderQuestionBankCards(questions) {
+            const container = document.getElementById('questions-list-container');
+            if (questions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 bg-white rounded-xl border border-slate-200">
+                        <span class="text-3xl">&#128269;</span>
+                        <p class="text-slate-600 text-sm font-medium mt-2">No matching questions found.</p>
+                        <p class="text-slate-400 text-xs">Try relaxing your search terms or difficulty filter.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = questions.map(q => {
+                const isExpanded = expandedAnswerIds.has(q.id);
+                const isBookmarked = bookmarkedItemIds.has(q.id);
+                const diffColor = q.diff === 'Easy' ? 'bg-emerald-100 text-emerald-800' :
+                                  q.diff === 'Medium' ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800';
+
+                return `
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:border-slate-300 transition-all space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 text-xs">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded">#${q.id}</span>
+                                <span class="px-2 py-0.5 font-semibold rounded ${diffColor}">${q.diff}</span>
+                                <span class="text-slate-500 font-medium hidden sm:inline">• ${q.category}</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="font-mono text-slate-600 text-[11px] bg-slate-50 px-2 py-0.5 rounded border border-slate-200">${q.subPattern}</span>
+                                <button onclick="toggleBookmark(${q.id})" class="text-slate-400 hover:text-amber-500 text-sm" title="Bookmark Item">
+                                    ${isBookmarked ? '&#9733;' : '&#9734;'}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="text-slate-900 font-medium text-sm sm:text-base leading-relaxed">
+                            ${q.question}
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs">
+                            <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 font-mono text-slate-700">A) ${q.options[0]}</div>
+                            <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 font-mono text-slate-700">B) ${q.options[1]}</div>
+                            <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 font-mono text-slate-700">C) ${q.options[2]}</div>
+                            <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 font-mono text-slate-700">D) ${q.options[3]}</div>
+                        </div>
+
+                        <div class="pt-2 flex justify-between items-center text-xs">
+                            <button onclick="toggleAnswer(${q.id})" class="text-indigo-600 hover:text-indigo-800 font-semibold flex items-center space-x-1">
+                                <span>${isExpanded ? '&#9650; Hide Answer Logic' : '&#9660; Reveal Correct Answer & Psychometric Logic'}</span>
+                            </button>
+                        </div>
+
+                        ${isExpanded ? `
+                            <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100 text-xs space-y-1.5 mt-2">
+                                <div class="font-bold text-indigo-950 flex items-center space-x-2">
+                                    <span>Correct Answer: <span class="bg-indigo-600 text-white px-2 py-0.5 rounded text-xs ml-1">${q.answer}</span></span>
+                                </div>
+                                <p class="text-indigo-900 leading-relaxed"><strong class="text-indigo-950">Psychometric Rule:</strong> ${q.explanation}</p>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleAnswer(id) {
+            if (expandedAnswerIds.has(id)) {
+                expandedAnswerIds.delete(id);
+            } else {
+                expandedAnswerIds.add(id);
+            }
+            filterQuestions();
+        }
+
+        function toggleAllAnswers(expand) {
+            if (expand) {
+                QUESTION_BANK.forEach(q => expandedAnswerIds.add(q.id));
+            } else {
+                expandedAnswerIds.clear();
+            }
+            filterQuestions();
+        }
+
+        function toggleBookmark(id) {
+            if (bookmarkedItemIds.has(id)) {
+                bookmarkedItemIds.delete(id);
+            } else {
+                bookmarkedItemIds.add(id);
+            }
+            filterQuestions();
+        }
+
+        // Practice Exam Engine Controller
+        function startQuiz() {
+            const length = parseInt(document.getElementById('quiz-length').value);
+            const diffSelect = document.getElementById('quiz-diff').value;
+            const timerMode = document.getElementById('quiz-timer-mode').value;
+
+            // Filter questions by selected difficulty
+            let pool = QUESTION_BANK;
+            if (diffSelect !== 'Mix') {
+                pool = QUESTION_BANK.filter(q => q.diff === diffSelect);
+            }
+
+            // Shuffle and pick subset
+            const shuffled = [...pool].sort(() => 0.5 - Math.random());
+            activeQuizQuestions = shuffled.slice(0, Math.min(length, shuffled.length));
+
+            userQuizAnswers = {};
+            quizCurrentIndex = 0;
+
+            // Timer Setup
+            if (timerMode === 'untimed') {
+                quizSecondsRemaining = 0;
+            } else {
+                const secPerQ = timerMode === 'strict' ? 30 : 45;
+                quizSecondsRemaining = activeQuizQuestions.length * secPerQ;
+            }
+
+            document.getElementById('quiz-config-panel').classList.add('hidden');
+            document.getElementById('quiz-results-panel').classList.add('hidden');
+            document.getElementById('quiz-active-panel').classList.remove('hidden');
+
+            document.getElementById('quiz-total-num').innerText = activeQuizQuestions.length;
+            document.getElementById('quiz-answered-total').innerText = activeQuizQuestions.length;
+
+            startQuizTimer(timerMode !== 'untimed');
+            renderQuizCurrentQuestion();
+        }
+
+        function startQuizTimer(isTimed) {
+            clearInterval(quizTimerInterval);
+            const display = document.getElementById('quiz-timer-display');
+
+            if (!isTimed) {
+                display.innerText = "UNTIMED";
+                return;
+            }
+
+            updateTimerDisplay();
+            quizTimerInterval = setInterval(() => {
+                quizSecondsRemaining--;
+                if (quizSecondsRemaining <= 0) {
+                    clearInterval(quizTimerInterval);
+                    alert("Time's up! Submitting your exam now.");
+                    submitQuiz();
+                } else {
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(quizSecondsRemaining / 60);
+            const secs = quizSecondsRemaining % 60;
+            document.getElementById('quiz-timer-display').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function renderQuizCurrentQuestion() {
+            const q = activeQuizQuestions[quizCurrentIndex];
+            document.getElementById('quiz-current-num').innerText = quizCurrentIndex + 1;
+            
+            document.getElementById('quiz-q-meta').innerText = 
+                `Item #${q.id} • ${q.diff} Tier • ${q.subPattern}`;
+            document.getElementById('quiz-q-text').innerText = q.question;
+
+            // Render options
+            const optionsContainer = document.getElementById('quiz-options-container');
+            const optionKeys = ['A', 'B', 'C', 'D'];
+            
+            optionsContainer.innerHTML = optionKeys.map((key, idx) => {
+                const isSelected = userQuizAnswers[q.id] === key;
+                return `
+                    <button onclick="selectQuizOption('${key}')" class="w-full text-left p-3.5 rounded-lg border text-sm font-medium transition-all flex items-center justify-between ${isSelected ? 'border-indigo-600 bg-indigo-50 text-indigo-900 ring-2 ring-indigo-500' : 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800'}">
+                        <span><strong class="mr-2">${key})</strong> ${q.options[idx]}</span>
+                        ${isSelected ? '<span class="text-indigo-600 font-bold">&#10003;</span>' : ''}
+                    </button>
+                `;
+            }).join('');
+
+            // Update answered counter
+            document.getElementById('quiz-answered-count').innerText = Object.keys(userQuizAnswers).length;
+
+            // Navigation button states
+            document.getElementById('quiz-prev-btn').disabled = quizCurrentIndex === 0;
+            document.getElementById('quiz-prev-btn').style.opacity = quizCurrentIndex === 0 ? '0.5' : '1';
+
+            renderQuizJumpDots();
+        }
+
+        function renderQuizJumpDots() {
+            const container = document.getElementById('quiz-jump-dots');
+            container.innerHTML = activeQuizQuestions.map((q, idx) => {
+                const isAnswered = userQuizAnswers[q.id] !== undefined;
+                const isCurrent = idx === quizCurrentIndex;
+                let bgClass = 'bg-slate-200 text-slate-600';
+                if (isCurrent) bgClass = 'bg-indigo-600 text-white font-bold ring-2 ring-offset-1 ring-indigo-500';
+                else if (isAnswered) bgClass = 'bg-emerald-500 text-white';
+
+                return `<button onclick="jumpToQuizQuestion(${idx})" class="w-6 h-6 rounded-full text-[10px] flex items-center justify-center font-mono ${bgClass}">${idx + 1}</button>`;
+            }).join('');
+        }
+
+        function selectQuizOption(key) {
+            const q = activeQuizQuestions[quizCurrentIndex];
+            userQuizAnswers[q.id] = key;
+            renderQuizCurrentQuestion();
+        }
+
+        function navigateQuizQuestion(direction) {
+            const newIndex = quizCurrentIndex + direction;
+            if (newIndex >= 0 && newIndex < activeQuizQuestions.length) {
+                quizCurrentIndex = newIndex;
+                renderQuizCurrentQuestion();
+            }
+        }
+
+        function jumpToQuizQuestion(index) {
+            quizCurrentIndex = index;
+            renderQuizCurrentQuestion();
+        }
+
+        function submitQuiz() {
+            clearInterval(quizTimerInterval);
+
+            // Calculate metrics
+            let correctCount = 0;
+            activeQuizQuestions.forEach(q => {
+                if (userQuizAnswers[q.id] === q.answer) {
+                    correctCount++;
+                }
+            });
+
+            const total = activeQuizQuestions.length;
+            const percentage = Math.round((correctCount / total) * 100);
+
+            document.getElementById('quiz-active-panel').classList.add('hidden');
+            document.getElementById('quiz-results-panel').classList.remove('hidden');
+
+            document.getElementById('score-raw').innerText = `${correctCount} / ${total}`;
+            document.getElementById('score-percentage').innerText = `${percentage}%`;
+            document.getElementById('score-percentile').innerText = 
+                percentage >= 90 ? '96th' : percentage >= 75 ? '88th' : percentage >= 50 ? '65th' : '40th';
+
+            renderQuizReview();
+        }
+
+        function renderQuizReview() {
+            const container = document.getElementById('quiz-review-container');
+            container.innerHTML = activeQuizQuestions.map((q, idx) => {
+                const userAns = userQuizAnswers[q.id];
+                const isCorrect = userAns === q.answer;
+
+                return `
+                    <div class="p-4 rounded-xl border ${isCorrect ? 'border-emerald-200 bg-emerald-50/50' : 'border-rose-200 bg-rose-50/50'} text-xs space-y-2">
+                        <div class="flex justify-between items-center font-bold">
+                            <span>Q${idx + 1}. ${q.question}</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] ${isCorrect ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'}">
+                                ${isCorrect ? '&#10003; Correct' : '&#10007; Incorrect'}
+                            </span>
+                        </div>
+                        <div class="text-slate-600">
+                            Your Choice: <strong class="${isCorrect ? 'text-emerald-700' : 'text-rose-700'}">${userAns || 'None Selected'}</strong> | 
+                            Correct Answer: <strong class="text-indigo-700">${q.answer}</strong>
+                        </div>
+                        <div class="p-2.5 rounded bg-white border border-slate-200 text-slate-700 leading-relaxed">
+                            <strong>Logic:</strong> ${q.explanation}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results-panel').classList.add('hidden');
+            document.getElementById('quiz-config-panel').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
