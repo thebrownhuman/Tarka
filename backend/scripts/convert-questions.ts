@@ -134,6 +134,40 @@ interface RepositoryQuestion {
  * regex/JSON parser against unquoted keys and embedded LaTeX escapes) is the
  * simplest reliable way to get the real values back out.
  */
+/**
+ * Finds the index of the bracket that closes the '[' at `openIndex`, respecting
+ * string literals (so a "];" or stray bracket inside quoted question/explanation
+ * text doesn't get mistaken for the real end of the array).
+ */
+function findMatchingBracket(content: string, openIndex: number): number {
+  let depth = 0;
+  let inString: string | null = null;
+  for (let i = openIndex; i < content.length; i++) {
+    const char = content[i];
+    if (inString) {
+      if (char === '\\') {
+        i++; // skip the escaped character
+      } else if (char === inString) {
+        inString = null;
+      }
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      inString = char;
+      continue;
+    }
+    if (char === '[') {
+      depth++;
+    } else if (char === ']') {
+      depth--;
+      if (depth === 0) {
+        return i;
+      }
+    }
+  }
+  throw new Error('Could not find the matching closing bracket for QUESTION_REPOSITORY.');
+}
+
 function extractRepositoryArray(): RepositoryQuestion[] {
   const content = fs.readFileSync(HTML_BANK_PATH, 'utf-8');
   const startMarker = 'const QUESTION_REPOSITORY = [';
@@ -143,11 +177,7 @@ function extractRepositoryArray(): RepositoryQuestion[] {
   }
 
   const arrayStart = startIndex + startMarker.length - 1; // include the opening '['
-  const endMarker = '];';
-  const endIndex = content.indexOf(endMarker, arrayStart);
-  if (endIndex === -1) {
-    throw new Error('Could not find the closing "];" for QUESTION_REPOSITORY.');
-  }
+  const endIndex = findMatchingBracket(content, arrayStart);
 
   const arrayLiteral = content.slice(arrayStart, endIndex + 1);
   // eslint-disable-next-line @typescript-eslint/no-implied-eval
